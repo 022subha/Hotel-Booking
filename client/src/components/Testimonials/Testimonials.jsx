@@ -1,6 +1,18 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Testimonials.css";
 export default function Testimonials() {
+const[activeDot,setActiveDot]=useState(0);
+
+const handledotHover=(index)=>{
+  setActiveDot(index);
+}
+
+  const testimonials = [
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam necessitatibus eum fuga repudiandae exercitationem numquam ab autem beatae esse natus. Architecto sapiente quis numquam exercitationem at ipsum nobis? Laudantium, inventore!",
+    "hi. Laboriosam necessitatibus eum fuga repudiandae exercitationem numquam ab autem beatae esse natus. Architecto sapiente quis numquam exercitationem at ipsum nobis? Laudantium, inventore Yes you are the one of the most and wordt plane in the worls!",
+    "Yellow Color is most frustrating one. Laboriosam necessitatibus eum fuga repudiandae exercitationem numquam ab autem beatae esse natus. Architecto sapiente quis numquam exercitationem at ipsum nobis? Laudantium, inventore!",
+    "You are just a piece of paper whom i use and throw Laboriosam necessitatibus eum fuga repudiandae exercitationem numquam ab autem beatae esse natus. Architecto sapiente quis numquam exercitationem at ipsum nobis? Laudantium, inventore!",
+  ];
   return (
     <div className="testimonial-container">
       <div className="main-container">
@@ -19,25 +31,19 @@ export default function Testimonials() {
             <div className="tail">
               <div className="outer">
                 <h5>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Laboriosam necessitatibus eum fuga repudiandae exercitationem
-                  numquam ab autem beatae esse natus. Architecto sapiente quis
-                  numquam exercitationem at ipsum nobis? Laudantium, inventore!
+                  {testimonials[activeDot]}
                 </h5>
               </div>
               <div className="dots">
-                <div className="dot">
-                  <span></span>
-                </div>
-                <div className="dot">
-                  <span></span>
-                </div>
-                <div className="dot">
-                  <span></span>
-                </div>
-                <div className="dot">
-                  <span></span>
-                </div>
+                {testimonials.map((testimonial,index)=>{
+                      return (<div className={`dot ${index===activeDot? 'active':''}`}
+                              key={index}
+                              onMouseEnter={()=>{handledotHover(index)}}
+                          >
+                                <span></span>
+                              </div>)
+                })
+              }
               </div>
             </div>
           </div>
