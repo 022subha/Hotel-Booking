@@ -1,9 +1,15 @@
-import React from "react";
-import About from "./components/About/About";
+
+
+import { BrowserRouter } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
+
 function App() {
-  return <div className="App">
-     <About/>
-  </div>;
+  return (
+    <BrowserRouter>
+      <Footer />
+    </BrowserRouter>
+  );
+
 }
 
 export default App;
