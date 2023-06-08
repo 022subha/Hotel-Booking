@@ -1,0 +1,31 @@
+.searchbar-main-area {
+  position: absolute;
+  width: 95%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar-main-area .searchbar-container {
+  padding: 0 15px;
+  width: 70%;
+}
+
+.searchbar-main-area .searchbar-container form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 40px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  flex-wrap: wrap;
+}
+
+.searchbar-main-area .searchbar-container form div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
