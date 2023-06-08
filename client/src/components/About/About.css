@@ -16,12 +16,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
 }
 .about-container .main-container .about .desc h2{
     font-size: 2rem;
     color: rgb(124, 231, 195);
     font-family: "Poppins", sans-serif;
+    justify-content: center;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -87,6 +87,10 @@
        justify-content: center;
        width: 100%;
        border-radius: 8px;
+    }
+    .about-container .main-container .about .desc{
+        width: 100%;
+        align-items: center;
     }
     .about-container .main-container .about .img .img-part1
     {
