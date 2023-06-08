@@ -2,10 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 80%;
     margin: auto;
     flex-wrap: wrap;
+    padding: 80px 0px;
 }
 .about-container .main-container .about{
     display: flex;
@@ -45,11 +46,11 @@
 }
 .about-container .main-container .about .img .img-part1 img{
     width: 100%;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 .about-container .main-container .about .img .img-part2 img{
     width: 100%;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 .about-container .main-container .about .img .img-part1{
     width: 50%;
@@ -85,6 +86,7 @@
        flex-wrap: wrap;
        justify-content: center;
        width: 100%;
+       border-radius: 8px;
     }
     .about-container .main-container .about .img .img-part1
     {
