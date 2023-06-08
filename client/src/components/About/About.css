@@ -44,12 +44,12 @@
   padding: 4px;
 }
 .about-container .main-container .about .img .img-part1 img {
-    width: 100%;
-    border-radius: 4px;
+  width: 100%;
+  border-radius: 4px;
 }
 .about-container .main-container .about .img .img-part2 img {
-    width: 100%;
-    border-radius: 4px;
+  width: 100%;
+  border-radius: 4px;
 }
 .about-container .main-container .about .img .img-part1 {
   width: 50%;
@@ -74,24 +74,22 @@
 .about-container .main-container .about .img .img-part2 .third {
   overflow: hidden;
 }
-@media (max-width:1015px) {
-    .about-container .main-container .about {
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-    .about-container .main-container .about .img{
-       flex-wrap: wrap;
-       justify-content: center;
-       width: 100%;
-    }
-    .about-container .main-container .about .img .img-part1
-    {
-        width: 100%;
-    }
-    .about-container .main-container .about .img .img-part2{
-        width: 100%;
-    }
+@media (max-width: 1015px) {
+  .about-container .main-container .about {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .about-container .main-container .about .img {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .about-container .main-container .about .img .img-part1 {
+    width: 100%;
+  }
+  .about-container .main-container .about .img .img-part2 {
+    width: 100%;
+  }
 }
