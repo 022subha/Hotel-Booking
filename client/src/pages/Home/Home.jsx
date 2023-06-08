@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <Testimonials />
       <Searchbar />
+      <Testimonials />
       <About />
     </>
   );
