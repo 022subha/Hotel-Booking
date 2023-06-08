@@ -1,10 +1,14 @@
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
-import About from "./components/About/About";
+import Home from "./pages/Home/Home";
+
 function App() {
   return (
     <BrowserRouter>
-      <About/>
+    <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
       <Footer />
     </BrowserRouter>
   );
