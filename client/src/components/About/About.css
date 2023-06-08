@@ -80,6 +80,7 @@
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+        width: 100%;
     }
     .about-container .main-container .about .img{
        flex-wrap: wrap;
