@@ -1,13 +1,15 @@
 import React from "react";
 import About from "../../components/About/About";
 import Banner from "../../components/Banner/Banner";
+import Searchbar from "../../components/Searchbar/Searchbar";
 import Testimonials from "../../components/Testimonials/Testimonials";
-import Footer from "../../components/Footer/Footer";
+
 export default function Home() {
   return (
     <>
-    <Banner/>
-    <Testimonials/>
+      <Banner />
+      <Searchbar />
+      <Testimonials />
       <About />
       <Footer/>
     </>
