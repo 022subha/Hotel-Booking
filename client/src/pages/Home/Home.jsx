@@ -11,7 +11,6 @@ export default function Home() {
       <Searchbar />
       <Testimonials />
       <About />
-      <Footer/>
     </>
   );
 }

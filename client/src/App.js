@@ -10,6 +10,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
