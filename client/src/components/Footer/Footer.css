@@ -6,7 +6,7 @@
   width: 85%;
   padding: 80px 15px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   margin: auto;
 }
@@ -136,4 +136,10 @@
 
 .main-footer-area .footer-container .section3 form button:hover {
   background-color: black;
+}
+
+@media (max-width: 510px) {
+  .main-footer-area .footer-container {
+    justify-content: flex-start;
+  }
 }

@@ -66,7 +66,5 @@ select {
   color: #fff;
   background-color: #e70b53;
   border: none;
-}
-
-.searchbar-main-area .searchbar-container form {
+  margin: 10px;
 }
