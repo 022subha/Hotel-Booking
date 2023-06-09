@@ -19,7 +19,7 @@
 }
 .about-container .main-container .about .desc h2 {
   font-size: 2rem;
-  color: rgb(124, 231, 195);
+  color: #e70b53;
   font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -56,12 +56,16 @@
   padding: 0px 4px;
 }
 .about-container .main-container .about .img .img-part2 {
-  width: 49%;
+  width: 45.5%;
   padding: 0px 4px;
+}
+.about-container .main-container .about .img img {
+  transition-property: transform;
+  transition-duration: 1.2s;
 }
 .about-container .main-container .about .img img:hover {
   overflow-clip-margin: content-box;
-  transition-duration: 1000ms;
+  transition-duration: 1.2s;
   transform: scale(1.1, 1.1);
 }
 .about-container .main-container .about .img .img-part1 .first {
@@ -82,9 +86,10 @@
     flex-wrap: wrap;
     width: 100%;
   }
-  .about-container .main-container .about .desc{
+  .about-container .main-container .about .desc {
     width: 100%;
     text-align: center;
+    align-items: center;
   }
   .about-container .main-container .about .img {
     flex-wrap: wrap;

@@ -6,19 +6,27 @@ export default function Searchbar() {
     <div className="searchbar-main-area">
       <div className="searchbar-container">
         <form>
-          <div>
+          <div className="form-item location">
             <label>Location</label>
-            <input type="location" />
+            <select>
+              <option value="">Select</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Kolkata">Kolkata</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Bengalore">Bengalore</option>
+              <option value="Pune">Pune</option>
+              <option value="Hyderabad">Hyderabad</option>
+            </select>
           </div>
-          <div>
+          <div className="form-item checkin">
             <label>Check In</label>
             <input type="date" />
           </div>
-          <div>
+          <div className="form-item checkout">
             <label>Check out</label>
             <input type="date" />
           </div>
-          <div>
+          <div className="form-item room">
             <label>Room</label>
             <select>
               <option value={1}>01</option>
@@ -29,7 +37,7 @@ export default function Searchbar() {
               <option value={6}>06</option>
             </select>
           </div>
-          <div>
+          <div className="form-item adult">
             <label>Adult</label>
             <select>
               <option value={1}>01</option>
@@ -40,7 +48,7 @@ export default function Searchbar() {
               <option value={6}>06</option>
             </select>
           </div>
-          <div>
+          <div className="form-item children">
             <label>Children</label>
             <select>
               <option value={1}>01</option>
@@ -51,7 +59,8 @@ export default function Searchbar() {
               <option value={6}>06</option>
             </select>
           </div>
-          <button>Check Availability</button>
+
+          <button>Search</button>
         </form>
       </div>
     </div>
