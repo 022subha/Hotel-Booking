@@ -19,7 +19,7 @@
 }
 .about-container .main-container .about .desc h2 {
   font-size: 2rem;
-  color: rgb(124, 231, 195);
+  color: #e70b53;
   font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -82,7 +82,7 @@
     flex-wrap: wrap;
     width: 100%;
   }
-  .about-container .main-container .about .desc{
+  .about-container .main-container .about .desc {
     width: 100%;
     text-align: center;
   }

@@ -59,9 +59,8 @@ export default function Searchbar() {
               <option value={6}>06</option>
             </select>
           </div>
-          <div className="form-item btn">
-            <button>Search</button>
-          </div>
+
+          <button>Search</button>
         </form>
       </div>
     </div>
