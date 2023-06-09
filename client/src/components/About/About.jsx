@@ -18,15 +18,15 @@ export default function About() {
           <div className="img">
             <div className="img-part1">
               <div className="first">
-                <img src="/images/About/about1.webp" alt=""></img>
+                <img src="/images/About/about1.avif" alt=""></img>
               </div>
               <div className="second">
-                <img src="/images/About/about2.webp" alt=""></img>
+                <img src="/images/About/about2.avif" alt=""></img>
               </div>
             </div>
             <div className="img-part2">
               <div className="third">
-                <img src="/images/About/about3.webp" alt=""></img>
+                <img src="/images/About/about3.jpeg" alt=""></img>
               </div>
             </div>
           </div>

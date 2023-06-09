@@ -29,27 +29,29 @@
   height: 100%;
 }
 
-.testimonial-container .main-container .description .desc1 .header h6 {
+.testimonial-container .main-container .description .desc1 .header h2 {
   text-transform: uppercase;
   color: #e70b53;
+  font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
-  display: block;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 1.8rem;
+  margin-top: 0;
 }
-.testimonial-container .main-container .description .desc1 .header h2 {
-  font-size: 42px;
+.testimonial-container .main-container .description .desc1 .header h1 {
   text-transform: capitalize;
-  margin-bottom: 0;
   display: block;
   line-height: 1.2;
+  font-size: 36px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
 }
 
-.testimonial-container .main-container .description .desc1 .tail .outer h5 {
-  color: #636a76;
-  font-weight: 400;
-  font-size: 18px;
+.testimonial-container .main-container .description .desc1 .tail .outer p {
   line-height: 1.8;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  color: #636a76;
 }
 .testimonial-container .main-container .description .desc1 .tail .dots {
   display: flex;
@@ -77,5 +79,13 @@
   .testimonial-container .main-container {
     display: flex;
     flex-wrap: wrap;
+    width: 80%;
+    text-align: center;
+  }
+  .testimonial-container .main-container .image-section .img1 img {
+    width: 80%;
+  }
+  .testimonial-container .main-container .description .desc1 .tail .dots {
+    justify-content: center;
   }
 }
