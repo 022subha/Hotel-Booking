@@ -15,7 +15,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px;
+  padding: 30px 30px 0 30px;
+  margin: 0 -15px;
   width: 70%;
   background-color: #fff;
   box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.15);
@@ -32,7 +33,9 @@
 .searchbar-main-area .searchbar-container form .form-item {
   display: flex;
   flex-direction: column;
+  padding: 0 5px;
   margin: 10px;
+  max-width: 25%;
 }
 
 .searchbar-main-area .searchbar-container form .form-item select,
@@ -50,6 +53,10 @@ select {
   border: 1px solid black;
 }
 
+.searchbar-main-area .searchbar-container form input[type="date"] {
+  height: 35px;
+}
+
 .searchbar-main-area .searchbar-container form button {
   min-width: 150px;
   padding: 0 40px;
@@ -59,4 +66,7 @@ select {
   color: #fff;
   background-color: #e70b53;
   border: none;
+}
+
+.searchbar-main-area .searchbar-container form {
 }

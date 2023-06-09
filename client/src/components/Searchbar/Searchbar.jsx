@@ -60,7 +60,7 @@ export default function Searchbar() {
             </select>
           </div>
           <div className="form-item btn">
-            <button>Check Availability</button>
+            <button>Search</button>
           </div>
         </form>
       </div>
