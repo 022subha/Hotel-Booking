@@ -18,12 +18,23 @@
       flex-direction: row;
       align-items: center;
       & .phone-no{
+        display: flex;
+        align-items: center;
         padding-right: 10px;
         transition: color 0.3s ease;
+        & ion-icon{
+          margin-right:10px;
+        }
       }
       & .e-mail{
+        display: flex;
+        align-items: center;
         padding-left: 10px;
         transition: color 0.3s ease;
+        & ion-icon{
+          margin-right:10px;
+          font-size: larger;
+        }
       }
       & .e-mail:hover{
         color: #999;
@@ -42,33 +53,18 @@
       
       & li {
         float: left;
+        padding: 14px 16px;
       }
       & li a {
         display: block;
         color: #333;
         text-align: center;
-        padding: 14px 16px;
         text-decoration: none;
         transition: color 0.3s ease;
       }
     }
 
-    & .register-login-sec{
-      & ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-      
-      & li {
-        background-color: #e70b53;
-        float: left;
-        padding:10px;
-        transition: background-color 0.6s ease;
-      }
-      
-    }
+    
   }
   & .main-header-area{
     background-color: white;
@@ -84,7 +80,7 @@
       justify-content: center;
       align-items: center;
       & img{
-        width: 10rem;
+        width: 200px;
       }
     }
     & .nav-sec{
@@ -100,12 +96,12 @@
       
       & li {
         float: left;
+        padding: 14px 16px;
       }
       & li a {
         display: block;
         color: #333;
         text-align: center;
-        padding: 14px 16px;
         text-decoration: none;
         transition: color 0.3s ease;
       }
@@ -131,9 +127,9 @@
       }
       & li a {
         display: block;
+        padding: 14px 16px;
         color: white;
         text-align: center;
-        padding: 14px 16px;
         text-decoration: none;
         font-weight: 600;
         font-size: large;

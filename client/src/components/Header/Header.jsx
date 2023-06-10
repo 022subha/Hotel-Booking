@@ -8,10 +8,10 @@ const Header = () => {
                 <div className="top-header-area">
                     <div className="phemail">
                         <div className="phone-no">
-                            📞 +91-98655 41789
+                        <ion-icon name="call"></ion-icon> <div>+91-98655 41789</div>
                         </div>
                         <div className="e-mail">
-                            ✉️ stayeasy@gmail.com
+                        <ion-icon name="mail-open"></ion-icon> <div>stayeasy@gmail.com</div>
                         </div>
                     </div>
                     <div className="socialmedia">
