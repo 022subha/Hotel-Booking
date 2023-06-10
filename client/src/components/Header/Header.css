@@ -62,7 +62,7 @@
       }
       
       & li {
-        background-color: #1cc3b2;
+        background-color: #e70b53;
         float: left;
         padding:10px;
         transition: background-color 0.6s ease;
@@ -74,7 +74,7 @@
     background-color: white;
     display:flex;
     flex-direction: row;
-    
+    justify-content: space-between;
     
     & .logo-sec{
       padding: 10px;
@@ -124,7 +124,7 @@
       }
       
       & li {
-        background-color: #1cc3b2;
+        background-color: #e70b53;
         float: left;
         padding:10px;
         transition: background-color 0.6s ease;
