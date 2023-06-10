@@ -1,0 +1,12 @@
+.single-room-main-area {
+  padding-top: 100px;
+  padding-bottom: 0;
+}
+
+.single-room-main-area .single-room-container {
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 -15px 50px -15px;
+  padding: 0 15px;
+}
