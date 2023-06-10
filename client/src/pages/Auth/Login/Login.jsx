@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
@@ -48,8 +49,7 @@ export default function Login() {
           <p>
             Don't Have an Account?
             <span className="register-link">
-              {"  "}
-              Register
+              <Link to="/register">Register</Link>
             </span>
           </p>
         </div>
