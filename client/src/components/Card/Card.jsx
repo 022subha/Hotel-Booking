@@ -9,7 +9,11 @@ export default function Card() {
             </div>
             <div className="description">
                 <div className="header">
-                     <h2>Room View sea</h2>
+                     <h2>
+                      <span>Room </span>
+                      <span>View </span>
+                      <span>sea</span>
+                      </h2>
                 </div>
                 <div className='paisa'>
                     <h4>400$/day</h4>
