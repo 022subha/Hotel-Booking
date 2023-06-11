@@ -7,6 +7,7 @@ import Register from "./pages/Auth/Register/Register";
 import Home from "./pages/Home/Home";
 import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
+
 function App() {
   return (
     <BrowserRouter>
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/single-room" element={<SingleRoom />} />
+        {/* <Route path="/single-room" element={<SingleRoom />} /> */}
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/singlerooms" element={<SingleRooms />} />
       </Routes>
