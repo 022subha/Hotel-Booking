@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   transactions: [
     { type: mongoose.Types.ObjectId, ref: "Transaction", required: true },
   ],
-  isAdmin: { type: Boolean, required: TRUE, default: false },
+  isAdmin: { type: Boolean, required: true, default: false },
 });
 
 const User = mongoose.model("User", userSchema);
