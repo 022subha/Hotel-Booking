@@ -1,5 +1,6 @@
 import bcryptjs from "bcryptjs";
 import cloudinary from "cloudinary";
+import fs from "fs";
 import User from "../models/userModel.js";
 
 export const register = async (req, res) => {
@@ -16,12 +17,10 @@ export const register = async (req, res) => {
     const hashedPassword = bcryptjs.hashSync(password);
 
     if (req.files) {
-      const result = await cloudinary.v2.uploader.upload(
-        req.files.avatar.tempFilePath,
-        {
-          folder: "userAvatars",
-        }
-      );
+      const fileData = fs.readFileSync(req.files.avatar.tempFilePath);
+      const result = await cloudinary.v2.uploader.upload(fileData, {
+        folder: "userAvatars",
+      });
 
       const newUser = new User({
         name,
