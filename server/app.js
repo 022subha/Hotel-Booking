@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   fileUpload({
-    limits: { fileSize: 10485760 },
+    limits: { fileSize: 104857600 },
     useTempFiles: true,
     tempFileDir: "/tmp/",
   })
