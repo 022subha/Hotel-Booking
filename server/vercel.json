@@ -6,12 +6,10 @@
       "use": "@vercel/node"
     }
   ],
- 
-  "functions": {
-    "api/*": {
-      "runtime": "nodejs14.x",
-      "memory": 512
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
     }
-  }
-
+  ]
 }
