@@ -4,7 +4,11 @@ import fileUpload from "express-fileupload";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://stayeasy.vercel.app",
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
