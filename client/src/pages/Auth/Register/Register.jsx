@@ -43,7 +43,7 @@ export default function Register() {
       bodyContent.append("avatar", image);
       dispatch(showLoading());
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://stayeasy-api.vercel.app/api/auth/register",
         bodyContent
       );
       dispatch(hideLoading());
