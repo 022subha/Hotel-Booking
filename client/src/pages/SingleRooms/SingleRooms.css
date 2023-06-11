@@ -1,0 +1,153 @@
+.singlerooms-container{
+    padding: 50px;
+}
+.singlerooms-container .mainsingle-container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.singlerooms-container .mainsingle-container .img{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.singlerooms-container .mainsingle-container .img .img1{
+    width: 70%;
+}
+.singlerooms-container .mainsingle-container .img .img1 img{
+    width: 100%;
+}
+.singlerooms-container .mainsingle-container .img .img2{
+    width: 60%;
+}
+.singlerooms-container .mainsingle-container .img .img2 .first-img{
+    display: flex;
+    align-items: center;
+    width: 93%;
+}
+.singlerooms-container .mainsingle-container .img .img2 .first-img img{
+    width: 20%;
+    padding: 5px;
+}
+.singlerooms-container .mainsingle-container .description{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.singlerooms-container .mainsingle-container .description .desc1-container{
+    width: 70%;
+    display: flex;
+}
+.singlerooms-container .mainsingle-container .description .desc1-container .desc1-part1{
+    width: 25%;
+    border: 2px solid rgb(183, 177, 177);
+    border-radius: 4px;
+    margin: 5px;
+}
+.singlerooms-container .mainsingle-container .description .desc1-container .desc1-part1 h6{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #afb4bf;
+    font-size: 15px;
+}
+.singlerooms-container .mainsingle-container .description .desc1-container .desc1-part1 span{
+  color: black;
+  font-size: 20px;
+}
+.singlerooms-container .mainsingle-container .description .desc2-container{
+    width: 70%;
+}
+.singlerooms-container .mainsingle-container .description .desc2-container p{
+        line-height: 1.7;
+        color: #636a76;
+        font-size: 20px;
+        font-weight: 600;
+    }
+.singlerooms-container .mainsingle-container .description .desc2-container ul{
+    line-height: 1.7;
+    color: #636a76;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0px;
+}
+.singlerooms-container .mainsingle-container .description .desc2-container ul li{
+    list-style: none;
+}
+.singlerooms-container .mainsingle-container .description .desc3-container{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.singlerooms-container .mainsingle-container .description .desc3-container .part1{
+  display: flex;
+  align-items: center;
+}
+.singlerooms-container .mainsingle-container .description .desc3-container .part2{
+    display: flex;
+    align-items: center;
+  }
+.singlerooms-container .mainsingle-container .description .desc3-container .part1 .first{
+    display: flex;
+    align-items: center;
+    margin: 0px 30px;
+}
+.singlerooms-container .mainsingle-container .description .desc3-container .part2 .first{
+    display: flex;
+    align-items: center;
+    margin: 10px 40px;
+}
+.singlerooms-container .mainsingle-container .description .desc4-container{
+    width: 70%;
+}
+.singlerooms-container .mainsingle-container .description .desc4-container.apply{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info{
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    height: 40%;
+    padding: 20px;
+}
+
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info .think{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+    box-shadow: 2px 2px 2px 2px rgb(144, 142, 142);
+    padding: 10px;
+    margin-left: 0px;
+}
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info .img img{
+    border-radius: 100%;
+    
+}
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info .img{
+    display: flex;
+    align-items: center;
+}
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info h3{
+ margin-top: 0px;
+}
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info p{
+    margin-top: 0px;
+}
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info h4{
+    margin-top: 0px;
+}
+
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info{
+    width: 90%;
+    color: rgb(96, 93, 93);
+}
+.singlerooms-container .mainsingle-container .description .desc4-container .apply .info h3{
+    color: rgb(40, 185, 136);
+}
