@@ -1,12 +1,22 @@
-import { Avatar } from "antd";
+import { Avatar, message as msg } from "antd";
+import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { hideLoading, showLoading } from "../../../redux/features/spinnerSlice";
 import "./Register.css";
 
 export default function Register() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [showPass, setShowPass] = useState(false);
   const [imagePrev, setImagePrev] = useState();
-  const [image, setImage] = useState();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [image, setImage] = useState(null);
   const toggleShowPass = () => {
     setShowPass(!showPass);
   };
@@ -20,6 +30,33 @@ export default function Register() {
         setImagePrev(reader.result);
         setImage(file);
       };
+    }
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const bodyContent = new FormData();
+      bodyContent.append("name", name);
+      bodyContent.append("email", email);
+      bodyContent.append("password", password);
+      bodyContent.append("avatar", image);
+      dispatch(showLoading());
+      const response = await axios.post(
+        "https://stayeasy-api.vercel.app/api/auth/register",
+        bodyContent
+      );
+      dispatch(hideLoading());
+      const { status, message } = response.data;
+      if (status) {
+        navigate("/login");
+        msg.success(message);
+      } else {
+        msg.error(message);
+      }
+    } catch (error) {
+      dispatch(hideLoading());
+      console.log(error);
     }
   };
   return (
@@ -37,9 +74,23 @@ export default function Register() {
           </div>
 
           <label htmlFor="name">Name</label>
-          <input type="text" placeholder="Name" />
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
           <label htmlFor="email">Email</label>
-          <input type="email" placeholder="Email" />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
           <span className="icon">
             <ion-icon
               name={showPass ? "eye-off" : "eye"}
@@ -47,7 +98,14 @@ export default function Register() {
             ></ion-icon>
           </span>
           <label htmlFor="password">Password</label>
-          <input type={showPass ? "text" : "password"} placeholder="Password" />
+          <input
+            type={showPass ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
           <label htmlFor="avatar">Avatar</label>
           <input
             type="file"
@@ -56,7 +114,13 @@ export default function Register() {
             onChange={changeImageHandler}
           />
         </div>
-        <button type="submit" className="btn">
+        <button
+          type="submit"
+          className="btn"
+          onClick={(e) => {
+            handleRegister(e);
+          }}
+        >
           Register
         </button>
         <div className="login-register">
