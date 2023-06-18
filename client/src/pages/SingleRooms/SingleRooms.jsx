@@ -6,15 +6,15 @@ export default function SingleRooms() {
       <div className="mainsingle-container">
         <div className="img">
           <div className="img1">
-            <img src="/images/Rooms/Rooms2.webp" />
+            <img src="/images/Rooms/Rooms2.webp" alt="" />
           </div>
           <div className="img2">
             <div className="first-img">
-              <img src="/images/Rooms/Rooms2.webp" />
-              <img src="/images/Rooms/Rooms2.webp" />
-              <img src="/images/Rooms/Rooms2.webp" />
-              <img src="/images/Rooms/Rooms2.webp" />
-              <img src="/images/Rooms/Rooms2.webp" />
+              <img src="/images/Rooms/Rooms2.webp" alt="" />
+              <img src="/images/Rooms/Rooms2.webp" alt="" />
+              <img src="/images/Rooms/Rooms2.webp" alt="" />
+              <img src="/images/Rooms/Rooms2.webp" alt="" />
+              <img src="/images/Rooms/Rooms2.webp" alt="" />
             </div>
           </div>
         </div>
@@ -105,29 +105,47 @@ export default function SingleRooms() {
             <h2>Room Services</h2>
             <div className="part1">
               <div className="first">
-                <img src="https://preview.colorlib.com/theme/roberto/img/core-img/icon1.png" />
+                <img
+                  src="https://preview.colorlib.com/theme/roberto/img/core-img/icon1.png"
+                  alt=""
+                />
                 <span>Air Conditioning</span>
               </div>
               <div className="first">
-                <img src="https://preview.colorlib.com/theme/roberto/img/core-img/icon2.png" />
+                <img
+                  src="https://preview.colorlib.com/theme/roberto/img/core-img/icon2.png"
+                  alt=""
+                />
                 <span>Free drinks</span>
               </div>
               <div className="first">
-                <img src="https://preview.colorlib.com/theme/roberto/img/core-img/icon3.png" />
+                <img
+                  src="https://preview.colorlib.com/theme/roberto/img/core-img/icon3.png"
+                  alt=""
+                />
                 <span>Restaurant Quality</span>
               </div>
             </div>
             <div className="part2">
               <div className="first">
-                <img src="	https://preview.colorlib.com/theme/roberto/img/core-img/icon4.png" />
+                <img
+                  src="	https://preview.colorlib.com/theme/roberto/img/core-img/icon4.png"
+                  alt=""
+                />
                 <span>Cable TV</span>
               </div>
               <div className="first">
-                <img src="	https://preview.colorlib.com/theme/roberto/img/core-img/icon5.png" />
+                <img
+                  src="	https://preview.colorlib.com/theme/roberto/img/core-img/icon5.png"
+                  alt=""
+                />
                 <span>Unlimited Wifi</span>
               </div>
               <div className="first">
-                <img src="	https://preview.colorlib.com/theme/roberto/img/core-img/icon6.png" />
+                <img
+                  src="	https://preview.colorlib.com/theme/roberto/img/core-img/icon6.png"
+                  alt=""
+                />
                 <span>Services 24/24</span>
               </div>
             </div>
@@ -135,74 +153,84 @@ export default function SingleRooms() {
           <div className="desc4-container">
             <h2>Room Review</h2>
             <div className="apply">
-            <div className="info">
-              <div className="img">
-                <img src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg" />
-              </div>
-              <div className="think">
-                <h4>27 Aug 2023</h4>
-                <h3>Brandon Kelley</h3>
-                <p>
-                  Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                  amet, consectetur, adipisci velit, sed quia non numquam eius
-                  modi tempora.
-                </p>
-              </div>
-              </div>
-            </div>
-            
-            <div className="apply">
-            <div className="info">
-              <div className="img">
-                <img src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg" />
-              </div>
-              <div className="think">
-                <h4>27 Aug 2023</h4>
-                <h3>Brandon Kelley</h3>
-                <p>
-                  Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                  amet, consectetur, adipisci velit, sed quia non numquam eius
-                  modi tempora.
-                </p>
-              </div>
+              <div className="info">
+                <div className="img">
+                  <img
+                    src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="think">
+                  <h4>27 Aug 2023</h4>
+                  <h3>Brandon Kelley</h3>
+                  <p>
+                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+                    amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora.
+                  </p>
+                </div>
               </div>
             </div>
 
             <div className="apply">
-            <div className="info">
-              <div className="img">
-                <img src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg" />
-              </div>
-              <div className="think">
-                <h4>27 Aug 2023</h4>
-                <h3>Brandon Kelley</h3>
-                <p>
-                  Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                  amet, consectetur, adipisci velit, sed quia non numquam eius
-                  modi tempora.
-                </p>
-              </div>
+              <div className="info">
+                <div className="img">
+                  <img
+                    src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="think">
+                  <h4>27 Aug 2023</h4>
+                  <h3>Brandon Kelley</h3>
+                  <p>
+                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+                    amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora.
+                  </p>
+                </div>
               </div>
             </div>
 
             <div className="apply">
-            <div className="info">
-              <div className="img">
-                <img src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg" />
-              </div>
-              <div className="think">
-                <h4>27 Aug 2023</h4>
-                <h3>Brandon Kelley</h3>
-                <p>
-                  Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                  amet, consectetur, adipisci velit, sed quia non numquam eius
-                  modi tempora.
-                </p>
-              </div>
+              <div className="info">
+                <div className="img">
+                  <img
+                    src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="think">
+                  <h4>27 Aug 2023</h4>
+                  <h3>Brandon Kelley</h3>
+                  <p>
+                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+                    amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora.
+                  </p>
+                </div>
               </div>
             </div>
 
-
+            <div className="apply">
+              <div className="info">
+                <div className="img">
+                  <img
+                    src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="think">
+                  <h4>27 Aug 2023</h4>
+                  <h3>Brandon Kelley</h3>
+                  <p>
+                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+                    amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

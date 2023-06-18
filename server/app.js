@@ -6,7 +6,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://stayeasy.vercel.app",
+    origin: process.env.API_URL,
   })
 );
 app.use(express.json());
