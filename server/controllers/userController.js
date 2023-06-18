@@ -1,7 +1,11 @@
-import bcryptjs from "bcryptjs";
+
 import cloudinary from "cloudinary";
 import fs from "fs";
 import User from "../models/userModel.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+
 
 export const register = async (req, res) => {
   try {
@@ -14,7 +18,7 @@ export const register = async (req, res) => {
         .json({ status: false, message: "User Already Exists !!" });
     }
 
-    const hashedPassword = bcryptjs.hashSync(password);
+    const hashedPassword = bcrypt.hashSync(password);
 
     if (req.files) {
       const fileData = fs.readFileSync(req.files.avatar.tempFilePath);
@@ -43,5 +47,38 @@ export const register = async (req, res) => {
     return res
       .status(500)
       .json({ status: false, message: "Interna Server Error !!" });
+  }
+};
+
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    let existinguser;
+    existinguser = await User.findOne({ email });
+    if (!existinguser) {
+      return res
+        .status(201)
+        .json({ status: false, message: "User Not Available!!" });
+    }
+    const isMatch = bcrypt.compare(password, existinguser.password);
+    if (!isMatch) {
+      return res
+        .status(201)
+        .json({ status: false, message: "Error in Password!!" });
+    }
+    const token = jwt.sign(
+      {
+        id: existinguser._id,
+      },
+      process.env.JWT_SECRET
+    );
+    return res
+      .status(200)
+      .json({ status: true, message: "Login Successfully!!!", token });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ status: false, message: "Internal Server Error" });
   }
 };

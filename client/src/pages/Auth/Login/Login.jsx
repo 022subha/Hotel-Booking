@@ -1,9 +1,35 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-
+import axios from 'axios';
+import {message} from "antd";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
+  const navigate=useNavigate();
   const [showPass, setShowPass] = useState(false);
+  const[email,setEmail]=useState("");
+  const[password,setPassword]=useState("");
+ 
+  const handleSubmit=()=>{
+    axios.post("http://localhost:5000/api/auth/login",{
+      email,
+      password
+    }).then((result)=>{
+      console.log(result);
+        if(result.data.status)
+        {
+          message.success(result.data.message);
+          navigate("/");
+        }
+        else
+        {
+          message.error(result.data.message);
+        }
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
+
   const toggleShowPass = () => {
     setShowPass(!showPass);
   };
@@ -29,7 +55,12 @@ export default function Login() {
 
         <div className="input-box">
           <label htmlFor="email">Email</label>
-          <input type="email" placeholder="Email" />
+          <input 
+          type="email" 
+          placeholder="Email" 
+          value={email}
+          onChange={(e)=>{setEmail(e.target.value)}}
+          />
           <span className="icon">
             <ion-icon
               name={showPass ? "eye-off" : "eye"}
@@ -37,12 +68,17 @@ export default function Login() {
             ></ion-icon>
           </span>
           <label htmlFor="password">Password</label>
-          <input type={showPass ? "text" : "password"} placeholder="Password" />
+          <input 
+          type={showPass ? "text" : "password"} 
+          placeholder="Password" 
+          value={password}
+          onChange={(e)=>{setPassword(e.target.value)}}
+          />
         </div>
         <div className="remember-forget">
           <a href="/forget-password">Forget Password?</a>
         </div>
-        <button type="submit" className="btn">
+        <button type="submit" className="btn" onClick={()=>{handleSubmit()}}>
           Login
         </button>
         <div className="login-register">

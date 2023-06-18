@@ -9,6 +9,7 @@ import Register from "./pages/Auth/Register/Register";
 import Home from "./pages/Home/Home";
 import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
+
 function App() {
   const { loading } = useSelector((state) => state.spinner);
   return (
