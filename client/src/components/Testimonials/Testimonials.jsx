@@ -14,7 +14,6 @@ export default function Testimonials() {
     "You are just a piece of paper whom i use and throw Laboriosam necessitatibus eum fuga repudiandae exercitationem numquam ab autem beatae esse natus. Architecto sapiente quis numquam exercitationem at ipsum nobis? Laudantium, inventore!",
   ];
 
-  const image = [];
   return (
     <div className="testimonial-container">
       <div className="main-container">

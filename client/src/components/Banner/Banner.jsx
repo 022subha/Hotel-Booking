@@ -8,7 +8,7 @@ export default function Banner() {
       <div className="banner-container">
         <h3>HOTEL & RESORT</h3>
         <h1>Welcome To Stay Easy</h1>
-        <Link to="#">
+        <Link to="/rooms">
           <button>Discover Now</button>
         </Link>
       </div>
