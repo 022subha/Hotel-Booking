@@ -1,0 +1,105 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  width: 100%;
+}
+
+.register-container .form-box {
+  width: 350px;
+}
+
+.register-container .form-box h2 {
+  font-size: 2.5rem;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  color: #e70b53;
+  padding: 0;
+  margin: 0 0 3rem 0;
+}
+
+.register-container .form-box .input-box {
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+  position: relative;
+}
+
+.register-container .form-box .input-box .avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.register-container .form-box .input-box label {
+  font-size: 1.2rem;
+  color: #000;
+  font-weight: 300;
+  margin: 15px 0;
+  font-family: cursive;
+}
+
+.register-container .input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  font-size: 1rem;
+  color: #000;
+  font-weight: 100;
+  border-radius: 10px;
+  position: relative;
+  padding: 0 0 0 10px;
+  display: block;
+}
+
+.register-container .form-box input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.register-container .input-box .icon {
+  position: absolute;
+  top: 71.5%;
+  right: 0px;
+  font-size: 1.2em;
+  color: #e70b53;
+  line-height: 57px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.register-container .btn {
+  margin-top: px;
+  width: 100%;
+  height: 45px;
+  background: #e70b53;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+}
+
+.register-container .login-register {
+  font-size: 1rem;
+  color: #000;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.register-container .login-register p span {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-container .login-register p span a {
+  text-decoration: none;
+  color: #000;
+}
+
+.register-container .login-register p span:hover {
+  text-decoration: underline;
+}
