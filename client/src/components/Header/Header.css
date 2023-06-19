@@ -108,7 +108,9 @@
       /* Change the link color on hover */
       & li a:hover {
         color: #999;
+        /* font-size: large; */
       }
+
     }
 
     & .register-login-sec{
@@ -137,6 +139,158 @@
       /* Change the link color on hover */
       & li:hover {
         background-color: #2a303b;
+      }
+    }
+    & .responsive-toggle{
+      display:none;
+      & .checkbtn{
+        & ion-icon{
+          font-size: 48px;
+        }
+        & .checkbox-input{
+          display:none;
+        }
+      }
+      & .resp-nav-sec{
+        /* display:none; */
+        position: fixed;
+        width: max(50%, 200px);
+        height: 100vh;
+        background-color:#fff;
+        /* background: linear-gradient(to bottom, rgba(255, 255, 255, 1)0%, rgba(255, 255, 255, 0.95)95%, rgba(0, 0, 0, 0)100%); */
+        /* background: #2c3e50; */
+        top: 0;
+        left:-100%;
+        text-align: center;
+        transition: all .5s;
+        & .register-login-sec-2{
+          background-color: #e70b53;
+          display:flex;
+          flex-direction: row;
+          & li{
+            flex-basis: 0;
+            flex-grow: 1;
+          }
+          & li a{
+            display: block;
+            padding: 3px 10px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: large;
+          }
+          & li:hover {
+            background-color: #2a303b;
+          }
+        }
+        & ul {
+          list-style-type: none;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          display:flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          & li{
+            padding:10px;
+            & img{
+              margin-top: 10px;
+              width:160px;
+            }
+            & a{
+              text-decoration: none!important;
+              color:#333;
+            }
+          }
+          & li a:hover {
+            color: #999;
+            /* font-size: large; */
+          }
+        }
+        
+      }
+    }
+  }
+}
+@media screen and (max-width: 1050px){
+  .header-area{
+    & .main-header-area{
+      height: 70px;
+      & .logo-sec{
+        margin-left: 3rem;
+        margin-right: 4rem;
+        & img{
+          width:160px;
+        }
+      }
+      & .nav-sec{
+        padding:0;
+        margin:0;
+        & ul{
+          width:0 !important;
+        }
+        & li a{
+          display: none;
+        }
+      }
+      & .register-login-sec{
+        display: none;
+        padding:0;
+        margin:0;
+      }
+      & .responsive-toggle{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:80px;
+        & .toggle-input{
+          display:none;
+        }
+        & .toggle-input:checked + .checkbtn + .resp-nav-sec{
+          position:fixed;
+          left:0;
+          z-index: 200!important;
+        }
+      }
+
+    }
+  }
+}
+@media screen and (max-width: 350px){
+  .header-area{
+    & .main-header-area{
+      & .logo-sec{
+        margin-left:1rem;
+        margin-right:1rem;
+        & img{
+          width:140px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:505px){
+  .header-area{
+    & .top-header-area{
+      height:50px;
+      & .phemail{
+        & .phone-no{
+          & .txtphno{
+            display: none;
+          }
+        }
+        & .e-mail{
+          & .txtmail{
+            display: none;
+          }
+        }
+      }
+      & .socialmedia{
+        display: none;
       }
     }
   }
