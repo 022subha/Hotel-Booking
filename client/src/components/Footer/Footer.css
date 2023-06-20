@@ -137,7 +137,6 @@
 .main-footer-area .footer-container .section3 form button:hover {
   background-color: black;
 }
-
 @media (max-width: 510px) {
   .main-footer-area .footer-container {
     justify-content: flex-start;
