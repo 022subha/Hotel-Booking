@@ -10,6 +10,7 @@ import Register from "./pages/Auth/Register/Register";
 import Home from "./pages/Home/Home";
 import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
+import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
 
 function App() {
@@ -17,21 +18,24 @@ function App() {
   const { user } = useSelector((state) => state.user);
   const { loading } = useSelector((state) => state.spinner);
 
-  const getUser = async () => {
+  const getUser = async (token) => {
     try {
+      dispatch(showLoading());
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/get-user`,
-        { token: localStorage.getItem("token") }
+        { token }
       );
-
+      dispatch(hideLoading());
       dispatch(setUser(response.data.user));
     } catch (error) {
+      dispatch(hideLoading());
       console.log(error);
     }
   };
 
   useEffect(() => {
-    if (!user) getUser();
+    const token = localStorage.getItem("token");
+    if (!user && token) getUser(token);
   });
 
   return (

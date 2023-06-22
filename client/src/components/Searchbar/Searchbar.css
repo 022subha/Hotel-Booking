@@ -1,8 +1,6 @@
 .searchbar-main-area {
-  position: relative;
   width: 100%;
   transform: translateY(-50%);
-  z-index: 100;
 }
 
 .searchbar-main-area .searchbar-container {

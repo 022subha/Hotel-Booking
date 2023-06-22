@@ -6,26 +6,23 @@ import User from "../models/userModel.js";
 export const getUser = async (req, res) => {
   const { token } = req.body;
   try {
-    jwt.verify(token, process.env.JWT_SECRET, async (err, decrypted) => {
-      if (err) {
-        console.log(err);
-        return res
-          .status(201)
-          .json({ status: false, message: "Something Went Wrong !!" });
-      } else {
-        const { id, expires } = decrypted;
-        if (new Date(Date.now()) < new Date(expires)) {
-          const user = await User.findById(id);
-          return res.status(200).json({
-            status: true,
-            user: { name: user.name, id: user._id, isAdmin: user.isAdmin },
-          });
-        }
+    const decrypted = jwt.verify(token, process.env.JWT_SECRET);
+    const { id, expires } = decrypted;
+    if (new Date(Date.now()) < new Date(expires)) {
+      const user = await User.findById(id);
+      return res.status(200).json({
+        status: true,
+        user: {
+          name: user.name,
+          id: user._id,
+          isAdmin: user.isAdmin,
+          avatar: user.avatar,
+        },
+      });
+    }
 
-        return res.status(202).json({
-          status: true,
-        });
-      }
+    return res.status(202).json({
+      status: true,
     });
   } catch (error) {
     console.log(error);
