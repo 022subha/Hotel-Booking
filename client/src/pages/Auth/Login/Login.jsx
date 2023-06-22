@@ -45,7 +45,7 @@ export default function Login() {
         msg.error(message);
       }
     } catch (error) {
-      dispatch(hideLoading);
+      dispatch(hideLoading());
       console.log(error);
     }
   };
