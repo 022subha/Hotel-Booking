@@ -22,4 +22,7 @@ app.use(
 import userRoute from "./routes/userRoute.js";
 app.use("/api/auth", userRoute);
 
+import roomRoute from "./routes/roomRoutes.js";
+app.use("/api/rooms", roomRoute);
+
 export default app;
