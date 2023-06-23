@@ -1,12 +1,20 @@
 .dashboard-container{
     width: 100%;
     height: 100%;
+    margin-top: 200px;
 }
 .dashboard-container .main-container{
     padding: 10px;
     display: flex;
     width: 100%;
     height: 100%;
+}
+.dashboard-container .main-container .sidebar .front img{
+ width: 40%;
+ height: 40%;
+ margin-top: 10px;
+ margin-left: 50px;
+
 }
 .dashboard-container .main-container .sidebar-content{
     width: 300px;
@@ -23,16 +31,16 @@
 .dashboard-container .main-container .content .header{
     width: 98%;
     height: 70px;
-    margin: 0px 10px;
+    margin: 10px 10px;
     border: 2px solid black;
     border-radius: 4px;
 }
 .dashboard-container .main-container .content .body{
     width: 98%;
-    height: 100vh;
-    margin: 10px 10px;
+    height: 100%;
     border: 2px solid black;
     border-radius: 4px;
+    margin: 0px 10px;
 }
 
 .dashboard-container .main-container .sidebar-content .sidebar h1{
@@ -48,7 +56,7 @@
     display: flex;
     flex-direction: column;
 }
-.dashboard-container .main-container .sidebar-content .sidebar .nav {
+.dashboard-container .main-container .sidebar-content .sidebar .nav a{
     display: flex;
     text-align: center;
     padding: 10px;
@@ -58,16 +66,17 @@
     color: white;
     border-radius: 5px;
 }
-.dashboard-container .main-container .sidebar-content .sidebar .nav:hover{
+.dashboard-container .main-container .sidebar-content .sidebar .nav a:hover{
     color: black;
     background-color: aqua;
     border-radius: 5px;
 }
-.dashboard-container .main-container .sidebar-content .sidebar .nav h2{
-    margin: 0px 10px;
+.dashboard-container .main-container .sidebar-content .sidebar .nav a h2{
+    margin: 10px 10px;
     font-size: 20px;
+    text-decoration: none;
 }
-.dashboard-container .main-container .sidebar-content .sidebar .nav ion-icon{
+.dashboard-container .main-container .sidebar-content .sidebar .nav a ion-icon{
     font-size: 40px;
     margin: 0px 10px;
 }
@@ -77,6 +86,35 @@
     cursor: pointer;
     display: none;
     position: fixed;
+}
+.dashboard-container .main-container .content .header .upper{
+    display: flex;
+    justify-content: flex-end;
+
+}
+.dashboard-container .main-container .content .header .upper .notification ion-icon{
+    display: block;
+    font-size: 30px;
+    font-weight: bolder;
+    position: relative;
+    
+}
+.dashboard-container .main-container .content .header .upper .inner{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.dashboard-container .main-container .content .header .upper .inner{
+    width: 12%;
+    height: 24px;
+}
+
+.dashboard-container .main-container .content .header .upper .name{
+    font-size: 25px;
+    font-weight: bolder;
+    margin: 0px 10px;
+    color: black;
+    font-style: inherit;
 }
 
 @media(max-width:769px)
@@ -114,4 +152,13 @@
       
       
     
+}
+.header .front .dash{
+    display: flex;
+    justify-content: flex-start;
+    color: red;
+    font-style: inherit;
+    font-family: cursive;
+    text-align: center;
+    color: rgb(213, 4, 39);
 }

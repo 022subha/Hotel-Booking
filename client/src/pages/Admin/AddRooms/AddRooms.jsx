@@ -2,6 +2,8 @@ import { Avatar, message } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./AddRooms.css";
+import Dashboard from "../../../components/Dashboard/Dashboard";
+
 export default function AddRooms() {
   const [imagePrev, setImagePrev] = useState([]);
   const [images, setImages] = useState([]);
@@ -69,6 +71,7 @@ export default function AddRooms() {
     console.log(images);
   }, [images]);
   return (
+    <Dashboard>
     <div className="add-rooms-container">
       <h2>Enter All Descriptions</h2>
       <div className="main-container">
@@ -205,6 +208,7 @@ export default function AddRooms() {
         </div>
       </div>
     </div>
+    </Dashboard>
   );
 }
 
