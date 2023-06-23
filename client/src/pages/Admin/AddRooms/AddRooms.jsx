@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Avatar } from "antd";
-import axios from 'axios';
+import { Avatar, message } from "antd";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./AddRooms.css";
 import {message} from 'antd';
 import Dashboard from "../../../components/Dashboard/Dashboard";
@@ -9,17 +9,15 @@ export default function AddRooms() {
   const [imagePrev, setImagePrev] = useState([]);
   const [images, setImages] = useState([]);
 
-  const[Name,setName]=useState();
-  const[Size,setSize]=useState();
-  const[Capacity,setCapacity]=useState();
-  const[Bedsize,setBedsize]=useState();
-  const[Services,setServices]=useState();
-  const[Description,setDescription]=useState();
-  const[Location,setLocation]=useState();
-  const[Price,setPrice]=useState();
+  const [Name, setName] = useState();
+  const [Capacity, setCapacity] = useState();
+  const [Bedsize, setBedsize] = useState();
+  const [Services, setServices] = useState();
+  const [Description, setDescription] = useState();
+  const [Location, setLocation] = useState();
+  const [Price, setPrice] = useState();
 
-
-  const handleAddRooms=(e)=>{
+  const handleAddRooms = (e) => {
     const bodyContent = new FormData();
     bodyContent.append("Name", Name);
     bodyContent.append("Capacity", Capacity);
@@ -29,21 +27,21 @@ export default function AddRooms() {
     bodyContent.append("Location", Location);
     bodyContent.append("Price", Price);
     bodyContent.append("Image", images);
-     axios.post("http://localhost:5000/api/room/add-rooms",{
-      bodyContent
-     }).then((result)=>{
-      if(result.data.status)
-      {
-        message.success(result.data.message);
-      }
-      else{
-        message.error(result.data.message);
-      }
-     }).catch((error)=>{
-      console.log(error);
-     })
-    }
-
+    axios
+      .post("http://localhost:5000/api/room/add-rooms", {
+        bodyContent,
+      })
+      .then((result) => {
+        if (result.data.status) {
+          message.success(result.data.message);
+        } else {
+          message.error(result.data.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const changeImageHandler = (e) => {
     const file = e.target.files[0];
@@ -54,22 +52,21 @@ export default function AddRooms() {
         const prevImages = [...imagePrev]; // Make a copy of existing preview images array
         prevImages.push(reader.result); // Add new image URLs to the array
         setImagePrev(prevImages);
-        setImages([...images,file]);
+        setImages([...images, file]);
       };
     }
   };
 
-  const handleDelete=(index)=>{
-    const updatedImages=imagePrev.filter((image,index1)=>{
-        return index1!=index;
-    })
+  const handleDelete = (index) => {
+    const updatedImages = imagePrev.filter((image, index1) => {
+      return index1 !== index;
+    });
     setImagePrev(updatedImages);
-  }
+  };
 
   useEffect(() => {
     console.log(imagePrev);
   }, [imagePrev]);
-
 
   useEffect(() => {
     console.log(images);
@@ -81,15 +78,21 @@ export default function AddRooms() {
       <div className="main-container">
         <div className="name">
           <p>Name:</p>
-          <input 
-          type="text" 
-          placeholder="Enter Name"
-          onChange={(e)=>{setName(e.target.value)}}
+          <input
+            type="text"
+            placeholder="Enter Name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
           ></input>
         </div>
         <div className="size">
           <p>Size:</p>
-          <select onChange={(e)=>{setSize(e.target.value)}}>
+          <select
+            onChange={(e) => {
+              setBedsize(e.target.value);
+            }}
+          >
             <option value="">Select Bed Size</option>
             <option value="twin">Twin</option>
             <option value="twin-xl">Twin XL</option>
@@ -101,15 +104,21 @@ export default function AddRooms() {
         </div>
         <div className="capacity">
           <p>Capacity:</p>
-          <input 
-          type="number" 
-          placeholder="Enter max-capacity"
-          onChange={(e)=>{setCapacity(e.target.value)}}
+          <input
+            type="number"
+            placeholder="Enter max-capacity"
+            onChange={(e) => {
+              setCapacity(e.target.value);
+            }}
           ></input>
         </div>
         <div className="bed-size">
           <p>Bed-Size:</p>
-          <select onChange={(e)=>{setBedsize(e.target.value)}}>
+          <select
+            onChange={(e) => {
+              setBedsize(e.target.value);
+            }}
+          >
             <option value="">Select Bed Size</option>
             <option value="single">Single</option>
             <option value="double">Double</option>
@@ -119,23 +128,31 @@ export default function AddRooms() {
         </div>
         <div className="services">
           <p>Services:</p>
-          <input 
-          type="text" 
-          placeholder="Enter Services"
-          onChange={(e)=>{setServices(e.target.value)}}
+          <input
+            type="text"
+            placeholder="Enter Services"
+            onChange={(e) => {
+              setServices(e.target.value);
+            }}
           ></input>
         </div>
         <div className="description">
           <p>Description:</p>
-          <input 
-          type="text" 
-          placeholder="Enter Description"
-          onChange={(e)=>{setDescription(e.target.value)}}
+          <input
+            type="text"
+            placeholder="Enter Description"
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
           ></input>
         </div>
         <div className="location">
           <p>Location:</p>
-          <select onChange={(e)=>{setLocation(e.target.value)}}>
+          <select
+            onChange={(e) => {
+              setLocation(e.target.value);
+            }}
+          >
             <option value="">Select Localtion:</option>
             <option value="Delhi">Delhi</option>
             <option value="Kolkata">Kolkata</option>
@@ -145,10 +162,12 @@ export default function AddRooms() {
         </div>
         <div className="price">
           <p>Price:</p>
-          <input 
-          type="number" 
-          placeholder="Enter Price"
-          onChange={(e)=>{setPrice(e.target.value)}}
+          <input
+            type="number"
+            placeholder="Enter Price"
+            onChange={(e) => {
+              setPrice(e.target.value);
+            }}
           ></input>
         </div>
         <div className="images">
@@ -165,8 +184,10 @@ export default function AddRooms() {
               return (
                 <div key={index} className="images1">
                   <ion-icon
-                   name="close-outline"
-                   onClick={()=>{handleDelete(index)}}
+                    name="close-outline"
+                    onClick={() => {
+                      handleDelete(index);
+                    }}
                   ></ion-icon>
                   <Avatar
                     key={index} // Add the key prop
@@ -177,10 +198,14 @@ export default function AddRooms() {
               );
             })}
           </div>
-          <button 
-          className="submit"
-          onClick={()=>{handleAddRooms()}}
-          >Submit</button>
+          <button
+            className="submit"
+            onClick={() => {
+              handleAddRooms();
+            }}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>

@@ -7,12 +7,17 @@
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 99;
 }
+.active {
+  color: #e70b53 !important;
+  font-weight: 600;
+}
 .header-area {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   width: 100%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   -webkit-transition-duration: 500ms;
   -o-transition-duration: 500ms;
   transition-duration: 500ms;
@@ -397,15 +402,27 @@
 .dashboard-logout-in-nav {
   font-size: 1.2rem;
   & a {
-    display: block;
+    display: flex;
     color: #eee;
+    justify-content: flex-start;
+    align-items: center;
     text-align: center;
     text-decoration: none;
     transition: all 0.5s;
     border-top: 1px solid #fff;
+
+    & span {
+      display: flex;
+      align-items: center;
+      padding: 4px;
+
+      & ion-icon {
+        font-size: 1.5rem;
+      }
+    }
   }
   & .dash-user {
-    padding: 10px;
+    padding: 10px 10px 10px 40px;
     background: linear-gradient(
       to right,
       rgba(231, 11, 83, 1),
@@ -413,7 +430,8 @@
     );
   }
   & .logout-user {
-    padding: 10px;
+    color: rgb(248, 145, 145);
+    padding: 10px 10px 10px 40px;
     transition: all 0.5s;
     background: linear-gradient(
       to right,
@@ -431,7 +449,7 @@
   }
   & .logout-user:hover {
     /* filter: invert(100%); */
-    color: #fff;
+    color: rgb(248, 145, 145);
     background: linear-gradient(
       to left,
       rgba(231, 11, 83, 1),
@@ -453,7 +471,7 @@
   justify-content: center;
   align-items: flex-end;
   & .profile-pic-dtls-in-nav-bar-2 {
-    width: auto;
+    min-width: 190px;
     padding: 10px;
     padding-top: 4px;
     padding-bottom: 4px;

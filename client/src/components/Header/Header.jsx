@@ -1,10 +1,10 @@
 import { Avatar, Modal } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { setUser } from "../../redux/features/userSlice";
 import "./Header.css";
-const ProfilePicdtl = ({ user }) => {
+const ProfilePicdtl = ({ user, handleLogout }) => {
   const [dropDown, setDropDown] = useState(false);
   const handleProfileClick = () => {
     setDropDown(!dropDown);
@@ -32,12 +32,38 @@ const ProfilePicdtl = ({ user }) => {
       </div>
       {dropDown && (
         <div className="dashboard-logout-in-nav">
-          <NavLink to="/admin/dashboard" className="dash-user">
-            Dashboard
-          </NavLink>
-          <NavLink to="/logout" className="logout-user">
-            Logout
-          </NavLink>
+          {user.isAdmin ? (
+            <Link
+              to="/admin/dashboard"
+              className="dash-user"
+              onClick={handleProfileClick}
+            >
+              <span>
+                <ion-icon name="grid"></ion-icon>
+              </span>
+              <span> Dashboard</span>
+            </Link>
+          ) : (
+            <Link
+              to="/bookings"
+              className="dash-user"
+              onClick={handleProfileClick}
+            >
+              <span>
+                <ion-icon name="bed"></ion-icon>
+              </span>
+              <span>My Bookings</span>
+            </Link>
+          )}
+          <Link to="#" className="logout-user" onClick={(e) => handleLogout(e)}>
+            <span>
+              <ion-icon
+                name="log-out"
+                style={{ color: "rgb(248, 145, 145)", fontSize: "2rem" }}
+              ></ion-icon>
+            </span>
+            <span>Logout</span>
+          </Link>
         </div>
       )}
     </>
@@ -74,20 +100,42 @@ const ProfilePicdtl2 = ({ user, handleLogout }) => {
         </div>
         {dropDown && (
           <div className="dashboard-logout-in-nav">
-            <NavLink
-              to="/admin/dashboard"
-              className="dash-user"
-              onClick={handleProfileClick}
-            >
-              Dashboard
-            </NavLink>
-            <NavLink
+            {user.isAdmin ? (
+              <Link
+                to="/admin/dashboard"
+                className="dash-user"
+                onClick={handleProfileClick}
+              >
+                <span>
+                  <ion-icon name="grid"></ion-icon>
+                </span>
+                <span> Dashboard</span>
+              </Link>
+            ) : (
+              <Link
+                to="/bookings"
+                className="dash-user"
+                onClick={handleProfileClick}
+              >
+                <span>
+                  <ion-icon name="bed"></ion-icon>
+                </span>
+                <span>My Bookings</span>
+              </Link>
+            )}
+            <Link
               to="#"
               className="logout-user"
               onClick={(e) => handleLogout(e)}
             >
-              Logout
-            </NavLink>
+              <span>
+                <ion-icon
+                  name="log-out"
+                  style={{ color: "rgb(248, 145, 145)", fontSize: "2rem" }}
+                ></ion-icon>
+              </span>
+              <span>Logout</span>
+            </Link>
           </div>
         )}
       </div>
@@ -159,16 +207,24 @@ const Header = () => {
           <div className="nav-sec">
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" activeClassName="active">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/rooms">Rooms</NavLink>
+                <NavLink to="/rooms" activeClassName="active">
+                  Rooms
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/contacts">Contact</NavLink>
+                <NavLink to="/contacts" activeClassName="active">
+                  Contact
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/about">About Us</NavLink>
+                <NavLink to="/about" activeClassName="active">
+                  About Us
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -179,12 +235,12 @@ const Header = () => {
             </>
           ) : (
             <div className="register-login-sec">
-              <NavLink to="/register" className="register-sec-normal">
+              <Link to="/register" className="register-sec-normal">
                 Register →{" "}
-              </NavLink>
-              <NavLink to="/login" className="login-sec-normal">
+              </Link>
+              <Link to="/login" className="login-sec-normal">
                 Login →{" "}
-              </NavLink>
+              </Link>
             </div>
           )}
           <div className="responsive-toggle">
@@ -219,16 +275,24 @@ const Header = () => {
                   <img src="/images/logo.svg" alt="logo" />
                 </li>
                 <li>
-                  <NavLink to="/home">Home</NavLink>
+                  <NavLink to="/" activeClassName="active">
+                    Home
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/rooms">Rooms</NavLink>
+                  <NavLink to="/rooms" activeClassName="active">
+                    Rooms
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/contacts">Contact</NavLink>
+                  <NavLink to="/contacts" activeClassName="active">
+                    Contact
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/about">About Us</NavLink>
+                  <NavLink to="/about" activeClassName="active">
+                    About Us
+                  </NavLink>
                 </li>
               </ul>
             </div>
