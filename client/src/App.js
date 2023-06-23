@@ -53,8 +53,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/rooms" element={<Rooms />} />
             <Route path="/singlerooms" element={<SingleRooms />} />
-            <Route path="/addRooms" element={<AddRooms/>}/>
-            <Route path="/dashboard" element={<Dashboard/>}/>
+            <Route path="/admin/add-room" element={<AddRooms/>}/>
+            <Route path="/admin/dashboard" element={<Dashboard/>}/>
           </Routes>
           <Footer />
         </BrowserRouter>
