@@ -1,4 +1,3 @@
-
 import cloudinary from "cloudinary";
 import fs from "fs";
 import User from "../models/userModel.js";

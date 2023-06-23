@@ -9,6 +9,8 @@ import Register from "./pages/Auth/Register/Register";
 import Home from "./pages/Home/Home";
 import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
+import AddRooms from "./pages/Admin/AddRooms/AddRooms";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   const { loading } = useSelector((state) => state.spinner);
@@ -25,6 +27,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/rooms" element={<Rooms />} />
             <Route path="/singlerooms" element={<SingleRooms />} />
+            <Route path="/addRooms" element={<AddRooms/>}/>
+            <Route path="/dashboard" element={<Dashboard/>}/>
           </Routes>
           <Footer />
         </BrowserRouter>
