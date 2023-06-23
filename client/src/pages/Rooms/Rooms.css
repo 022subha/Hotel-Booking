@@ -1,8 +1,18 @@
 .room-container {
   display: flex;
-  flex-direction: column;
   width: 100%;
   justify-content: center;
   margin-top: 40px;
   padding: 40px 0px;
+}
+
+.room-container .filter-container {
+  width: 25%;
+}
+
+.room-container .card-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  align-items: center;
 }

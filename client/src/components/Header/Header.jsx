@@ -1,10 +1,10 @@
-import { Avatar, Modal } from "antd";
+import { Avatar, Modal, message } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { setUser } from "../../redux/features/userSlice";
 import "./Header.css";
-const ProfilePicdtl = ({ user, handleLogout }) => {
+const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
   const [dropDown, setDropDown] = useState(false);
   const handleProfileClick = () => {
     setDropDown(!dropDown);
@@ -36,7 +36,7 @@ const ProfilePicdtl = ({ user, handleLogout }) => {
             <Link
               to="/admin/dashboard"
               className="dash-user"
-              onClick={handleProfileClick}
+              onClick={() => setChecked(!checked)}
             >
               <span>
                 <ion-icon name="grid"></ion-icon>
@@ -47,7 +47,7 @@ const ProfilePicdtl = ({ user, handleLogout }) => {
             <Link
               to="/bookings"
               className="dash-user"
-              onClick={handleProfileClick}
+              onClick={() => setChecked(!checked)}
             >
               <span>
                 <ion-icon name="bed"></ion-icon>
@@ -69,7 +69,7 @@ const ProfilePicdtl = ({ user, handleLogout }) => {
     </>
   );
 };
-const ProfilePicdtl2 = ({ user, handleLogout }) => {
+const ProfilePicdtl2 = ({ user, handleLogout, checked, setChecked }) => {
   const [dropDown, setDropDown] = useState(false);
   const handleProfileClick = () => {
     setDropDown(!dropDown);
@@ -104,7 +104,7 @@ const ProfilePicdtl2 = ({ user, handleLogout }) => {
               <Link
                 to="/admin/dashboard"
                 className="dash-user"
-                onClick={handleProfileClick}
+                onClick={() => setChecked(!checked)}
               >
                 <span>
                   <ion-icon name="grid"></ion-icon>
@@ -115,7 +115,7 @@ const ProfilePicdtl2 = ({ user, handleLogout }) => {
               <Link
                 to="/bookings"
                 className="dash-user"
-                onClick={handleProfileClick}
+                onClick={() => setChecked(!checked)}
               >
                 <span>
                   <ion-icon name="bed"></ion-icon>
@@ -149,12 +149,15 @@ const Header = () => {
   const handleLogout = (e) => {
     e.preventDefault();
     try {
+      setChecked(!checked);
       Modal.confirm({
         title: "Confirm",
         content: "Are you sure you want to logout?",
         onOk() {
           localStorage.removeItem("token");
           dispatch(setUser(null));
+
+          message.success("Logged Out Successfully !!");
         },
       });
     } catch (error) {
@@ -231,7 +234,12 @@ const Header = () => {
           {user ? (
             <>
               <div className="just-take-space-here" />{" "}
-              <ProfilePicdtl2 user={user} handleLogout={handleLogout} />{" "}
+              <ProfilePicdtl2
+                user={user}
+                handleLogout={handleLogout}
+                checked={checked}
+                setChecked={setChecked}
+              />
             </>
           ) : (
             <div className="register-login-sec">
@@ -259,14 +267,26 @@ const Header = () => {
             </label>
             <div className={checked ? "resp-nav-sec drawer" : "resp-nav-sec"}>
               {user ? (
-                <ProfilePicdtl user={user} handleLogout={handleLogout} />
+                <ProfilePicdtl
+                  user={user}
+                  handleLogout={handleLogout}
+                  checked={checked}
+                  setChecked={setChecked}
+                />
               ) : (
                 <ul className="register-login-sec-2">
                   <li>
-                    <NavLink to="/register">Register</NavLink>
+                    <NavLink
+                      to="/register"
+                      onClick={() => setChecked(!checked)}
+                    >
+                      Register
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/login" onClick={() => setChecked(!checked)}>
+                      Login
+                    </NavLink>
                   </li>
                 </ul>
               )}
@@ -275,22 +295,38 @@ const Header = () => {
                   <img src="/images/logo.svg" alt="logo" />
                 </li>
                 <li>
-                  <NavLink to="/" activeClassName="active">
+                  <NavLink
+                    to="/"
+                    activeClassName="active"
+                    onClick={() => setChecked(!checked)}
+                  >
                     Home
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/rooms" activeClassName="active">
+                  <NavLink
+                    to="/rooms"
+                    activeClassName="active"
+                    onClick={() => setChecked(!checked)}
+                  >
                     Rooms
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/contacts" activeClassName="active">
+                  <NavLink
+                    to="/contacts"
+                    activeClassName="active"
+                    onClick={() => setChecked(!checked)}
+                  >
                     Contact
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/about" activeClassName="active">
+                  <NavLink
+                    to="/about"
+                    activeClassName="active"
+                    onClick={() => setChecked(!checked)}
+                  >
                     About Us
                   </NavLink>
                 </li>
