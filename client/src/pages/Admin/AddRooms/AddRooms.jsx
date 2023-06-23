@@ -2,7 +2,6 @@ import { Avatar, message } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./AddRooms.css";
-import {message} from 'antd';
 import Dashboard from "../../../components/Dashboard/Dashboard";
 
 export default function AddRooms() {
