@@ -34,7 +34,7 @@ const ProfilePicdtl = ({ user, handleLogout }) => {
         <div className="dashboard-logout-in-nav">
           {user.isAdmin ? (
             <Link
-              to="/admin/user"
+              to="/admin/dashboard"
               className="dash-user"
               onClick={handleProfileClick}
             >
@@ -102,7 +102,7 @@ const ProfilePicdtl2 = ({ user, handleLogout }) => {
           <div className="dashboard-logout-in-nav">
             {user.isAdmin ? (
               <Link
-                to="/admin/user"
+                to="/admin/dashboard"
                 className="dash-user"
                 onClick={handleProfileClick}
               >
