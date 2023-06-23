@@ -12,6 +12,8 @@ import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
+import AddRooms from "./pages/Admin/AddRooms/AddRooms";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +53,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/rooms" element={<Rooms />} />
             <Route path="/singlerooms" element={<SingleRooms />} />
+            <Route path="/addRooms" element={<AddRooms/>}/>
+            <Route path="/dashboard" element={<Dashboard/>}/>
           </Routes>
           <Footer />
         </BrowserRouter>

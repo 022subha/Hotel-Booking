@@ -24,4 +24,7 @@ import userRoute from "./routes/userRoute.js";
 app.use("/api/auth", userRoute);
 app.use("/api/payment", paymentRoute);
 
+import roomRoute from "./routes/roomRoutes.js";
+app.use("/api/rooms", roomRoute);
+
 export default app;
