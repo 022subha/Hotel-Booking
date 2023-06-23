@@ -3,6 +3,8 @@ import { Avatar } from "antd";
 import axios from 'axios';
 import "./AddRooms.css";
 import {message} from 'antd';
+import Dashboard from "../../../components/Dashboard/Dashboard";
+
 export default function AddRooms() {
   const [imagePrev, setImagePrev] = useState([]);
   const [images, setImages] = useState([]);
@@ -73,6 +75,7 @@ export default function AddRooms() {
     console.log(images);
   }, [images]);
   return (
+    <Dashboard>
     <div className="add-rooms-container">
       <h2>Enter All Descriptions</h2>
       <div className="main-container">
@@ -181,6 +184,7 @@ export default function AddRooms() {
         </div>
       </div>
     </div>
+    </Dashboard>
   );
 }
 

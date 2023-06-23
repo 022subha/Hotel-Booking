@@ -32,7 +32,7 @@ const ProfilePicdtl = ({ user }) => {
       </div>
       {dropDown && (
         <div className="dashboard-logout-in-nav">
-          <NavLink to="/dashboard-user" className="dash-user">
+          <NavLink to="/admin/dashboard" className="dash-user">
             Dashboard
           </NavLink>
           <NavLink to="/logout" className="logout-user">
@@ -75,7 +75,7 @@ const ProfilePicdtl2 = ({ user, handleLogout }) => {
         {dropDown && (
           <div className="dashboard-logout-in-nav">
             <NavLink
-              to="/dashboard-user"
+              to="/admin/dashboard"
               className="dash-user"
               onClick={handleProfileClick}
             >
