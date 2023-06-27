@@ -5,9 +5,9 @@ import fileUpload from "express-fileupload";
 const app = express();
 
 app.use(
-  cors(/* {
+  cors({
     origin: "https://stayeasy.vercel.app ",
-  } */)
+  })
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +25,6 @@ app.use("/api/auth", userRoute);
 app.use("/api/payment", paymentRoute);
 
 import roomRoute from "./routes/roomRoutes.js";
-app.use("/api/rooms", roomRoute);
+app.use("/api/room", roomRoute);
 
 export default app;

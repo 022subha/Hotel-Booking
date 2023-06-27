@@ -1,45 +1,50 @@
-import { Avatar, message } from "antd";
+import { Avatar, message as msg } from "antd";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import "./AddRooms.css";
+import React, { useState } from "react";
 import Dashboard from "../../../components/Dashboard/Dashboard";
+import "./AddRooms.css";
 
 export default function AddRooms() {
   const [imagePrev, setImagePrev] = useState([]);
   const [images, setImages] = useState([]);
+  const [name, setName] = useState();
+  const [capacity, setCapacity] = useState();
+  const [bedSize, setBedSize] = useState();
+  const [services, setServices] = useState([]);
+  const [description, setDescription] = useState();
+  const [price, setPrice] = useState();
 
-  const [Name, setName] = useState();
-  const [Capacity, setCapacity] = useState();
-  const [Bedsize, setBedsize] = useState();
-  const [Services, setServices] = useState();
-  const [Description, setDescription] = useState();
-  const [Location, setLocation] = useState();
-  const [Price, setPrice] = useState();
-
-  const handleAddRooms = (e) => {
-    const bodyContent = new FormData();
-    bodyContent.append("Name", Name);
-    bodyContent.append("Capacity", Capacity);
-    bodyContent.append("Bedsize", Bedsize);
-    bodyContent.append("Services", Services);
-    bodyContent.append("Description", Description);
-    bodyContent.append("Location", Location);
-    bodyContent.append("Price", Price);
-    bodyContent.append("Image", images);
-    axios
-      .post("http://localhost:5000/api/room/add-rooms", {
-        bodyContent,
-      })
-      .then((result) => {
-        if (result.data.status) {
-          message.success(result.data.message);
-        } else {
-          message.error(result.data.message);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
+  const handleAddRooms = async (e) => {
+    e.preventDefault();
+    try {
+      const bodyContent = new FormData();
+      bodyContent.append("name", name);
+      bodyContent.append("capacity", capacity);
+      bodyContent.append("bedsize", bedSize);
+      services.forEach((service) => {
+        bodyContent.append("services", service);
       });
+      bodyContent.append("description", description);
+      bodyContent.append("price", price);
+      images.forEach((image) => {
+        bodyContent.append("images", image);
+      });
+
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/room/add-rooms`,
+        bodyContent
+      );
+
+      const { status, message } = response.data;
+
+      if (status) {
+        msg.success(message);
+      } else {
+        msg.error(message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const changeImageHandler = (e) => {
@@ -63,125 +68,142 @@ export default function AddRooms() {
     setImagePrev(updatedImages);
   };
 
-  useEffect(() => {
-    console.log(imagePrev);
-  }, [imagePrev]);
+  const handleServiceChange = (service, checked) => {
+    if (checked) {
+      setServices([...services, service]);
+    } else {
+      const updatedServices = services.filter((s) => s !== service);
+      setServices(updatedServices);
+    }
+  };
 
-  useEffect(() => {
-    console.log(images);
-  }, [images]);
   return (
     <Dashboard>
-    <div className="add-rooms-container">
-      <h2>Enter All Descriptions</h2>
-      <div className="main-container">
-        <div className="name">
-          <p>Name:</p>
-          <input
-            type="text"
-            placeholder="Enter Name"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          ></input>
-        </div>
-        <div className="size">
-          <p>Size:</p>
-          <select
-            onChange={(e) => {
-              setBedsize(e.target.value);
-            }}
-          >
-            <option value="">Select Bed Size</option>
-            <option value="twin">Twin</option>
-            <option value="twin-xl">Twin XL</option>
-            <option value="full">Full/Double</option>
-            <option value="queen">Queen</option>
-            <option value="king">King</option>
-            <option value="cal-king">California King</option>
-          </select>
-        </div>
-        <div className="capacity">
-          <p>Capacity:</p>
-          <input
-            type="number"
-            placeholder="Enter max-capacity"
-            onChange={(e) => {
-              setCapacity(e.target.value);
-            }}
-          ></input>
-        </div>
-        <div className="bed-size">
-          <p>Bed-Size:</p>
-          <select
-            onChange={(e) => {
-              setBedsize(e.target.value);
-            }}
-          >
-            <option value="">Select Bed Size</option>
-            <option value="single">Single</option>
-            <option value="double">Double</option>
-            <option value="queen">Queen</option>
-            <option value="king">King</option>
-          </select>
-        </div>
-        <div className="services">
-          <p>Services:</p>
-          <input
-            type="text"
-            placeholder="Enter Services"
-            onChange={(e) => {
-              setServices(e.target.value);
-            }}
-          ></input>
-        </div>
-        <div className="description">
-          <p>Description:</p>
-          <input
-            type="text"
-            placeholder="Enter Description"
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
-          ></input>
-        </div>
-        <div className="location">
-          <p>Location:</p>
-          <select
-            onChange={(e) => {
-              setLocation(e.target.value);
-            }}
-          >
-            <option value="">Select Localtion:</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Kolkata">Kolkata</option>
-            <option value="Banglore">Banglore</option>
-            <option value="Hyderabad">Hyderabad</option>
-          </select>
-        </div>
-        <div className="price">
-          <p>Price:</p>
-          <input
-            type="number"
-            placeholder="Enter Price"
-            onChange={(e) => {
-              setPrice(e.target.value);
-            }}
-          ></input>
-        </div>
-        <div className="images">
-          <p>Images:</p>
-          <input
-            type="file"
-            accept="image/*"
-            placeholder="Choose Your Avatar"
-            multiple
-            onChange={changeImageHandler}
-          />
-          <div className="avatar">
+      <div className="add-rooms-container">
+        <div className="main-container">
+          <div className="name">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Enter Name"
+              required
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+          </div>
+          <div className="description">
+            <p>Description:</p>
+            <textarea
+              placeholder="Enter Description"
+              required
+              rows={10}
+              onChange={(e) => {
+                setDescription(e.target.value);
+              }}
+            ></textarea>
+          </div>
+          <div className="size">
+            <p>Bed Size:</p>
+            <select
+              onChange={(e) => {
+                setBedSize(e.target.value);
+              }}
+            >
+              <option value="">Select Bed Size</option>
+              <option value="twin">Twin</option>
+              <option value="twin-xl">Twin XL</option>
+              <option value="full">Full/Double</option>
+              <option value="queen">Queen</option>
+              <option value="king">King</option>
+              <option value="cal-king">California King</option>
+            </select>
+          </div>
+          <div className="capacity">
+            <p>Capacity:</p>
+            <input
+              type="number"
+              placeholder="Enter max-capacity"
+              onChange={(e) => {
+                setCapacity(e.target.value);
+              }}
+            ></input>
+          </div>
+
+          <div className="services">
+            <p>Services:</p>
+            <ul>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={(e) =>
+                      handleServiceChange("AC", e.target.checked)
+                    }
+                  />
+                  <span>AC</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={(e) =>
+                      handleServiceChange("Swimming Pool", e.target.checked)
+                    }
+                  />
+                  <span>Swimming Pool</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={(e) =>
+                      handleServiceChange("Wifi", e.target.checked)
+                    }
+                  />
+                  <span>Wifi</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={(e) =>
+                      handleServiceChange("Canteen", e.target.checked)
+                    }
+                  />
+                  <span>Canteen</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div className="images">
+            <p>Images:</p>
+            <input
+              type="file"
+              accept="image/*"
+              placeholder="Images of the Room"
+              multiple
+              onChange={changeImageHandler}
+            />
+          </div>
+
+          <div className="price">
+            <p>Price:</p>
+            <input
+              type="number"
+              placeholder="Enter Price"
+              onChange={(e) => {
+                setPrice(e.target.value);
+              }}
+            />
+          </div>
+          <div className="preview">
             {imagePrev.map((image, index) => {
               return (
-                <div key={index} className="images1">
+                <div key={index} className="image-preview">
                   <ion-icon
                     name="close-outline"
                     onClick={() => {
@@ -190,34 +212,26 @@ export default function AddRooms() {
                   ></ion-icon>
                   <Avatar
                     key={index} // Add the key prop
-                    size={120}
+                    size={60}
+                    shape="square"
                     src={image}
                   />
                 </div>
               );
             })}
           </div>
-          <button
-            className="submit"
-            onClick={() => {
-              handleAddRooms();
-            }}
-          >
-            Submit
-          </button>
+          <div className="btn">
+            <button
+              className="submit"
+              onClick={(e) => {
+                handleAddRooms(e);
+              }}
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     </Dashboard>
   );
 }
-
-// 1. Name
-// 2. Size
-// 3. Max Capacity
-// 4. Bed Size
-// 5. Services
-// 6. Description
-// 7. Images
-// 8. Location
-// 9. Price per Night

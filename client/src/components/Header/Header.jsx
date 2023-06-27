@@ -36,7 +36,7 @@ const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
             <Link
               to="/admin/dashboard"
               className="dash-user"
-              onClick={() => setChecked(!checked)}
+              onClick={() => setChecked(false)}
             >
               <span>
                 <ion-icon name="grid"></ion-icon>
@@ -47,7 +47,7 @@ const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
             <Link
               to="/bookings"
               className="dash-user"
-              onClick={() => setChecked(!checked)}
+              onClick={() => setChecked(false)}
             >
               <span>
                 <ion-icon name="bed"></ion-icon>
@@ -104,7 +104,7 @@ const ProfilePicdtl2 = ({ user, handleLogout, checked, setChecked }) => {
               <Link
                 to="/admin/dashboard"
                 className="dash-user"
-                onClick={() => setChecked(!checked)}
+                onClick={(e) => handleProfileClick(e)}
               >
                 <span>
                   <ion-icon name="grid"></ion-icon>
@@ -115,7 +115,7 @@ const ProfilePicdtl2 = ({ user, handleLogout, checked, setChecked }) => {
               <Link
                 to="/bookings"
                 className="dash-user"
-                onClick={() => setChecked(!checked)}
+                onClick={(e) => handleProfileClick(e)}
               >
                 <span>
                   <ion-icon name="bed"></ion-icon>
