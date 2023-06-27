@@ -1,0 +1,87 @@
+.room-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 40px 0px;
+  }
+.room-container .card-container {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    align-items: center;
+}
+.room-container .card-container .status-and-card{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin:10px;
+}
+.room-container .card-container .status-and-card .main-content-container{
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.room-container .card-container .status-and-card .main-content-container .paisa h4{
+    color: #e70b53;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    font-size: 30px;
+    font-weight: 500;
+}
+.room-container .card-container .status-and-card .main-content-container .footer h3{
+    color: #e70b53;
+    font-weight: 500;
+}
+.room-container .card-container .big-card{
+    box-shadow: 2px 2px 2px 2px rgb(201, 198, 198);
+    padding: 20px 5px;
+    border-radius: 5px;
+}
+.my-bookings-stay-interval{
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width:40%;
+}
+.my-bookings-stay-interval .small-cards{
+    text-align: center;
+    box-shadow: 2px 2px 2px 2px rgb(201, 198, 198);
+    width:100%;
+    padding: 20px 5px;
+    border-radius: 5px;
+}
+.my-bookings-stay-interval .from-to-dates{
+    margin: 20px 0px 10px 0px;
+}
+.my-bookings-stay-interval .payment{
+    margin: 10px 0px;
+}
+.my-bookings-stay-interval .my-rating{
+    margin: 10px 0px 20px 0px;
+}
+
+@media (max-width: 600px){
+    .main-content-container{
+        justify-content: center;
+        align-items: center;
+    }
+    .my-bookings-stay-interval{
+        align-items: center;
+        width: 100%;
+    }
+    .my-bookings-stay-interval .small-cards{
+        width: 82%;
+    }
+    .room-container .card-container {
+        width: 85%;
+    }
+    .room-container .card-container .status-and-card{
+        flex-direction: column;
+    }
+}
