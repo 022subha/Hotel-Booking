@@ -45,7 +45,7 @@ const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
             </Link>
           ) : (
             <Link
-              to="/bookings"
+              to="/my-bookings"
               className="dash-user"
               onClick={() => setChecked(!checked)}
             >
