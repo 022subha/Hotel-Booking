@@ -10,6 +10,7 @@ import AddRooms from "./pages/Admin/AddRooms/AddRooms";
 import Login from "./pages/Auth/Login/Login";
 import Register from "./pages/Auth/Register/Register";
 import Home from "./pages/Home/Home";
+import MyBookings from "./pages/MyBookings/MyBookings";
 import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
@@ -77,6 +78,7 @@ function App() {
                 </>
               }
             />
+            <Route path="/my-bookings" element={<MyBookings />} />
             <Route
               path="/rooms"
               element={
