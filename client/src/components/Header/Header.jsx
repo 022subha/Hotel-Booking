@@ -36,10 +36,7 @@ const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
             <Link
               to="/admin/dashboard"
               className="dash-user"
-              onClick={() => {
-                setChecked(!checked)
-                handleProfileClick()
-              }}
+              onClick={() => setChecked(false)}
             >
               <span>
                 <ion-icon name="grid"></ion-icon>
@@ -50,10 +47,7 @@ const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
             <Link
               to="/my-bookings"
               className="dash-user"
-              onClick={() => {
-                setChecked(!checked)
-                handleProfileClick()
-              }}
+              onClick={() => setChecked(false)}
             >
               <span>
                 <ion-icon name="bed"></ion-icon>
@@ -65,7 +59,7 @@ const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
             <span>
               <ion-icon
                 name="log-out"
-                style={{ color:"rgb(248, 145, 145)", fontSize: "2rem" }}
+                style={{ color: "rgb(248, 145, 145)", fontSize: "2rem" }}
               ></ion-icon>
             </span>
             <span>Logout</span>
@@ -110,10 +104,7 @@ const ProfilePicdtl2 = ({ user, handleLogout, checked, setChecked }) => {
               <Link
                 to="/admin/dashboard"
                 className="dash-user"
-                onClick={() => {
-                  setChecked(!checked)
-                  handleProfileClick()
-                }}
+                onClick={(e) => handleProfileClick(e)}
               >
                 <span>
                   <ion-icon name="grid"></ion-icon>
@@ -124,10 +115,7 @@ const ProfilePicdtl2 = ({ user, handleLogout, checked, setChecked }) => {
               <Link
                 to="/my-bookings"
                 className="dash-user"
-                onClick={() => {
-                  setChecked(!checked)
-                  handleProfileClick()
-                }}
+                onClick={(e) => handleProfileClick(e)}
               >
                 <span>
                   <ion-icon name="bed"></ion-icon>
