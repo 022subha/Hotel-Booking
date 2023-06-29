@@ -90,7 +90,7 @@ function App() {
               }
             />
             <Route
-              path="/singlerooms"
+              path="/singlerooms/:id"
               element={
                 <>
                   <Header />

@@ -1,20 +1,65 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import "./SingleRooms.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { message } from "antd";
 export default function SingleRooms() {
+ const[singleRoom,setSingleRoom]=useState("");
+ const params=useParams();
+ const id=params.id;
+
+ const findRoomById=()=>{
+    axios.post(`${process.env.REACT_APP_API_URL}/api/room/getRoomById`,{
+      roomId:id,
+    })
+    .then((result)=>{
+      if(result.data.status)
+      {
+        setSingleRoom(result.data.roomDetails);
+        console.log(result.data.roomDetails);
+      }
+      else{
+        message.error(result.data.message);
+      }
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+ }
+
+ useEffect(() => {
+  if (id && !singleRoom) {
+    findRoomById();
+  }
+}, [id, singleRoom]);
+
+
   return (
     <div className="singlerooms-container">
       <div className="mainsingle-container">
         <div className="img">
           <div className="img1">
-            <img src="/images/Rooms/Rooms2.webp" alt="" />
+          {singleRoom.images && singleRoom.images.length > 0 && (
+                <img src={singleRoom.images[0]} alt="" />
+              )}
           </div>
           <div className="img2">
             <div className="first-img">
-              <img src="/images/Rooms/Rooms2.webp" alt="" />
-              <img src="/images/Rooms/Rooms2.webp" alt="" />
-              <img src="/images/Rooms/Rooms2.webp" alt="" />
-              <img src="/images/Rooms/Rooms2.webp" alt="" />
-              <img src="/images/Rooms/Rooms2.webp" alt="" />
+            {singleRoom.images && singleRoom.images.length > 0 && (
+                <img src={singleRoom.images[0]} alt="" />
+              )}
+              {singleRoom.images && singleRoom.images.length > 0 && (
+                <img src={singleRoom.images[0]} alt="" />
+              )}
+              {singleRoom.images && singleRoom.images.length > 0 && (
+                <img src={singleRoom.images[0]} alt="" />
+              )}
+              {singleRoom.images && singleRoom.images.length > 0 && (
+                <img src={singleRoom.images[0]} alt="" />
+              )}
+             {singleRoom.images && singleRoom.images.length > 0 && (
+                <img src={singleRoom.images[0]} alt="" />
+              )}
             </div>
           </div>
         </div>
@@ -31,19 +76,27 @@ export default function SingleRooms() {
             <div className="desc1-part1">
               <h6>
                 "Capacity":
-                <span>Max-Person:5</span>
+                <span>Max-Person:{singleRoom?.capacity}</span>
               </h6>
             </div>
             <div className="desc1-part1">
               <h6>
                 "Bed":
-                <span>Kings bed</span>
+                <span>{singleRoom?.bedsize}</span>
               </h6>
             </div>
             <div className="desc1-part1">
               <h6>
                 "Services":
-                <span>Wifi,Television....</span>
+                {singleRoom.services && singleRoom.services.length > 0 && (
+                  <div className="services-box">
+                    {singleRoom.services.map((service, index) => (
+                      <div key={index} className="service-item">
+                        <span>{service}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </h6>
             </div>
           </div>

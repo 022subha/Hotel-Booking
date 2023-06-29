@@ -1,6 +1,8 @@
 import React, { useState,useEffect } from "react";
 import Card from "../../components/Card/Card";
 import "./Rooms.css";
+import axios from "axios";
+import {message} from 'antd';
 export default function Rooms() {
   const [toggleBed, setToggleBed] = useState(false);
   const[togglePrice,setTogglePrice]=useState(false);
@@ -8,6 +10,27 @@ export default function Rooms() {
   const[data2,setData2]=useState(0);
   const[SelectedOptions,setSelectedOptions]=useState([]);
   
+  const[RoomData,setRoomData]=useState([]);
+
+  const getAllRooms=()=>{
+    axios.get(`${process.env.REACT_APP_API_URL}/api/room/getAllRooms`)
+    .then((result)=>{
+      if(result.data.status)
+      {
+        console.log(result.data.rooms);
+        setRoomData(result.data.rooms);
+        console.log(RoomData);
+      }
+      else{
+        message.error(result.message);
+      }
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+  }
+
+
 
   const handleCheckBoxChange=(event)=>{
     const value=event.target.value;
@@ -39,34 +62,11 @@ export default function Rooms() {
    console.log(SelectedOptions);
  },[SelectedOptions])
 
-const data=[
-  {
-    price : "$100",
-    capacity :"2 guests",
-    bedSize : "Queen"
-  },
-  {
-    price : "$500",
-    capacity :"7 guests",
-    bedSize : "twin"
-  },
-  {
-    price : "$1000",
-    capacity :"4 guests",
-    bedSize : "King"
-  },
-  {
-    price : "$1500",
-    capacity :"3 guests",
-    bedSize : "California-King"
-  },
-  {
-    price : "$2000",
-    capacity :"10 guests",
-    bedSize : "Full"
-  },
+ useEffect(()=>{
+    if(!RoomData || RoomData.length === 0)
+     getAllRooms();
+ },[RoomData])
 
-]
 
   return (
     <div className="room-container">
@@ -97,9 +97,9 @@ const data=[
                   <input 
                   type="checkbox" 
                   id="option1" 
-                  value="twin" 
+                  value="twin-xl" 
                   onChange={(e)=>{handleCheckBoxChange(e)}}
-                  /> Twin
+                  /> Twin-xl
                 </li>
                 <li>
                   <input 
@@ -114,7 +114,7 @@ const data=[
                   <input 
                   type="checkbox" 
                   id="option1" 
-                  value="Queen" 
+                  value="queen" 
                   onChange={(e)=>{handleCheckBoxChange(e)}}
                   />
                   Queen
@@ -198,17 +198,18 @@ const data=[
       </div>
 
       <div className="card-container">
-        {data.map((data)=>{
-          const{price,capacity,bedSize}=data;
-          const numericPrice = parseInt(price.substring(1)); // Convert price to a number
+        {RoomData?.map((data)=>{
+          const{price,capacity,bedsize}=data;
+          console.log(data);
+          // const numericPrice = parseInt(price.substring(1)); // Convert price to a number
 
           const isValid =
-            numericPrice >= parseInt(data1) &&
-            numericPrice <= parseInt(data2) &&
-            SelectedOptions.includes(bedSize);
+           price >= parseInt(data1) &&
+            price <= parseInt(data2) &&
+            SelectedOptions.includes(bedsize);
           if(isValid)
           {
-            return <Card price={data.price} capacity={data.capacity} size={data.bedSize}/>
+            return <Card price={data.price} capacity={data.capacity} size={data.bedsize} image={data.images} services={data.services} id={data._id}/>
             
           }
 

@@ -93,7 +93,7 @@ export const editRoomById=async(req,res)=>{
 export const getRoomById=async(req,res)=>{
   const roomId=req.body.roomId;
   try{
-     let roomDetails=await roomModel.findOne({_id,roomId});
+     let roomDetails=await roomModel.findOne({_id:roomId});
      return res.status(200)
      .json({
       status:true,

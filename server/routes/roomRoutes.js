@@ -1,10 +1,15 @@
 import express from "express";
-import { addRooms, getAllRooms,editRoomById, getRoomById } from "../controllers/roomController.js";
+import {
+  addRooms,
+  getAllRooms,
+  editRoomById,
+  getRoomById,
+} from "../controllers/roomController.js";
 import { authMiddleware } from "../middlewares/adminAuth.js";
 const router = express.Router();
 
-router.post("/add-rooms", authMiddleware,addRooms);
-router.get("/getAllRooms",authMiddleware,getAllRooms);
-router.post("/editRoom/:id",authMiddleware,editRoomById);
-router.post("/getRoomById/:id",getRoomById)
+router.post("/add-rooms", addRooms);
+router.get("/getAllRooms", getAllRooms);
+router.post("/editRoom/:id", authMiddleware, editRoomById);
+router.post("/getRoomById", getRoomById);
 export default router;

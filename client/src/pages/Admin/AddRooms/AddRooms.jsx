@@ -32,7 +32,13 @@ export default function AddRooms() {
 
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/room/add-rooms`,
-        bodyContent
+        bodyContent,
+        {
+          headers:
+          {
+              "Authorization":"Bearer "+localStorage.getItem("token"),
+          }
+        }
       );
 
       const { status, message } = response.data;
