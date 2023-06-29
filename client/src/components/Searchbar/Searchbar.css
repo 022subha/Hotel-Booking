@@ -49,6 +49,7 @@ select {
   display: block;
   padding: 0.375rem 0.75rem;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
 .searchbar-main-area .searchbar-container form input[type="date"] {
@@ -64,5 +65,6 @@ select {
   color: #fff;
   background-color: #e70b53;
   border: none;
+  border-radius: 5px;
   margin: 10px;
 }

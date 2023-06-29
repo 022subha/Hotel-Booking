@@ -1,0 +1,24 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+  overflow: hidden;
+  background-color: #fafafa;
+  min-height: 100vh;
+  padding-left: 280px;
+  padding-top: 78px;
+}
+
+.main-content .body {
+  z-index: 1;
+  width: calc(100% - 150px);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 0;
+  }
+  .main-content .body {
+    width: calc(100% - 150px);
+  }
+}

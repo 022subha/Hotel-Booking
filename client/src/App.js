@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./components/Dashboard/Dashboard";
+import DashboardLayout from "./components/Dashboard/DashboardLayout.jsx";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner";
@@ -29,7 +29,8 @@ function App() {
         { token }
       );
       dispatch(hideLoading());
-      dispatch(setUser(response.data.user));
+      if (response.data.status) dispatch(setUser(response.data.user));
+      else localStorage.removeItem("token");
     } catch (error) {
       dispatch(hideLoading());
       console.log(error);
@@ -39,7 +40,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!user && token) getUser(token);
-  }, []);
+  });
 
   return (
     <>
@@ -107,7 +108,7 @@ function App() {
                 </>
               }
             />
-            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/dashboard" element={<DashboardLayout />} />
           </Routes>
         </BrowserRouter>
       )}

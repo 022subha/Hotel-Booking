@@ -1,0 +1,143 @@
+.dashboard-navbar-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  height: auto;
+  width: 100%;
+  box-shadow: 12px 0 12px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  animation: unset;
+  padding: 0;
+}
+
+.dashboard-navbar-area .navbar {
+  padding: 0 30px;
+}
+
+.dashboard-navbar-area .navbar nav {
+  position: inherit;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-navbar-area .navbar nav .responsive-burgermenu {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.dashboard-navbar-area .navbar .nav-menu {
+  flex-grow: 1;
+  align-items: center;
+}
+
+.dashboard-navbar-area .navbar .nav-menu ul {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  margin-top: 0;
+  list-style-type: none;
+}
+
+.dashboard-navbar-area .navbar .nav-menu ul li {
+  position: relative;
+  margin: 0 20px;
+}
+
+.dashboard-navbar-area .navbar .nav-menu ul li a {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: block;
+  text-decoration: none;
+  outline: 0;
+}
+
+.dashboard-navbar-area .navbar .nav-menu .nav-profile-area {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.dashboard-navbar-area .navbar .nav-menu .nav-profile-area .nav-profile {
+  margin-left: 0;
+}
+
+.dashboard-navbar-area
+  .navbar
+  .nav-menu
+  .nav-profile-area
+  .nav-profile
+  .nav-profile-items {
+  position: relative;
+}
+
+.dashboard-navbar-area
+  .navbar
+  .nav-menu
+  .nav-profile-area
+  .nav-profile
+  .nav-profile-items
+  .menu-profile {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-navbar-area
+  .navbar
+  .nav-menu
+  .nav-profile-area
+  .nav-profile
+  .nav-profile-items
+  .menu-profile
+  ion-icon {
+  font-size: 1.7rem;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.dashboard-navbar-area
+  .navbar
+  .nav-menu
+  .nav-profile-area
+  .nav-profile
+  .nav-profile-items
+  .menu-profile
+  span {
+  font-size: 1.4rem;
+  margin-left: 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  color: #e81a5f;
+}
+
+@media (min-width: 768px) {
+  .dashboard-navbar-area {
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+  .dashboard-navbar-area .navbar nav {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+
+  .dashboard-navbar-area .navbar .nav-menu {
+    display: flex;
+    flex-basis: auto;
+  }
+
+  .dashboard-navbar-area .navbar .nav-menu ul {
+    flex-direction: row;
+  }
+
+  .dashboard-navbar-area .navbar nav .responsive-burgermenu {
+    display: none;
+  }
+}
