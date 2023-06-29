@@ -1,11 +1,13 @@
 import React from "react";
 import "./Card.css";
-export default function Card() {
+import { Link } from "react-router-dom";
+export default function Card({price,size,capacity,image,services,id}) {
+
   return (
     <div className="card-container">
       <div className="main-container">
         <div className="img">
-          <img src="/images/Rooms/Rooms1.webp" alt="" />
+          <img src={image[0]} alt="" />
         </div>
         <div className="description">
           <div className="header">
@@ -16,32 +18,28 @@ export default function Card() {
             </h2>
           </div>
           <div className="paisa">
-            <h4>400$/day</h4>
+            <h4>{price}</h4>
           </div>
           <div className="middle">
             <div className="size">
               <h3>
                 Size:
-                <span>30ft</span>
+                <span>{size}</span>
               </h3>
               <h3>
                 capacity:
-                <span>Max Person 5</span>
+                <span>Max Person {capacity}</span>
               </h3>
             </div>
             <div className="bed">
               <h3>
-                Bed:
-                <span>kings bed</span>
-              </h3>
-              <h3>
                 Services:
-                <span>Wifi,Television</span>
+                <span>{services}</span>
               </h3>
             </div>
           </div>
           <div className="footer">
-            <h3>View details--</h3>
+            <Link to={`/singlerooms/${id}`}>View details--</Link>
           </div>
         </div>
       </div>
