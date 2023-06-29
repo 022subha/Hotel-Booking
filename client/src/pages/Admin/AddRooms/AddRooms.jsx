@@ -1,7 +1,7 @@
 import { Avatar, message as msg } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
-import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
+import DashboardLayout from "../../../components/Dashboard/DashboardLayout";
 import "./AddRooms.css";
 
 export default function AddRooms() {

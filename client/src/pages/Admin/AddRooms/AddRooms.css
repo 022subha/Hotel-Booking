@@ -1,37 +1,39 @@
 .add-rooms-container {
   padding: 0 25px;
+  width: 100%;
 }
 .add-rooms-container .main-container {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .add-rooms-container .main-container .name {
-  width: 96%;
+  width: 100%;
   padding: 0 15px;
   margin-bottom: 25px;
 }
 
 .add-rooms-container .main-container .description {
-  width: 96%;
+  width: 100%;
   padding: 0 15px;
   margin-bottom: 25px;
 }
 
 .add-rooms-container .main-container .size {
-  width: 45%;
+  width: 49%;
   padding: 0 15px;
   margin-bottom: 25px;
 }
 
 .add-rooms-container .main-container .capacity {
-  width: 42%;
+  width: 45%;
   padding: 0 15px;
   margin-bottom: 25px;
 }
 
 .add-rooms-container .main-container .services {
-  width: 96%;
+  width: 100%;
   padding: 0 15px;
   margin-bottom: 25px;
 }
@@ -59,13 +61,13 @@
 }
 
 .add-rooms-container .main-container .images {
-  width: 45%;
+  width: 50%;
   padding: 0 15px;
   margin-bottom: 25px;
 }
 
 .add-rooms-container .main-container .preview {
-  width: 96%;
+  width: 100%;
   height: 70px;
   padding: 0 15px;
   margin-bottom: 25px;
@@ -176,18 +178,20 @@ select {
   margin-right: 4px;
 }
 
-/* .avatar .ant-avatar {
-  border-radius: 0;
-}
-.avatar {
-  display: flex;
-  flex-wrap: wrap;
-}
+@media (max-width: 1446px) {
+  .add-rooms-container .main-container .size {
+    width: 100%;
+  }
 
-.avatar .images1 {
-  flex-basis: 25%; 
-  padding: 5px;
-  box-sizing: border-box;
-  position: relative;
-  padding: 20px;
-} */
+  .add-rooms-container .main-container .capacity {
+    width: 100%;
+  }
+
+  .add-rooms-container .main-container .images {
+    width: 100%;
+  }
+
+  .add-rooms-container .main-container .price {
+    width: 100%;
+  }
+}
