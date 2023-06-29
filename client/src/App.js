@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DashboardLayout from "./components/Dashboard/DashboardLayout.jsx";
+import DashboardLayout from "./components/Dashboard/DashboardLayout";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner";
