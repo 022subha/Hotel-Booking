@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner";
 import AddRooms from "./pages/Admin/AddRooms/AddRooms";
+import Dashboard from "./pages/Admin/Dashboard/Dashboard.jsx";
 import Login from "./pages/Auth/Login/Login";
 import Register from "./pages/Auth/Register/Register";
 import Home from "./pages/Home/Home";
@@ -108,7 +109,7 @@ function App() {
                 </>
               }
             />
-            <Route path="/admin/dashboard" element={<DashboardLayout />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
           </Routes>
         </BrowserRouter>
       )}
