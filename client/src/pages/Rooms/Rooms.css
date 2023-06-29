@@ -20,6 +20,9 @@
   padding: 25px;
   margin-left: 80px;
 }
+.room-container .filter-container .second .head ion-icon{
+  margin-left: 40px;
+}
 
 .room-container .card-container {
   display: flex;
@@ -91,4 +94,13 @@ ion-icon{
   border: none;
   border-radius: 50%;
   cursor: pointer;
+}
+.price-options .val{
+  display: flex;
+  justify-content: flex-start;
+}
+.price-options .val .maxi{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }

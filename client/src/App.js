@@ -7,7 +7,6 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner";
 import AddRooms from "./pages/Admin/AddRooms/AddRooms";
-import Dashboard from "./pages/Admin/Dashboard/Dashboard.jsx";
 import Login from "./pages/Auth/Login/Login";
 import Register from "./pages/Auth/Register/Register";
 import Home from "./pages/Home/Home";
@@ -16,7 +15,7 @@ import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
-
+import AllRooms from "./pages/Admin/AllRooms/AllRooms";
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -109,7 +108,15 @@ function App() {
                 </>
               }
             />
-            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route
+              path="/admin/added-rooms"
+              element={
+                <>
+                  <AllRooms/>
+                </>
+              }
+            />
+            <Route path="/admin/dashboard" element={<DashboardLayout />} />
           </Routes>
         </BrowserRouter>
       )}

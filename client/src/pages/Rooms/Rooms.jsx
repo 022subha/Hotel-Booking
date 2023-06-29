@@ -105,7 +105,7 @@ export default function Rooms() {
                   <input 
                   type="checkbox" 
                   id="option1" 
-                  value="Full" 
+                  value="full" 
                   onChange={(e)=>{handleCheckBoxChange(e)}}
                   />
                   Full
@@ -123,7 +123,7 @@ export default function Rooms() {
                   <input 
                   type="checkbox" 
                   id="option1" 
-                  value="King" 
+                  value="king" 
                   onChange={(e)=>{handleCheckBoxChange(e)}}
                   />
                   King
@@ -132,7 +132,7 @@ export default function Rooms() {
                   <input 
                   type="checkbox" 
                   id="option1" 
-                  value="California-King" 
+                  value="california-king" 
                   onChange={(e)=>{handleCheckBoxChange(e)}}
                   />
                   california-King
@@ -168,7 +168,12 @@ export default function Rooms() {
           {togglePrice ? (
             <div className="price-options">
               <div className="val">
-                <div>Min:{data1} Max:{data2}</div>
+                <div className="mini">
+                    Min:{data1}
+                </div>
+                <div className="maxi">
+                   Max:{data2}
+                </div>
               </div>
               <div className="input">
               <input type="range" min='0' max='1000' steps='1' id='min' className="min" value={data1} onChange={(e)=>{setData1(e.target.value)}}></input>
