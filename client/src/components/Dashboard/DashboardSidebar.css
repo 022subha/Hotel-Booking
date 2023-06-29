@@ -1,0 +1,96 @@
+.sidemenu-area .sidemenu-body ul li .active-link {
+  color: #fff !important;
+  background: linear-gradient(
+    to right,
+    rgba(231, 11, 83, 1),
+    rgba(116, 0, 98, 1)
+  ) !important;
+  border-radius: 20px !important;
+}
+
+.sidemenu-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  z-index: 9999;
+  transition: 0.5s;
+}
+
+.sidemenu-area.open {
+  left: 0;
+}
+
+.sidemenu-area .sidemenu-logo {
+  padding: 0 20px;
+  border-bottom: 2px solid #f2f4f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 78px;
+  width: 100%;
+  transition: 0.5s;
+  background-color: white;
+}
+
+.sidemenu-area .sidemenu-logo img {
+  width: 100%;
+}
+
+.sidemenu-area .sidemenu-body {
+  position: relative;
+  max-height: calc(100%-80px);
+  height: 100%;
+  width: 250px;
+  padding: 0 20px;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1);
+  background: white;
+  overflow: hidden;
+}
+
+.sidemenu-area .sidemenu-body ul {
+  padding: 20px 0;
+  list-style-type: none;
+  margin-bottom: 0;
+  height: 100%;
+}
+
+.sidemenu-area .sidemenu-body ul li a {
+  color: #e7145b;
+  padding: 10px 20px 9px;
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+  text-decoration: none;
+  transition: 0.5s;
+  outline: none;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+
+.sidemenu-area .sidemenu-body ul li a:hover {
+  font-size: 1.8rem;
+  transform: translateX(-10px);
+  transition-duration: 0.5s;
+}
+
+.sidemenu-area .sidemenu-body ul li a .icon {
+  display: inline-block;
+  color: #e7145b;
+  margin-right: 5px;
+  font-size: 1.7rem;
+  position: relative;
+  top: 2px;
+  transition: 0.5s;
+  margin-right: 25px;
+}
+
+@media (max-width: 768px) {
+  .sidemenu-area {
+    left: -300px;
+  }
+}

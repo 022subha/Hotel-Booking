@@ -22,7 +22,7 @@ export const getUser = async (req, res) => {
     }
 
     return res.status(202).json({
-      status: true,
+      status: fasle,
     });
   } catch (error) {
     console.log(error);
