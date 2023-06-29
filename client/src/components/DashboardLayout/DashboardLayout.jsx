@@ -2,9 +2,9 @@ import { Avatar } from "antd";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import "./Dashboard.css";
+import "./DashboardLayout.css";
 
-export default function Dashboard({ children }) {
+export default function DashboardLayout({ children }) {
   const location = useLocation();
   const [sideBarActive, setSideBarActive] = useState(false);
   const { user } = useSelector((state) => state.user);
