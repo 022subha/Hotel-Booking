@@ -8,6 +8,17 @@
 
 .room-container .filter-container {
   width: 25%;
+  margin-top: 40px;
+  border: none;
+  margin-left: 40px;
+}
+.room-container .filter-container .head{
+  display: flex;
+}
+.room-container .filter-container .head ion-icon{
+  font-size: 20px;
+  padding: 25px;
+  margin-left: 80px;
 }
 
 .room-container .card-container {
@@ -15,4 +26,69 @@
   flex-direction: column;
   width: 75%;
   align-items: center;
+}
+.bed-options ul li{
+  list-style-type: none;
+}
+
+.room-container .filter-container .third .range{
+ display: flex;
+ margin: 10px 10px;
+}
+.room-container .filter-container .third .range input{
+  padding: 10px;
+  margin: 0px 10px;
+}
+ion-icon{
+  cursor: pointer;
+}
+.val {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input input {
+  margin: 0;
+}
+
+
+.min,
+.max {
+  width: 300px;
+  -webkit-appearance: none;
+  background: linear-gradient(to right, #e8e8e8, #888);
+  height: 5px;
+  border-radius: 5px;
+  outline: none;
+  margin: 0 10px;
+}
+
+.min::-webkit-slider-thumb,
+.max::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #888;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.min::-moz-range-thumb,
+.max::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #888;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
 }
