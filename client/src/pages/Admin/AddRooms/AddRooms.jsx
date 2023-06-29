@@ -1,7 +1,7 @@
 import { Avatar, message as msg } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
-import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
+import Dashboard from "../../../components/Dashboard/Dashboard";
 import "./AddRooms.css";
 
 export default function AddRooms() {
@@ -78,7 +78,7 @@ export default function AddRooms() {
   };
 
   return (
-    <DashboardLayout>
+    <Dashboard>
       <div className="add-rooms-container">
         <div className="main-container">
           <div className="name">
@@ -232,6 +232,6 @@ export default function AddRooms() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </Dashboard>
   );
 }

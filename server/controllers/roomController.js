@@ -1,41 +1,33 @@
-import roomModel from "../models/roomModel.js";
 import cloudinary from "cloudinary";
+import roomModel from "../models/roomModel.js";
 
 export const addRooms = async (req, res) => {
   try {
-    const {
-      Name,
-      Size,
-      Capacity,
-      Bedsize,
-      Services,
-      Description,
-      Location,
-      Price,
-      Image,
-    } = req.body;
+    console.log(req.body);
+    const { name, bedsize, capacity, services, description, price } = req.body;
 
-    if (req.files && req.files.Image) {
-      const uploadPromises = req.files.Image.map((file) => {
-        return cloudinary.v2.uploader.upload(file.tempFilePath, {
-          folder: "HotelRooms",
-        });
-      });
+    const results = [];
+    if (req.files && req.files.images) {
+      for (let i = 0; i < req.files.images.length; i++) {
+        const imageData = await cloudinary.v2.uploader.upload(
+          req.files.images[i].tempFilePath,
+          {
+            folder: "HotelRooms",
+          }
+        );
 
-      const results = await Promise.all(uploadPromises);
-      // Process the uploaded images or store the results as needed
+        results.push(imageData.secure_url);
+      }
     }
 
     const room = new roomModel({
-      Name,
-      Size,
-      Capacity,
-      Bedsize,
-      Services,
-      Description,
-      Location,
-      Price,
-      Image: results.secure_url,
+      name,
+      bedsize,
+      capacity,
+      services,
+      description,
+      price,
+      images: results,
     });
     await room.save();
     return res
