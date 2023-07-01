@@ -34,10 +34,9 @@ export default function AddRooms() {
         `${process.env.REACT_APP_API_URL}/api/room/add-rooms`,
         bodyContent,
         {
-          headers:
-          {
-              "Authorization":"Bearer "+localStorage.getItem("token"),
-          }
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
         }
       );
 
@@ -185,6 +184,16 @@ export default function AddRooms() {
               </li>
             </ul>
           </div>
+          <div className="price">
+            <p>Price:</p>
+            <input
+              type="number"
+              placeholder="Enter Price"
+              onChange={(e) => {
+                setPrice(e.target.value);
+              }}
+            />
+          </div>
           <div className="images">
             <p>Images:</p>
             <input
@@ -196,16 +205,6 @@ export default function AddRooms() {
             />
           </div>
 
-          <div className="price">
-            <p>Price:</p>
-            <input
-              type="number"
-              placeholder="Enter Price"
-              onChange={(e) => {
-                setPrice(e.target.value);
-              }}
-            />
-          </div>
           <div className="preview">
             {imagePrev.map((image, index) => {
               return (

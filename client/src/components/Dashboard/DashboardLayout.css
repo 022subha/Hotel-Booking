@@ -5,20 +5,19 @@
   overflow: hidden;
   background-color: #fafafa;
   min-height: 100vh;
-  padding-left: 280px;
+  padding-left: 290px;
   padding-top: 78px;
+  width: calc(100% - 290px);
 }
 
 .main-content .body {
   z-index: 1;
-  width: calc(100% - 150px);
+  width: 100%;
 }
 
 @media (max-width: 768px) {
   .main-content {
     padding-left: 0;
-  }
-  .main-content .body {
-    width: calc(100% - 150px);
+    width: 100%;
   }
 }
