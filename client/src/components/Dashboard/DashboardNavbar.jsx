@@ -18,9 +18,9 @@ export default function DashboardNavbar({ openSidebar }) {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/rooms">Rooms</Link>
-              </li>
+              </li> */}
             </ul>
             <div className="nav-profile-area">
               <div className="nav-profile">

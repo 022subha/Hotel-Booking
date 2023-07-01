@@ -1,11 +1,9 @@
 .add-rooms-container {
-  padding: 0 25px;
-  width: 100%;
+  padding: 0 30px;
 }
 .add-rooms-container .main-container {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .add-rooms-container .main-container .name {
@@ -61,7 +59,7 @@
 }
 
 .add-rooms-container .main-container .images {
-  width: 50%;
+  width: 45;
   padding: 0 15px;
   margin-bottom: 25px;
 }
@@ -93,10 +91,9 @@
 
 .add-rooms-container .main-container .price {
   position: relative;
-  width: 100%;
+  width: 49%;
   padding: 0 15px;
   margin-bottom: 25px;
-  flex: 0 0 42%;
 }
 
 .add-rooms-container .main-container .btn {
@@ -129,6 +126,7 @@
   border-radius: 5px;
   padding-left: 15px;
   padding-right: 15px;
+  box-sizing: border-box;
 }
 
 .add-rooms-container .main-container input[type="file"] {
@@ -142,6 +140,7 @@
   border-radius: 5px;
   padding: 0 15px;
   line-height: 1.5;
+  box-sizing: border-box;
 }
 
 .add-rooms-container .main-container input,
@@ -156,6 +155,7 @@ select {
   border-radius: 5px;
   padding: 0 15px;
   line-height: 1.5;
+  box-sizing: border-box;
 }
 
 .add-rooms-container .main-container p {
