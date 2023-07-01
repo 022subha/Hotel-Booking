@@ -1,0 +1,72 @@
+.header{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.header .img{
+    width: 240px;
+    height: 140px;
+}
+.header .bed{
+    width: 160px;
+}
+.header .fac{
+    width: 140px;
+}
+.header .price{
+    width: 140px;
+}
+.header .max{
+    width: 140px;
+}
+.all-rooms{
+    display: flex;
+    padding: 30px;
+}
+.all-rooms .all-room-img{
+    width: 900px;
+}
+.all-rooms .all-room-img img{
+    width: 100%;
+    width: 280px;
+    height: 140px;
+    border: 26px;
+}
+.all-rooms .allroom-bedsize{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 160px;
+    margin-left: 80px;
+    font-size: 20px;
+    color: rgb(57, 55, 55);
+}
+.all-rooms .allroom-facility{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 140px;
+    margin-left: 80px;
+    font-size: 20px;
+    color: rgb(58, 56, 56);
+}
+
+.all-rooms .allroom-price{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 140px;
+    margin-left: 180px;
+    font-size: 20px;
+    color: rgb(127, 121, 121);
+}
+.all-rooms .allroom-capacity{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 140px;
+    margin-left: 100px;
+    font-size: 20px;
+    color: rgb(127, 121, 121);
+}
