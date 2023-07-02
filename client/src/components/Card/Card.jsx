@@ -12,9 +12,7 @@ export default function Card({price,size,capacity,image,services,id}) {
         <div className="description">
           <div className="header">
             <h2>
-              <span>Room </span>
-              <span>View </span>
-              <span>sea</span>
+              <h5>Room View Sea</h5>
             </h2>
           </div>
           <div className="paisa">

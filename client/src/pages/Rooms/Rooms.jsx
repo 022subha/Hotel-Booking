@@ -7,9 +7,8 @@ export default function Rooms() {
   const [toggleBed, setToggleBed] = useState(false);
   const[togglePrice,setTogglePrice]=useState(false);
   const[data1,setData1]=useState(0);
-  const[data2,setData2]=useState(0);
-  const[SelectedOptions,setSelectedOptions]=useState([]);
-  
+  const[data2,setData2]=useState(2000);
+  const[SelectedOptions,setSelectedOptions]=useState(["twin-xl","full","king","queen","california-king"]);
   const[RoomData,setRoomData]=useState([]);
 
   const getAllRooms=()=>{
@@ -29,23 +28,25 @@ export default function Rooms() {
       console.log(error);
     })
   }
-
-
-
-  const handleCheckBoxChange=(event)=>{
-    const value=event.target.value;
-    const isChecked=event.target.checked;
-   
-    if(isChecked)
-    {
-       setSelectedOptions([...SelectedOptions,value]);
-    }
-    else{
-      const updatedValues=SelectedOptions.filter((option)=>{return(option!==value)});
-      setSelectedOptions(updatedValues);
-    }
-
-  }
+  const handleCheckBoxChange = (event) => {
+    const checkboxValue = event.target.value;
+    const isChecked = event.target.checked;
+  
+    setSelectedOptions((prevSelectedOptions) => {
+      if (isChecked) {
+        if (prevSelectedOptions.length === 5) {
+          return [checkboxValue];
+        } else {
+          return [...prevSelectedOptions, checkboxValue];
+        }
+      } else {
+        return prevSelectedOptions.filter((option) => option !== checkboxValue);
+      }
+    });
+  };
+  
+  
+  
 
   const handleToggleBed = () => {
     setToggleBed(!toggleBed);
@@ -143,6 +144,7 @@ export default function Rooms() {
             <div></div>
           )}
         </div>
+        
 
 
 
@@ -185,8 +187,12 @@ export default function Rooms() {
             <div></div>
           )}
           <div/>
+           
 
-          <div className="third">
+
+        </div>
+        
+        <div className="third">
             <h2>Date Range: </h2>
             <div className="range">
             <div className="entry">
@@ -197,9 +203,6 @@ export default function Rooms() {
             </div>
             </div>
           </div>
-
-
-        </div>
       </div>
 
       <div className="card-container">

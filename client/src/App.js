@@ -16,6 +16,7 @@ import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
 import AllRooms from "./pages/Admin/AllRooms/AllRooms";
+import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -113,6 +114,14 @@ function App() {
               element={
                 <>
                   <AllRooms/>
+                </>
+              }
+            />
+             <Route
+              path="/admin/edit-room/:id"
+              element={
+                <>
+                 <EditRoom/>
                 </>
               }
             />

@@ -22,15 +22,15 @@
 }
 .all-rooms{
     display: flex;
-    padding: 30px;
+   padding: 30px;
+   align-items: center;
 }
 .all-rooms .all-room-img{
-    width: 900px;
+    width: 500px;
+    border-radius: 20px;
 }
 .all-rooms .all-room-img img{
-    width: 100%;
     width: 280px;
-    height: 140px;
     border: 26px;
 }
 .all-rooms .allroom-bedsize{
@@ -69,4 +69,18 @@
     margin-left: 100px;
     font-size: 20px;
     color: rgb(127, 121, 121);
+}
+.edit-delete{
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+    margin-left: 50px;
+
+}
+.edit-delete ion-icon{
+    font-size: 20px;
+    justify-content: space-around;
+    justify-content: flex-end;
+    color: rgb(255, 0, 0);
 }

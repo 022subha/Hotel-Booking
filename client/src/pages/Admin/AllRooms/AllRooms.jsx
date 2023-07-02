@@ -4,14 +4,20 @@ import Dashboard from '../../../components/Dashboard/DashboardLayout';
 import { message } from 'antd';
 import './AllRooms.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { hideLoading, showLoading } from "../../../redux/features/spinnerSlice";
 import { Carousel } from "react-responsive-carousel";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 export default function AllRooms() {
+  const navigate=useNavigate();
     const[Rooms,setRooms]=useState();
-
+    const dispatch=useDispatch();
 
     const getAllRooms=()=>{
+        dispatch(showLoading);
         axios.get(`${process.env.REACT_APP_API_URL}/api/room/getAllRooms`)
         .then((result)=>{
+          dispatch(hideLoading);
           if(result.data.status)
           {
             console.log(result.data.rooms);
@@ -22,9 +28,38 @@ export default function AllRooms() {
           }
         })
         .catch((error)=>{
+          dispatch(hideLoading);
           console.log(error);
         })
       }
+    
+      const handleDelete = (id) => {
+        dispatch(showLoading);
+        axios
+          .delete(`${process.env.REACT_APP_API_URL}/api/room/deleteById`, {
+            data: {
+              RoomId: id,
+            },
+          })
+          .then((result) => {
+            dispatch(hideLoading);
+            if (result.data.status) {
+              console.log(result.data.message);
+              message.success(result.data.message);
+              console.log(result.data.updatedRooms);
+            } else {
+              message.error(result.data.error);
+            }
+          })
+          .catch((error) => {
+            dispatch(hideLoading);
+            console.log(error);
+          });
+      };
+      
+    const handleCreate=(id)=>{
+       navigate(`/admin/edit-room/${id}`);
+    }
 
    useEffect(()=>{
     if(!Rooms || Rooms.length === 0)
@@ -74,6 +109,20 @@ export default function AllRooms() {
             </div>
             <div className="allroom-capacity">
                 {room?.capacity}
+            </div>
+            <div className="edit-delete">
+              <div className="ion-icon1">
+            <ion-icon 
+            name="create"
+            onClick={()=>{handleCreate(room._id)}}
+            ></ion-icon>
+            </div>
+            <div className="ion-icon2">
+            <ion-icon 
+            name="trash"
+            onClick={()=>{handleDelete(room._id)}}
+            ></ion-icon>
+            </div>
             </div>
             </div>
           </React.Fragment>

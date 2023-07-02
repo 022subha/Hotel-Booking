@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 import Booking from "../models/bookingModel.js";
 
-
 export const getUser = async (req, res) => {
   const { token } = req.body;
   try {
@@ -24,7 +23,7 @@ export const getUser = async (req, res) => {
     }
 
     return res.status(202).json({
-      status: fasle,
+      status: false,
     });
   } catch (error) {
     console.log(error);
@@ -102,7 +101,7 @@ export const login = async (req, res) => {
     const payload = {
       id: existingUser._id,
       expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
-      isAdmin:existingUser.isAdmin,
+      isAdmin: existingUser.isAdmin,
     };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET);
@@ -118,23 +117,18 @@ export const login = async (req, res) => {
   }
 };
 
-
-export const getAllBookings=async(req,res)=>{
-  try{
-    let bookings=await Booking.find({});
-    return res.status(200)
-    .json({
-      status:true,
-      message:"Bookings find successfully!!",
+export const getAllBookings = async (req, res) => {
+  try {
+    let bookings = await Booking.find({});
+    return res.status(200).json({
+      status: true,
+      message: "Bookings find successfully!!",
       bookings,
-    })
-    
-  }catch(error)
-  {
-    return res.status(501)
-    .json({
-      status:false,
-      message:"Internal Server error!!",
-    })
+    });
+  } catch (error) {
+    return res.status(501).json({
+      status: false,
+      message: "Internal Server error!!",
+    });
   }
-}
+};
