@@ -25,9 +25,12 @@
 .dashboard-navbar-area .navbar nav .responsive-burgermenu {
   cursor: pointer;
   transition: 0.5s;
+  font-size: 1.7rem;
 }
 
 .dashboard-navbar-area .navbar .nav-menu {
+  display: flex;
+  justify-content: space-between;
   flex-grow: 1;
   align-items: center;
 }
@@ -99,7 +102,7 @@
   .menu-profile
   ion-icon {
   font-size: 1.7rem;
-  margin-right: 30px;
+  margin-right: 1.7rem;
   cursor: pointer;
 }
 
@@ -112,7 +115,7 @@
   .menu-profile
   span {
   font-size: 1.4rem;
-  margin-left: 10px;
+  margin-left: 0.5rem;
   font-family: "Times New Roman", Times, serif;
   font-weight: 600;
   color: #e81a5f;

@@ -12,7 +12,7 @@ export default function DashboardSidebar({ sideBarActive }) {
       <div className="sidemenu-body">
         <ul>
           <li>
-            <NavLink to="/admin/dashboard" activeClassName="active-link" exact>
+            <NavLink to="/admin/dashboard" activeClassName="active">
               <span className="icon">
                 <ion-icon name="grid"></ion-icon>
               </span>
@@ -20,7 +20,7 @@ export default function DashboardSidebar({ sideBarActive }) {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/add-room" activeClassName="active-link" exact>
+            <NavLink to="/admin/add-room" activeClassName="active">
               <span className="icon">
                 <ion-icon name="add-circle"></ion-icon>
               </span>
@@ -28,11 +28,7 @@ export default function DashboardSidebar({ sideBarActive }) {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/admin/added-rooms"
-              activeClassName="active-link"
-              exact
-            >
+            <NavLink to="/admin/added-rooms" activeClassName="active">
               <span className="icon">
                 <ion-icon name="bed"></ion-icon>
               </span>
