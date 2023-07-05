@@ -16,6 +16,7 @@ import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
 import AllRooms from "./pages/Admin/AllRooms/AllRooms";
+import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -116,7 +117,7 @@ function App() {
                 </>
               }
             />
-            <Route path="/admin/dashboard" element={<DashboardLayout />} />
+            <Route path="/admin/dashboard" element={<Dashboard/>} />
           </Routes>
         </BrowserRouter>
       )}

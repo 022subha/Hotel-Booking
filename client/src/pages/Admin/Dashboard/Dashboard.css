@@ -1,0 +1,85 @@
+.admin-dashboard-container-fluid{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.admin-dashboard-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.admin-dashboard-row .admin-card{
+    margin:5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 300px; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    padding: 16px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.admin-dashboard-row .new-bookings{
+    background: linear-gradient(to right, rgb(89,188,255),rgb(89,213,255) );
+}
+.admin-dashboard-row .schedule-rooms{
+    background: linear-gradient(to right, rgb(74,218,148),rgb(84,242,151) );
+}
+.admin-dashboard-row .check-in{
+    background: linear-gradient(to right, rgb(253,189,105),rgb(255,222,129) );
+}
+.admin-dashboard-row .check-out{
+    background: linear-gradient(to right, rgb(255,114,91),rgb(255,189,122) );
+}
+.admin-dashboard-row .admin-card .card-title{
+    font-size: 30px;
+    font-weight:700;
+    margin-bottom: 8px;
+    color:#fff;
+  }
+.admin-dashboard-row .admin-card .card-content{
+    font-size: 16px;
+    margin-bottom: 16px;
+    color:#fff;
+  
+}
+.admin-two-charts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+.admin-two-charts .available-rooms-today{
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+
+    min-width: 250px;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.admin-two-charts .booked-rooms-today{
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    
+    min-width: 250px;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 10px;
+}
+@media screen and (max-width: 1600px){
+   
+}
