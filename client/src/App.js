@@ -7,15 +7,16 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner";
 import AddRooms from "./pages/Admin/AddRooms/AddRooms";
+import AllRooms from "./pages/Admin/AllRooms/AllRooms";
 import Login from "./pages/Auth/Login/Login";
 import Register from "./pages/Auth/Register/Register";
+import Error404 from "./pages/Error404/Error404";
 import Home from "./pages/Home/Home";
 import MyBookings from "./pages/MyBookings/MyBookings";
 import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
-import AllRooms from "./pages/Admin/AllRooms/AllRooms";
 import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 function App() {
   const dispatch = useDispatch();
@@ -126,6 +127,17 @@ function App() {
               }
             />
             <Route path="/admin/dashboard" element={<DashboardLayout />} />
+
+            <Route
+              path="/*"
+              element={
+                <>
+                  <Header />
+                  <Error404 />
+                  <Footer />
+                </>
+              }
+            />
           </Routes>
         </BrowserRouter>
       )}

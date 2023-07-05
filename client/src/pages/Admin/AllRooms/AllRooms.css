@@ -1,86 +1,98 @@
-.header{
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 20px;
-}
-.header .img{
-    width: 240px;
-    height: 140px;
-}
-.header .bed{
-    width: 160px;
-}
-.header .fac{
-    width: 140px;
-}
-.header .price{
-    width: 140px;
-}
-.header .max{
-    width: 140px;
-}
-.all-rooms{
-    display: flex;
-   padding: 30px;
-   align-items: center;
-}
-.all-rooms .all-room-img{
-    width: 500px;
-    border-radius: 20px;
-}
-.all-rooms .all-room-img img{
-    width: 280px;
-    border: 26px;
-}
-.all-rooms .allroom-bedsize{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    width: 160px;
-    margin-left: 80px;
-    font-size: 20px;
-    color: rgb(57, 55, 55);
-}
-.all-rooms .allroom-facility{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    width: 140px;
-    margin-left: 80px;
-    font-size: 20px;
-    color: rgb(58, 56, 56);
+.room-table {
+  border-spacing: 0px;
+  width: 100%;
+  padding: 10px 0;
+  font-family: "Courier New", Courier, monospace;
 }
 
-.all-rooms .allroom-price{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    width: 140px;
-    margin-left: 180px;
-    font-size: 20px;
-    color: rgb(127, 121, 121);
+.room-table th {
+  padding: 1.4em 0.75em;
+  vertical-align: top;
+  text-align: center;
+  color: white;
+  background-color: #e7145b;
+  border: 1px solid white;
 }
-.all-rooms .allroom-capacity{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    width: 140px;
-    margin-left: 100px;
-    font-size: 20px;
-    color: rgb(127, 121, 121);
-}
-.edit-delete{
-    margin-right: 10px;
-    display: flex;
-    justify-content: space-between;
-    width: 160px;
-    margin-left: 50px;
 
+.room-table th:first-child {
+  width: 150px;
 }
-.edit-delete ion-icon{
-    font-size: 20px;
-    justify-content: space-around;
-    justify-content: flex-end;
-    color: rgb(255, 0, 0);
+
+.room-table td {
+  border-bottom: 1px solid black;
+  padding: 0.75em;
+  vertical-align: center;
+  text-align: center;
+}
+
+.room-table tr:hover {
+  background-color: rgba(182, 184, 184, 0.232);
+}
+
+.room-table .room-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  margin: 0;
+}
+
+.room-table .room-image img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.room-table .room-edit-delete ion-icon {
+  font-size: 1.5rem;
+  padding: 0 10px;
+}
+
+.room-table .room-edit-delete ion-icon:last-child {
+  color: red;
+}
+
+.pagination-component {
+  text-align: center;
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 1060px) {
+  .room-table table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  .room-table tr {
+    border: 2px solid #e7145b;
+    border-radius: 10px;
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .room-table .room-image {
+    width: 100%;
+    box-sizing: border-box;
+
+    & img {
+      width: 80%;
+    }
+  }
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid white;
+  }
+
+  td {
+    border: none;
+    position: relative;
+  }
 }

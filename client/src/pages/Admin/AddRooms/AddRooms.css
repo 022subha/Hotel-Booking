@@ -164,15 +164,7 @@ select {
   margin-top: 60px;
 }
 
-.name p::before,
-.size p::before,
-.capacity p::before,
-.bed-size p::before,
-.services p::before,
-.description p::before,
-.images p::before,
-.location p::before,
-.price p::before {
+.add-rooms-container .main-container p::before {
   content: "*";
   color: red;
   margin-right: 4px;
