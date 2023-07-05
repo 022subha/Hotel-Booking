@@ -1,0 +1,67 @@
+.error404-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+.error404-container .image {
+  width: 50%;
+}
+
+.error404-container .image img {
+  width: 100%;
+}
+
+.error404-container .details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.error404-container .details span {
+  padding: 1rem;
+  background-color: rgb(209, 201, 201);
+  border-radius: 20px;
+  font-size: 1.5rem;
+}
+
+.error404-container .details h3 {
+  font-size: 2.2rem;
+}
+
+.error404-container .details p {
+  font-size: 1.1rem;
+  margin: 0;
+  margin-bottom: 0.8rem;
+}
+
+.error404-container .details button {
+  padding: 1rem 1.5rem;
+  background-color: #e70b53;
+  border-radius: 15px;
+  color: white;
+  font-family: cursive;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1050px) {
+  .error404-container {
+    flex-direction: column;
+  }
+
+  .error404-container .image {
+    width: 100%;
+  }
+
+  .error404-container .details {
+    align-items: center;
+  }
+}

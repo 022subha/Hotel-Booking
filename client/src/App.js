@@ -7,16 +7,21 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner";
 import AddRooms from "./pages/Admin/AddRooms/AddRooms";
+import AllRooms from "./pages/Admin/AllRooms/AllRooms";
 import Login from "./pages/Auth/Login/Login";
 import Register from "./pages/Auth/Register/Register";
+import Error404 from "./pages/Error404/Error404";
 import Home from "./pages/Home/Home";
 import MyBookings from "./pages/MyBookings/MyBookings";
 import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
+<<<<<<< HEAD
 import AllRooms from "./pages/Admin/AllRooms/AllRooms";
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
+=======
+>>>>>>> 4aff71f563da22dcca10b9f5c19645db10e5d5c2
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -113,11 +118,26 @@ function App() {
               path="/admin/added-rooms"
               element={
                 <>
-                  <AllRooms/>
+                  <AllRooms />
                 </>
               }
             />
+<<<<<<< HEAD
             <Route path="/admin/dashboard" element={<Dashboard/>} />
+=======
+            <Route path="/admin/dashboard" element={<DashboardLayout />} />
+
+            <Route
+              path="/*"
+              element={
+                <>
+                  <Header />
+                  <Error404 />
+                  <Footer />
+                </>
+              }
+            />
+>>>>>>> 4aff71f563da22dcca10b9f5c19645db10e5d5c2
           </Routes>
         </BrowserRouter>
       )}
