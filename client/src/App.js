@@ -17,11 +17,8 @@ import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
-<<<<<<< HEAD
 import AllRooms from "./pages/Admin/AllRooms/AllRooms";
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
-=======
->>>>>>> 4aff71f563da22dcca10b9f5c19645db10e5d5c2
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
