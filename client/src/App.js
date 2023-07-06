@@ -20,6 +20,7 @@ import { setUser } from "./redux/features/userSlice";
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 
 
+import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -95,7 +96,7 @@ function App() {
               }
             />
             <Route
-              path="/singlerooms/:id"
+              path="/singlerooms"
               element={
                 <>
                   <Header />
@@ -121,6 +122,14 @@ function App() {
               }
             />
             <Route path="/admin/dashboard" element={<Dashboard/>} />
+            <Route
+              path="/admin/edit-room/:id"
+              element={
+                <>
+                  <EditRoom />
+                </>
+              }
+            />
             <Route path="/admin/dashboard" element={<DashboardLayout />} />
 
             <Route
