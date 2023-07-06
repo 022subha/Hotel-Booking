@@ -93,7 +93,7 @@ function App() {
               }
             />
             <Route
-              path="/singlerooms/:id"
+              path="/singlerooms"
               element={
                 <>
                   <Header />
@@ -114,15 +114,15 @@ function App() {
               path="/admin/added-rooms"
               element={
                 <>
-                  <AllRooms/>
+                  <AllRooms />
                 </>
               }
             />
-             <Route
+            <Route
               path="/admin/edit-room/:id"
               element={
                 <>
-                 <EditRoom/>
+                  <EditRoom />
                 </>
               }
             />

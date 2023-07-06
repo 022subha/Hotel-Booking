@@ -1,8 +1,15 @@
 import React from "react";
 import "./Card.css";
 import { Link } from "react-router-dom";
-export default function Card({price,size,capacity,image,services,id}) {
-
+import { useNavigate } from "react-router-dom";
+export default function Card({price,size,capacity,image,services,id,checkinDate,checkoutDate}) {
+  const navigate=useNavigate();
+  
+ const handleDetails=(e)=>{
+  e.preventDefault();
+  const queryParams=new URLSearchParams({checkinDate,checkoutDate,id,price,capacity});
+    navigate(`/singlerooms?${queryParams.toString()}`)
+ }
   return (
     <div className="card-container">
       <div className="main-container">
@@ -37,7 +44,7 @@ export default function Card({price,size,capacity,image,services,id}) {
             </div>
           </div>
           <div className="footer">
-            <Link to={`/singlerooms/${id}`}>View details--</Link>
+            <span onClick={(e)=>{handleDetails(e)}}>View-Details</span>
           </div>
         </div>
       </div>

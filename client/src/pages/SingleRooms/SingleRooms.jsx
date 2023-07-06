@@ -1,69 +1,122 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./SingleRooms.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
+import { Carousel } from "react-responsive-carousel";
+import { useLocation } from "react-router-dom";
 export default function SingleRooms() {
- const[singleRoom,setSingleRoom]=useState("");
- const params=useParams();
- const id=params.id;
+  const [singleRoom, setSingleRoom] = useState("");
 
- const findRoomById=()=>{
-    axios.post(`${process.env.REACT_APP_API_URL}/api/room/getRoomById`,{
-      roomId:id,
-    })
-    .then((result)=>{
-      if(result.data.status)
-      {
-        setSingleRoom(result.data.roomDetails);
-        console.log(result.data.roomDetails);
-      }
-      else{
-        message.error(result.data.message);
-      }
-    })
-    .catch((error)=>{
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get('id');
+  const entryDate=searchParams.get('checkinDate');
+  const exitDate=searchParams.get('checkoutDate');
+  const price=searchParams.get('price');
+  const capacity=searchParams.get('capacity');
+  const date1=new Date(entryDate);
+  const date2=new Date(exitDate);
+  console.log(price);
+
+  const findRoomById = () => {
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/room/getRoomById`, {
+        roomId: id,
+      })
+      .then((result) => {
+        if (result.data.status) {
+          setSingleRoom(result.data.roomDetails);
+          console.log(result.data.roomDetails);
+        } else {
+          message.error(result.data.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  //for making payment
+  const checkoutHandler = async (e, amount) => {
+    console.log(amount);
+    e.preventDefault();
+    try {
+      const response1 = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/payment/get-key`
+      );
+      const response2 = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/payment/checkout`,
+        {
+          amount,
+        }
+      );
+      console.log(response1);
+      const { key } = response1.data;
+      const { order } = response2.data;
+
+      const option = {
+        key,
+        amount: order.amount,
+        currency: "INR",
+        name: "StayEasy",
+        description: "Payment for Room Booking",
+        image: "/images/favicon.svg",
+        order_id: order.id,
+        callback_url: `${process.env.REACT_APP_API_URL}/api/payment/payment-verification`,
+        prefill: {
+          name: "StayEasy",
+          email: "stayeasy@gmail.com",
+          contact: "9865541789",
+        },
+        notes: { address: "Botanical Garden Area, Howrah, West Bengal 711103" },
+        theme: { color: "#e70b53" },
+        handler: async (response) => {
+          try {
+            console.log(response);
+          } catch (error) {
+            console.log(error);
+          }
+        },
+      };
+      const razor = window.Razorpay(option);
+      razor.open();
+    } catch (error) {
       console.log(error);
-    })
- }
+    }
+  };
 
- useEffect(() => {
-  if (id && !singleRoom) {
-    findRoomById();
-  }
-}, [id, singleRoom]);
-
+  useEffect(() => {
+    if (id && !singleRoom) {
+      findRoomById();
+    }
+  }, [id, singleRoom]);
 
   return (
     <div className="singlerooms-container">
+      <div className="img">
+       {singleRoom.images && singleRoom.images.length > 0 &&  
+       <Carousel 
+          showThumbs={false}
+          selectedItem={0}
+          showStatus={false}
+          autoPlay
+          interval={1000}
+          infiniteLoop={false}
+          showIndicators={false}
+          showArrows={true}
+        >
+              {
+               singleRoom.images.map((image)=>{
+                  return(
+                    <img src={image} alt="" />
+                  )
+               })
+                
+              }
+        </Carousel>}
+      </div>
       <div className="mainsingle-container">
-        <div className="img">
-          <div className="img1">
-          {singleRoom.images && singleRoom.images.length > 0 && (
-                <img src={singleRoom.images[0]} alt="" />
-              )}
-          </div>
-          <div className="img2">
-            <div className="first-img">
-            {singleRoom.images && singleRoom.images.length > 0 && (
-                <img src={singleRoom.images[0]} alt="" />
-              )}
-              {singleRoom.images && singleRoom.images.length > 0 && (
-                <img src={singleRoom.images[0]} alt="" />
-              )}
-              {singleRoom.images && singleRoom.images.length > 0 && (
-                <img src={singleRoom.images[0]} alt="" />
-              )}
-              {singleRoom.images && singleRoom.images.length > 0 && (
-                <img src={singleRoom.images[0]} alt="" />
-              )}
-             {singleRoom.images && singleRoom.images.length > 0 && (
-                <img src={singleRoom.images[0]} alt="" />
-              )}
-            </div>
-          </div>
-        </div>
-
         <div className="description">
           {/* description1 */}
           <div className="desc1-container">
@@ -285,6 +338,46 @@ export default function SingleRooms() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="button-single">
+          <div className="date">
+            <div className="entry">
+            {date1.toLocaleDateString("en-US", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+            </div>
+            <div className="exit">
+            {date2.toLocaleDateString("en-US", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+            </div>
+          </div>
+          <div className="capacity">
+          <span className="cap1">Capacity</span>
+            <span className="val1">{capacity}</span>
+          </div>
+          <div className="price-alltax">
+           <div className="savings">
+            <span className="des1">Your Savings</span>
+            <span className="amo1">$0</span>
+           </div>
+           <div className="price">
+            <span className="des2">Total Price</span>
+            <span className="amo2">${price}</span>
+           </div>
+          </div>
+          <button
+            type="submit"
+            onClick={(e) => {
+              checkoutHandler(e, 100);
+            }}
+          >
+            Booking-Now
+          </button>
         </div>
       </div>
     </div>
