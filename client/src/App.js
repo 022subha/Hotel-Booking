@@ -17,6 +17,9 @@ import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
+import Dashboard from "./pages/Admin/Dashboard/Dashboard";
+
+
 import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 function App() {
   const dispatch = useDispatch();
@@ -118,6 +121,7 @@ function App() {
                 </>
               }
             />
+            <Route path="/admin/dashboard" element={<Dashboard/>} />
             <Route
               path="/admin/edit-room/:id"
               element={

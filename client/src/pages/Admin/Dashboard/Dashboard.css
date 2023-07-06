@@ -1,0 +1,226 @@
+/* *{
+    background-color: rgba(0,0,255,0.2)!important;
+} */
+.admin-dashboard-container-fluid{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.admin-dashboard-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.admin-dashboard-row .admin-card{
+    margin:5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 300px; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    padding: 16px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.admin-dashboard-row .new-bookings{
+    background: linear-gradient(to right, rgb(89,188,255),rgb(89,213,255) );
+}
+.admin-dashboard-row .schedule-rooms{
+    background: linear-gradient(to right, rgb(74,218,148),rgb(84,242,151) );
+}
+.admin-dashboard-row .check-in{
+    background: linear-gradient(to right, rgb(253,189,105),rgb(255,222,129) );
+}
+.admin-dashboard-row .check-out{
+    background: linear-gradient(to right, rgb(255,114,91),rgb(255,189,122) );
+}
+.admin-dashboard-row .admin-card .card-title{
+    font-size: 30px;
+    font-weight:700;
+    margin-bottom: 8px;
+    color:#fff;
+  }
+.admin-dashboard-row .admin-card .card-content{
+    font-size: 16px;
+    margin-bottom: 16px;
+    color:#fff;
+  
+}
+.admin-two-charts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-items: stretch;
+    justify-content: space-evenly;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.admin-two-charts .available-rooms-today{
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    min-width: 250px;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.admin-two-charts .available-rooms-today .donut-chart{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.admin-two-charts .available-rooms-today .art-title{
+    font-size: 30px;
+    font-weight:700;
+    margin:10px;
+}
+
+.admin-two-charts .booked-rooms-today{
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    
+    min-width: 250px;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 10px;
+}
+.admin-two-charts .booked-rooms-today .brt-name{
+    font-weight: 500;
+}
+.check-in-check-out-chart{
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    margin:40px;
+    background-color: #fff;
+    padding:20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.check-in-check-out-chart .check{
+    flex-grow: 1;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.check-in-check-out-chart .check .desc .check-val{
+    font-size: 30px;
+    font-weight:700;
+    margin:10px;
+    margin-left:0;
+}
+.reservation-statistics-chart{
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    margin:20px;
+    background-color: #fff;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:400px;
+}
+.reservation-statistics-chart .res-stat-title{
+    align-self: flex-start;
+    padding: 10px;
+    margin: 10px;
+}
+.customer-reviews-card{
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    margin:10px;
+    background-color: #fff;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.customer-reviews-card .cust-rev-title{
+    margin: 10px;
+    font-weight: 600;
+    align-self: stretch;
+}
+.customer-reviews-card .cust-review{
+    display: flex;
+    flex-direction: row;
+    padding:10px;
+    border-bottom: 1px solid #aaa;
+}
+.customer-reviews-card .cust-review .cust-photo img{
+    border-radius: 50%;
+    height:60px;
+    width:60px;
+    margin-right:20px;
+}
+.customer-reviews-card .cust-review .cust-details .cust-name{
+    font-weight: 600;
+    margin-bottom:5px;
+}
+.customer-reviews-card .cust-review .cust-details .cust-date{
+    font-size: 10px;
+    color: #333;
+    margin-bottom:15px;
+}
+.customer-reviews-card .cust-review .cust-details .cust-comment{
+    font-size:12px;
+    color:#111;
+    line-height: 1.8;
+}
+.customer-reviews-card .load-more{
+    align-self: stretch;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:30px;
+}
+@media screen and (max-width:350px){
+    .admin-two-charts,
+    .admin-dashboard-row,
+    .reservation-statistics-chart,
+    .check-in-check-out-chart,
+    .customer-reviews-card{
+        margin:5px;
+        padding:5px;
+    }
+    .available-rooms-today,
+    .booked-rooms-today{
+        margin:5px;
+        padding:5px;
+    }
+    .admin-card{
+        min-width:200px !important;
+    }
+}
+
+
+
+
+@media screen and (min-width: 1300px) and (max-width: 1700px) {
+    .admin-card{
+        min-width:400px !important;
+        min-height:120px !important;
+        align-items: center!important;
+        padding:40px!important;
+    }
+    .admin-dashboard-row .admin-card .card-title{
+        font-size: 50px;
+    }
+    .admin-dashboard-row .admin-card .card-content{
+        font-size: 20px;
+    }
+
+}
