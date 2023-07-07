@@ -2,55 +2,77 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-top: 40px;
-  padding: 40px 0px;
+  margin-top: 100px;
 }
 
 .room-container .filter-container {
-  width: 25%;
-  margin-top: 40px;
-  border: none;
-  margin-left: 40px;
+  width: 20%;
+  padding: 0 20px;
+  border-right: 1px solid rgb(201, 199, 199);
 }
-.room-container .filter-container .head{
+.room-container .filter-container .head {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
-.room-container .filter-container .head ion-icon{
+
+.room-container .filter-container .head h2 {
+  margin: 0;
+}
+
+.room-container .filter-container .head ion-icon {
   font-size: 20px;
-  padding: 25px;
-  margin-left: 80px;
 }
-.room-container .filter-container .second .head ion-icon{
+.room-container .filter-container .second .head ion-icon {
   margin-left: 40px;
 }
 
 .room-container .card-container {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 80%;
   align-items: center;
 }
-.bed-options ul li{
+
+.room-container .filter-container .bed-options ul {
+  padding-left: 10px;
+}
+.room-container .filter-container .bed-options ul li {
   list-style-type: none;
+  cursor: pointer;
+  margin-bottom: 11px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
 }
-.room-container .filter-container .first{
+
+.room-container .filter-container .bed-options ul li input {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #e70b53;
+}
+
+.room-container .filter-container .first,
+.second {
   border-bottom: 1px solid black;
-  padding: 20px 0px;
+  padding-bottom: 20px;
+  margin: 20px 0 40px 0;
 }
-.room-container .filter-container .second{
+.room-container .filter-container .second {
   border-bottom: 1px solid black;
-  padding: 40px 0px;
 }
-.room-container .filter-container .third .range{
- display: flex;
+.room-container .filter-container .third .range {
+  display: flex;
   justify-content: space-between;
 }
-.room-container .filter-container .third .range input{
+.room-container .filter-container .third .range input {
   padding: 10px;
   width: 130px;
 }
-ion-icon{
+ion-icon {
   cursor: pointer;
 }
 .val {
@@ -70,7 +92,6 @@ ion-icon{
 .input input {
   margin: 0;
 }
-
 
 .min,
 .max {
@@ -103,17 +124,15 @@ ion-icon{
   border-radius: 50%;
   cursor: pointer;
 }
-.price-options .val{
+.price-options .val {
   display: flex;
   justify-content: flex-start;
 }
-.price-options .val .maxi{
+.price-options .val .maxi {
   display: flex;
   width: 100%;
   justify-content: flex-end;
 }
-
-
 
 @media (max-width: 768px) {
   .room-container {
@@ -128,11 +147,11 @@ ion-icon{
     justify-content: flex-start; /* Position filter at the left side */
     align-items: flex-start; /* Position filter at the left side */
   }
-  .room-container .card-container{
+  .room-container .card-container {
     width: 85%;
   }
 }
 
-.line{
+.line {
   margin: 20px;
 }

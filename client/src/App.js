@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner";
 import AddRooms from "./pages/Admin/AddRooms/AddRooms";
 import AllRooms from "./pages/Admin/AllRooms/AllRooms";
+import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 import Login from "./pages/Auth/Login/Login";
 import Register from "./pages/Auth/Register/Register";
 import Error404 from "./pages/Error404/Error404";
@@ -17,7 +18,6 @@ import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
-import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -93,7 +93,7 @@ function App() {
               }
             />
             <Route
-              path="/singlerooms"
+              path="/singlerooms/:id"
               element={
                 <>
                   <Header />
