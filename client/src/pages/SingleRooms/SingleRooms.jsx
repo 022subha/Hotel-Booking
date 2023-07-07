@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
-import "./SingleRooms.css";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 import { message } from "antd";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import "./SingleRooms.css";
 export default function SingleRooms() {
-  const [singleRoom, setSingleRoom] = useState("");
-
   const location = useLocation();
+  const params = useParams();
   const searchParams = new URLSearchParams(location.search);
-  const id = searchParams.get('id');
-  const entryDate=searchParams.get('checkinDate');
-  const exitDate=searchParams.get('checkoutDate');
-  const price=searchParams.get('price');
-  const capacity=searchParams.get('capacity');
-  const date1=new Date(entryDate);
-  const date2=new Date(exitDate);
-  console.log(price);
+  const { id } = params;
+  const entryDate = searchParams.get("checkInDate");
+  const exitDate = searchParams.get("checkOutDate");
+  const price = searchParams.get("price");
+  const capacity = searchParams.get("capacity");
+  const date1 = new Date(entryDate);
+  const date2 = new Date(exitDate);
+
+  const [singleRoom, setSingleRoom] = useState("");
 
   const findRoomById = () => {
     axios
@@ -95,26 +94,22 @@ export default function SingleRooms() {
   return (
     <div className="singlerooms-container">
       <div className="img">
-       {singleRoom.images && singleRoom.images.length > 0 &&  
-       <Carousel 
-          showThumbs={false}
-          selectedItem={0}
-          showStatus={false}
-          autoPlay
-          interval={1000}
-          infiniteLoop={false}
-          showIndicators={false}
-          showArrows={true}
-        >
-              {
-               singleRoom.images.map((image)=>{
-                  return(
-                    <img src={image} alt="" />
-                  )
-               })
-                
-              }
-        </Carousel>}
+        {singleRoom.images && singleRoom.images.length > 0 && (
+          <Carousel
+            showThumbs={false}
+            selectedItem={0}
+            showStatus={false}
+            autoPlay
+            interval={1000}
+            infiniteLoop={false}
+            showIndicators={false}
+            showArrows={true}
+          >
+            {singleRoom.images.map((image) => {
+              return <img src={image} alt="" />;
+            })}
+          </Carousel>
+        )}
       </div>
       <div className="mainsingle-container">
         <div className="description">
@@ -340,35 +335,35 @@ export default function SingleRooms() {
           </div>
         </div>
         <div className="button-single">
+          <div className="listing-price">
+            <div className="price">₹{singleRoom.price}</div>
+            <div className="price-description">inclusive of all taxes</div>
+          </div>
           <div className="date">
             <div className="entry">
-            {date1.toLocaleDateString("en-US", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
+              {date1.toLocaleDateString("en-US", {
+                weekday: "short",
+                day: "numeric",
+                month: "short",
+              })}
             </div>
+            <div className="hiphen">-</div>
             <div className="exit">
-            {date2.toLocaleDateString("en-US", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
+              {date2.toLocaleDateString("en-US", {
+                weekday: "short",
+                day: "numeric",
+                month: "short",
+              })}
             </div>
           </div>
-          <div className="capacity">
-          <span className="cap1">Capacity</span>
-            <span className="val1">{capacity}</span>
-          </div>
+
           <div className="price-alltax">
-           <div className="savings">
-            <span className="des1">Your Savings</span>
-            <span className="amo1">$0</span>
-           </div>
-           <div className="price">
-            <span className="des2">Total Price</span>
-            <span className="amo2">${price}</span>
-           </div>
+            <div className="des2">
+              <span>Total Price</span>
+              <span>(incl. of all taxes)</span>
+            </div>
+
+            <div className="amo2">₹{singleRoom.price}</div>
           </div>
           <button
             type="submit"
@@ -376,7 +371,7 @@ export default function SingleRooms() {
               checkoutHandler(e, 100);
             }}
           >
-            Booking-Now
+            Continue to Book
           </button>
         </div>
       </div>
