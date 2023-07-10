@@ -3,7 +3,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Card from "../../components/Card/Card";
-import Searchbar from "../../components/Searchbar/Searchbar";
 import "./Rooms.css";
 
 export default function Rooms() {
@@ -96,7 +95,8 @@ export default function Rooms() {
     const date = new Date(start.getTime());
 
     while (date <= end) {
-      if (unavailableDates.includes(date)) return false;
+      if (unavailableDates.includes(date.toISOString().slice(0, 10)))
+        return false;
       date.setDate(date.getDate() + 1);
     }
 
@@ -347,7 +347,7 @@ export default function Rooms() {
       <div className="card-container">
         {roomData
           .slice((currentPage - 1) * itemPerPage, currentPage * itemPerPage)
-          ?.map((data) => {
+          ?.map((data, index) => {
             const {
               price,
               capacity,
@@ -382,6 +382,7 @@ export default function Rooms() {
                   room={room}
                   adult={adult}
                   children={children}
+                  key={index}
                 />
               );
             }

@@ -10,9 +10,6 @@ export default function Card({
   id,
   checkInDate,
   checkOutDate,
-  room,
-  adult,
-  children,
 }) {
   const navigate = useNavigate();
 
@@ -21,14 +18,11 @@ export default function Card({
     const queryParams = new URLSearchParams({
       checkInDate,
       checkOutDate,
-      room,
-      adult,
-      children,
     });
     navigate(`/singlerooms/${id}?${queryParams.toString()}`);
   };
   return (
-    <div className="main-container">
+    <div className="card-area">
       <div className="img">
         <img src={image[0]} alt="" />
       </div>

@@ -1,4 +1,4 @@
-.main-container {
+.card-area {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,21 +9,21 @@
   border-bottom: 1px solid black;
 }
 
-.main-container .img {
+.card-area .img {
   width: 40%;
 }
 
-.main-container .img img {
+.card-area .img img {
   width: 100%;
 }
-.main-container .description {
+.card-area .description {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 60%;
   margin-left: 30px;
 }
-.main-container .description h1 {
+.card-area .description h1 {
   font-size: 2.5rem;
   height: auto;
   display: block;
@@ -32,18 +32,18 @@
   margin-top: 0px;
   font-weight: 500;
 }
-.main-container .description h4 {
+.card-area .description h4 {
   color: #e70b53;
   margin-bottom: 20px;
   margin-top: 0px;
   font-size: 30px;
   font-weight: 500;
 }
-.main-container .description .bed-capacity {
+.card-area .description .bed-capacity {
   display: flex;
   flex-direction: row;
 }
-.main-container .description .bed-capacity h3 {
+.card-area .description .bed-capacity h3 {
   font-size: 1rem;
   display: flex;
   flex-direction: column;
@@ -51,28 +51,29 @@
   font-weight: 500;
   margin-right: 5rem;
 }
-.main-container .description .bed-capacity h3 span {
+.card-area .description .bed-capacity h3 span {
   color: black;
 }
 
-.main-container .description .services {
+.card-area .description .services {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
 
-.main-container .description .services h3 {
+.card-area .description .services h3 {
   font-size: 1rem;
   color: #afb4bf;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.main-container .description .services .services-item {
+.card-area .description .services .services-item {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.main-container .description .services .services-item .item {
+.card-area .description .services .services-item .item {
   display: flex;
   align-items: center;
   margin-right: 40px;
@@ -84,66 +85,92 @@
   }
 }
 
-.main-container .description .price-button {
+.card-area .description .price-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.main-container .description .price-button .price h4 {
+.card-area .description .price-button .price h4 {
   font-size: 2.5rem;
   font-family: "Times New Roman", Times, serif;
   font-weight: 800;
   margin-bottom: 4px;
 }
 
-.main-container .description .price-button .price span {
+.card-area .description .price-button .price span {
   color: #6d787d;
 }
 
-.main-container .description .price-button .btn {
+.card-area .description .price-button .btn {
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  flex-wrap: wrap;
+  width: 50%;
   margin-right: 2rem;
 }
 
-.main-container .description .price-button .btn button {
+.card-area .description .price-button .btn button {
   padding: 15px 20px;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.main-container .description .price-button .btn button:first-child {
+.card-area .description .price-button .btn button:first-child {
   background-color: white;
   font-size: 1rem;
   font-weight: 700;
   border: 1px solid black;
+  margin: 10px 10px;
 }
 
-.main-container .description .price-button .btn button:last-child {
+.card-area .description .price-button .btn button:last-child {
   background-color: #e70b53;
   font-size: 1rem;
   font-weight: 700;
   border: none;
   color: white;
+  margin: 10px 10px;
 }
 
 @media (max-width: 1015px) {
-  .main-container {
+  .card-area {
     display: flex;
     flex-direction: column;
-  }
-  .main-container .img img {
-    width: 100%;
-  }
-  .main-container .description .header h2 {
-    display: flex;
-  }
-  .main-container .description .header h2 span {
-    padding: 5px;
-  }
-  .main-container .description {
-    text-align: center;
+
+    & .img {
+      width: 100%;
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    & .description {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      text-align: center;
+
+      & .bed-capacity {
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+
+        & h3 {
+          margin: 0 20px;
+        }
+      }
+
+      & .services .services-item {
+        justify-content: center;
+      }
+
+      & .price-button {
+        & .btn {
+          margin: 0;
+        }
+      }
+    }
   }
 }

@@ -41,40 +41,16 @@
   align-items: center;
 }
 .singlerooms-container .mainsingle-container .description .desc1-container {
-  width: 70%;
-  display: flex;
+  width: 75%;
+
+  & h2 {
+    color: #e70b53;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: "Times New Roman", Times, serif;
+  }
 }
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc1-container
-  .desc1-part1 {
-  width: 25%;
-  border: 2px solid rgb(183, 177, 177);
-  border-radius: 4px;
-  margin: 5px;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc1-container
-  .desc1-part1
-  h6 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #afb4bf;
-  font-size: 15px;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc1-container
-  .desc1-part1
-  span {
-  color: black;
-  font-size: 20px;
-}
+
 .singlerooms-container .mainsingle-container .description .desc2-container {
   width: 70%;
 }
@@ -111,15 +87,9 @@
   .part1 {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc3-container
-  .part2 {
-  display: flex;
-  align-items: center;
-}
+
 .singlerooms-container
   .mainsingle-container
   .description
@@ -128,7 +98,7 @@
   .first {
   display: flex;
   align-items: center;
-  margin: 0px 30px;
+  margin: 10px 30px;
 }
 .singlerooms-container
   .mainsingle-container
@@ -140,111 +110,50 @@
   align-items: center;
   margin: 10px 40px;
 }
-.singlerooms-container .mainsingle-container .description .desc4-container {
+.singlerooms-container .mainsingle-container .description .desc5-container {
   width: 70%;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container.apply {
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info {
-  display: flex;
-  justify-content: flex-start;
-  width: 80%;
-  height: 40%;
-  padding: 20px;
+
+  & .apply {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    /* flex-wrap: wrap; */
+    & .avatar {
+      margin-right: 30px;
+    }
+
+    & .think {
+      width: 60%;
+      border-left: 1px solid black;
+      padding-left: 30px;
+    }
+  }
 }
 
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info
-  .think {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0px;
-  box-shadow: 2px 2px 2px 2px rgb(144, 142, 142);
-  padding: 10px;
-  margin-left: 0px;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info
-  .img
-  img {
-  border-radius: 100%;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info
-  .img {
-  display: flex;
-  align-items: center;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info
-  h3 {
-  margin-top: 0px;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info
-  p {
-  margin-top: 0px;
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info
-  h4 {
-  margin-top: 0px;
-}
+.desc4-container {
+  width: 70%;
+  margin-top: 20px;
 
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info {
-  width: 90%;
-  color: rgb(96, 93, 93);
-}
-.singlerooms-container
-  .mainsingle-container
-  .description
-  .desc4-container
-  .apply
-  .info
-  h3 {
-  color: rgb(40, 185, 136);
+  & .desc4-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 20px;
+
+    & .item1 {
+      margin-right: 10rem;
+    }
+
+    & p {
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+      color: #636a76;
+    }
+
+    & span {
+      font-size: 1rem;
+    }
+  }
 }
 .singlerooms-container .button-single {
   display: flex;
@@ -323,5 +232,28 @@
     cursor: pointer;
     border-radius: 10px;
     padding: 15px 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .singlerooms-container .mainsingle-container {
+    flex-direction: column;
+    align-items: center;
+
+    & .description {
+      width: 100%;
+
+      & .desc1-container,
+      .desc2-container,
+      .desc3-container,
+      .desc4-container,
+      .desc5-container {
+        width: 100%;
+      }
+    }
+
+    & .button-single {
+      width: 90%;
+    }
   }
 }
