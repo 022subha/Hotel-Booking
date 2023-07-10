@@ -210,22 +210,22 @@ const Header = () => {
           <div className="nav-sec">
             <ul>
               <li>
-                <NavLink to="/" activeClassName="active">
+                <NavLink to="/" activeclassname="active">
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/rooms" activeClassName="active">
+                <NavLink to="/rooms" activeclassname="active">
                   Rooms
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contacts" activeClassName="active">
+                <NavLink to="/contacts" activeclassname="active">
                   Contact
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about" activeClassName="active">
+                <NavLink to="/about" activeclassname="active">
                   About Us
                 </NavLink>
               </li>
@@ -297,7 +297,7 @@ const Header = () => {
                 <li>
                   <NavLink
                     to="/"
-                    activeClassName="active"
+                    activeclassname="active"
                     onClick={() => setChecked(!checked)}
                   >
                     Home
@@ -306,7 +306,7 @@ const Header = () => {
                 <li>
                   <NavLink
                     to="/rooms"
-                    activeClassName="active"
+                    activeclassname="active"
                     onClick={() => setChecked(!checked)}
                   >
                     Rooms
@@ -315,7 +315,7 @@ const Header = () => {
                 <li>
                   <NavLink
                     to="/contacts"
-                    activeClassName="active"
+                    activeclassname="active"
                     onClick={() => setChecked(!checked)}
                   >
                     Contact
@@ -324,7 +324,7 @@ const Header = () => {
                 <li>
                   <NavLink
                     to="/about"
-                    activeClassName="active"
+                    activeclassname="active"
                     onClick={() => setChecked(!checked)}
                   >
                     About Us
