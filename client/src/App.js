@@ -21,6 +21,7 @@ import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 
 
 import EditRoom from "./pages/Admin/EditRoom/EditRoom";
+import Aboutus from "./pages/Aboutus/Aboutus";
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -132,6 +133,16 @@ function App() {
             />
             <Route path="/admin/dashboard" element={<DashboardLayout />} />
 
+            <Route
+              path="/about"
+              element={
+                <>
+                  <Header />
+                  <Aboutus />
+                  <Footer />
+                </>
+              }
+            />
             <Route
               path="/*"
               element={
