@@ -1,198 +1,189 @@
 .edit-rooms-container {
-    padding: 0 25px;
-    width: 100%;
-  }
-  .edit-rooms-container .main-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  
-  .edit-rooms-container .main-container .name {
-    width: 100%;
-    padding: 0 15px;
-    margin-bottom: 25px;
-  }
-  
-  .edit-rooms-container .main-container .description {
-    width: 100%;
-    padding: 0 15px;
-    margin-bottom: 25px;
-  }
-  
+  padding: 0 25px;
+  width: 100%;
+}
+.edit-rooms-container .main-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.edit-rooms-container .main-container .name {
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+
+.edit-rooms-container .main-container .description {
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+
+.edit-rooms-container .main-container .size {
+  width: 49%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+
+.edit-rooms-container .main-container .capacity {
+  width: 45%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+
+.edit-rooms-container .main-container .services {
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+
+.edit-rooms-container .main-container .services ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+}
+
+.edit-rooms-container .main-container .services ul li {
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+.edit-rooms-container .main-container .services ul li label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  padding-left: 0;
+  cursor: pointer;
+  font-weight: 500;
+  color: black;
+  white-space: nowrap;
+}
+
+.edit-rooms-container .main-container .images {
+  width: 50%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+
+.edit-rooms-container .main-container .preview {
+  width: 100%;
+  height: 70px;
+  padding: 0 15px;
+  margin-bottom: 25px;
+  display: flex;
+}
+
+.edit-rooms-container .main-container .preview .image-preview {
+  position: relative;
+  padding: 0 15px;
+}
+
+.edit-rooms-container .main-container .preview .image-preview ion-icon {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  background-color: rgb(202, 198, 198);
+  border-radius: 100%;
+  padding: 5px;
+  font-size: 15px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.edit-rooms-container .main-container .price {
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+  flex: 0 0 42%;
+}
+
+.edit-rooms-container .main-container .btn {
+  width: 42%;
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+
+.edit-rooms-container .main-container .btn button {
+  background-color: #e70b53;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 48px;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0 15px;
+}
+
+.edit-rooms-container .main-container .description textarea {
+  width: 100%;
+  padding-top: 15px;
+  height: auto;
+  color: black;
+  border: 2px solid black;
+  background-color: #f9f9f9;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.edit-rooms-container .main-container input[type="file"] {
+  display: block;
+  width: 100%;
+  height: 48px;
+  color: black;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0 15px;
+  line-height: 1.5;
+}
+
+.edit-rooms-container .main-container input,
+select {
+  display: block;
+  width: 100%;
+  height: 48px;
+  color: black;
+  background-color: #f9f9f9;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0 15px;
+  line-height: 1.5;
+}
+
+.edit-rooms-container .main-container p {
+  font-size: 20px;
+  font-weight: 30px;
+  margin-top: 60px;
+}
+
+.edit-rooms-container .main-container p::before {
+  content: "*";
+  color: red;
+  margin-right: 4px;
+}
+
+@media (max-width: 1446px) {
   .edit-rooms-container .main-container .size {
-    width: 49%;
-    padding: 0 15px;
-    margin-bottom: 25px;
+    width: 100%;
   }
-  
+
   .edit-rooms-container .main-container .capacity {
-    width: 45%;
-    padding: 0 15px;
-    margin-bottom: 25px;
-  }
-  
-  .edit-rooms-container .main-container .services {
     width: 100%;
-    padding: 0 15px;
-    margin-bottom: 25px;
   }
-  
-  .edit-rooms-container .main-container .services ul {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-  }
-  
-  .edit-rooms-container .main-container .services ul li {
-    margin-right: 20px;
-    margin-bottom: 15px;
-  }
-  
-  .edit-rooms-container .main-container .services ul li label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-    padding-left: 0;
-    cursor: pointer;
-    font-weight: 500;
-    color: black;
-    white-space: nowrap;
-  }
-  
+
   .edit-rooms-container .main-container .images {
-    width: 50%;
-    padding: 0 15px;
-    margin-bottom: 25px;
-  }
-  
-  .edit-rooms-container .main-container .preview {
     width: 100%;
-    height: 70px;
-    padding: 0 15px;
-    margin-bottom: 25px;
-    display: flex;
   }
-  
-  .edit-rooms-container .main-container .preview .image-preview {
-    position: relative;
-    padding: 0 15px;
-  }
-  
-  .edit-rooms-container .main-container .preview .image-preview ion-icon {
-    position: absolute;
-    top: -10px;
-    right: 0px;
-    background-color: rgb(202, 198, 198);
-    border-radius: 100%;
-    padding: 5px;
-    font-size: 15px;
-    z-index: 2;
-    cursor: pointer;
-  }
-  
+
   .edit-rooms-container .main-container .price {
-    position: relative;
     width: 100%;
-    padding: 0 15px;
-    margin-bottom: 25px;
-    flex: 0 0 42%;
   }
-  
-  .edit-rooms-container .main-container .btn {
-    width: 42%;
-    padding: 0 15px;
-    margin-bottom: 25px;
-  }
-  
-  .edit-rooms-container .main-container .btn button {
-    background-color: #e70b53;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    width: 100%;
-    height: 48px;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0 15px;
-  }
-  
-  .edit-rooms-container .main-container .description textarea {
-    width: 100%;
-    padding-top: 15px;
-    height: auto;
-    color: black;
-    border: 2px solid black;
-    background-color: #f9f9f9;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  
-  .edit-rooms-container .main-container input[type="file"] {
-    display: block;
-    width: 100%;
-    height: 48px;
-    color: black;
-    background-color: transparent;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 5px;
-    padding: 0 15px;
-    line-height: 1.5;
-  }
-  
-  .edit-rooms-container .main-container input,
-  select {
-    display: block;
-    width: 100%;
-    height: 48px;
-    color: black;
-    background-color: #f9f9f9;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 5px;
-    padding: 0 15px;
-    line-height: 1.5;
-  }
-  
-  .edit-rooms-container .main-container p {
-    font-size: 20px;
-    font-weight: 30px;
-    margin-top: 60px;
-  }
-  
-  .name p::before,
-  .size p::before,
-  .capacity p::before,
-  .bed-size p::before,
-  .services p::before,
-  .description p::before,
-  .images p::before,
-  .location p::before,
-  .price p::before {
-    content: "*";
-    color: red;
-    margin-right: 4px;
-  }
-  
-  @media (max-width: 1446px) {
-    .edit-rooms-container .main-container .size {
-      width: 100%;
-    }
-  
-    .edit-rooms-container .main-container .capacity {
-      width: 100%;
-    }
-  
-    .edit-rooms-container .main-container .images {
-      width: 100%;
-    }
-  
-    .edit-rooms-container .main-container .price {
-      width: 100%;
-    }
-  }
-  
+}

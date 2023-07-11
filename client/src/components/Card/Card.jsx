@@ -1,50 +1,83 @@
 import React from "react";
-import "./Card.css";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-export default function Card({price,size,capacity,image,services,id,checkinDate,checkoutDate}) {
-  const navigate=useNavigate();
-  
- const handleDetails=(e)=>{
-  e.preventDefault();
-  const queryParams=new URLSearchParams({checkinDate,checkoutDate,id,price,capacity});
-    navigate(`/singlerooms?${queryParams.toString()}`)
- }
+import "./Card.css";
+export default function Card({
+  price,
+  size,
+  capacity,
+  image,
+  services,
+  id,
+  checkInDate,
+  checkOutDate,
+}) {
+  const navigate = useNavigate();
+
+  const handleDetails = (e) => {
+    e.preventDefault();
+    const queryParams = new URLSearchParams({
+      checkInDate,
+      checkOutDate,
+    });
+    navigate(`/singlerooms/${id}?${queryParams.toString()}`);
+  };
   return (
-    <div className="card-container">
-      <div className="main-container">
-        <div className="img">
-          <img src={image[0]} alt="" />
+    <div className="card-area">
+      <div className="img">
+        <img src={image[0]} alt="" />
+      </div>
+      <div className="description">
+        <h1>Room View Sea</h1>
+        <div className="bed-capacity">
+          <h3>
+            Bed-Size:
+            <span>{size}</span>
+          </h3>
+          <h3>
+            Capacity:
+            <span>Max Person {capacity}</span>
+          </h3>
         </div>
-        <div className="description">
-          <div className="header">
-            <h2>
-              <h5>Room View Sea</h5>
-            </h2>
+        <div className="services">
+          <h3>Services:</h3>
+          <div className="services-item">
+            {services.map((service, index) => (
+              <div className="item" key={index}>
+                <ion-icon
+                  name={
+                    service === "Wifi"
+                      ? "wifi"
+                      : service === "Food Service"
+                      ? "fast-food"
+                      : service === "Geyser"
+                      ? "fish"
+                      : service === "AC"
+                      ? "cube"
+                      : service === "TV"
+                      ? "tv"
+                      : ""
+                  }
+                ></ion-icon>
+                <span>{service}</span>
+              </div>
+            ))}
           </div>
-          <div className="paisa">
-            <h4>{price}</h4>
+        </div>
+        <div className="price-button">
+          <div className="price">
+            <h4>₹{price}</h4>
+            <span>per room per night</span>
           </div>
-          <div className="middle">
-            <div className="size">
-              <h3>
-                Size:
-                <span>{size}</span>
-              </h3>
-              <h3>
-                capacity:
-                <span>Max Person {capacity}</span>
-              </h3>
-            </div>
-            <div className="bed">
-              <h3>
-                Services:
-                <span>{services}</span>
-              </h3>
-            </div>
-          </div>
-          <div className="footer">
-            <span onClick={(e)=>{handleDetails(e)}}>View-Details</span>
+
+          <div className="btn">
+            <button
+              onClick={(e) => {
+                handleDetails(e);
+              }}
+            >
+              View Details
+            </button>
+            <button>Book Now</button>
           </div>
         </div>
       </div>

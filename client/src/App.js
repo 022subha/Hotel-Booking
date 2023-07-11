@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DashboardLayout from "./components/Dashboard/DashboardLayout";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner";
 import AddRooms from "./pages/Admin/AddRooms/AddRooms";
 import AllRooms from "./pages/Admin/AllRooms/AllRooms";
+import Dashboard from "./pages/Admin/Dashboard/Dashboard";
+import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 import Login from "./pages/Auth/Login/Login";
 import Register from "./pages/Auth/Register/Register";
 import Error404 from "./pages/Error404/Error404";
@@ -17,8 +18,6 @@ import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
-import Dashboard from "./pages/Admin/Dashboard/Dashboard";
-
 
 import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 import Aboutus from "./pages/Aboutus/Aboutus";
@@ -46,7 +45,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!user && token) getUser(token);
-  });
+  }, []);
 
   return (
     <>
@@ -97,7 +96,7 @@ function App() {
               }
             />
             <Route
-              path="/singlerooms"
+              path="/singlerooms/:id"
               element={
                 <>
                   <Header />
@@ -122,7 +121,7 @@ function App() {
                 </>
               }
             />
-            <Route path="/admin/dashboard" element={<Dashboard/>} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route
               path="/admin/edit-room/:id"
               element={
@@ -131,7 +130,6 @@ function App() {
                 </>
               }
             />
-            <Route path="/admin/dashboard" element={<DashboardLayout />} />
 
             <Route
               path="/about"

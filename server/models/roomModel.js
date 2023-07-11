@@ -27,6 +27,8 @@ const roomSchema = new mongoose.Schema({
     required: true,
   },
   images: [{ type: String }],
+  unavailableDates: [{ type: String }],
 });
 
-export default mongoose.model("rooms", roomSchema);
+const Room = mongoose.model("rooms", roomSchema);
+export default Room;

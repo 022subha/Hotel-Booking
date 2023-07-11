@@ -1,237 +1,259 @@
-.singlerooms-container{
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-
+.singlerooms-container {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
 }
-.singlerooms-container .mainsingle-container{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   width: 100%;
+.singlerooms-container .mainsingle-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
-.singlerooms-container .img{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.singlerooms-container .img {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
 }
-.singlerooms-container .img .img1{
-    width: 100%;
+.singlerooms-container .img .img1 {
+  width: 100%;
 }
-.singlerooms-container  .img .img1 img{
-    width: 100%;
+.singlerooms-container .img .img1 img {
+  width: 100%;
 }
-.singlerooms-container .img .img2{
-    width: 100%;
+.singlerooms-container .img .img2 {
+  width: 100%;
 }
-.singlerooms-container  .img .img2 .first-img{
-    display: flex;
-    align-items: center;
-    width: 93%;
-}
-.singlerooms-container .img .img2 .first-img img{
-    width: 20%;
-    padding: 5px;
-}
-.singlerooms-container .mainsingle-container .description{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.singlerooms-container .mainsingle-container .description .desc1-container{
-    width: 70%;
-    display: flex;
-}
-.singlerooms-container .mainsingle-container .description .desc1-container .desc1-part1{
-    width: 25%;
-    border: 2px solid rgb(183, 177, 177);
-    border-radius: 4px;
-    margin: 5px;
-}
-.singlerooms-container .mainsingle-container .description .desc1-container .desc1-part1 h6{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #afb4bf;
-    font-size: 15px;
-}
-.singlerooms-container .mainsingle-container .description .desc1-container .desc1-part1 span{
-  color: black;
-  font-size: 20px;
-}
-.singlerooms-container .mainsingle-container .description .desc2-container{
-    width: 70%;
-}
-.singlerooms-container .mainsingle-container .description .desc2-container p{
-        line-height: 1.7;
-        color: #636a76;
-        font-size: 20px;
-        font-weight: 600;
-    }
-.singlerooms-container .mainsingle-container .description .desc2-container ul{
-    line-height: 1.7;
-    color: #636a76;
-    font-size: 20px;
-    font-weight: 600;
-    padding: 0px;
-}
-.singlerooms-container .mainsingle-container .description .desc2-container ul li{
-    list-style: none;
-}
-.singlerooms-container .mainsingle-container .description .desc3-container{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-}
-.singlerooms-container .mainsingle-container .description .desc3-container .part1{
+.singlerooms-container .img .img2 .first-img {
   display: flex;
   align-items: center;
+  width: 93%;
 }
-.singlerooms-container .mainsingle-container .description .desc3-container .part2{
-    display: flex;
-    align-items: center;
-  }
-.singlerooms-container .mainsingle-container .description .desc3-container .part1 .first{
-    display: flex;
-    align-items: center;
-    margin: 0px 30px;
-}
-.singlerooms-container .mainsingle-container .description .desc3-container .part2 .first{
-    display: flex;
-    align-items: center;
-    margin: 10px 40px;
-}
-.singlerooms-container .mainsingle-container .description .desc4-container{
-    width: 70%;
-}
-.singlerooms-container .mainsingle-container .description .desc4-container.apply{
-    width: 50%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info{
-    display: flex;
-    justify-content: flex-start;
-    width: 80%;
-    height: 40%;
-    padding: 20px;
-}
-
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info .think{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0px;
-    box-shadow: 2px 2px 2px 2px rgb(144, 142, 142);
-    padding: 10px;
-    margin-left: 0px;
-}
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info .img img{
-    border-radius: 100%;
-    
-}
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info .img{
-    display: flex;
-    align-items: center;
-}
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info h3{
- margin-top: 0px;
-}
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info p{
-    margin-top: 0px;
-}
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info h4{
-    margin-top: 0px;
-}
-
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info{
-    width: 90%;
-    color: rgb(96, 93, 93);
-}
-.singlerooms-container .mainsingle-container .description .desc4-container .apply .info h3{
-    color: rgb(40, 185, 136);
-}
-.singlerooms-container .button-single{
+.singlerooms-container .img .img2 .first-img img {
   width: 20%;
-  border: 4px solid black;
-  padding: 20px;
+  padding: 5px;
 }
-.singlerooms-container .button-single button{
- background-color: #e70b53;
- width: 270px;
- color: white;
- border: none;
- font-size: 30px;
- font-weight: bold;
- cursor: pointer;
- border-radius: 6px;
+.singlerooms-container .mainsingle-container .description {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.singlerooms-container .button-single button:hover{
-    background-color: orangered;
-}
-.singlerooms-container .button-single .date{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    margin-bottom: 80px;
-    box-shadow: 2px 2px 2px rgba(21, 20, 20, 0.5);
-    box-shadow: 0px 0px 2px 2px rgba(21, 20, 20, 0.5);
+.singlerooms-container .mainsingle-container .description .desc1-container {
+  width: 75%;
 
+  & h2 {
+    color: #e70b53;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: "Times New Roman", Times, serif;
+  }
+}
 
+.singlerooms-container .mainsingle-container .description .desc2-container {
+  width: 70%;
 }
-.singlerooms-container .button-single .date .entry{
-    margin: 0px 10px 0px 0px;
-    font-weight: bold;
+.singlerooms-container .mainsingle-container .description .desc2-container p {
+  line-height: 1.7;
+  color: #636a76;
+  font-size: 20px;
+  font-weight: 600;
 }
-.singlerooms-container .button-single .date .exit{
-    font-weight: bold;
+.singlerooms-container .mainsingle-container .description .desc2-container ul {
+  line-height: 1.7;
+  color: #636a76;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0px;
 }
-.singlerooms-container .button-single .price-alltax{
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0px;
+.singlerooms-container
+  .mainsingle-container
+  .description
+  .desc2-container
+  ul
+  li {
+  list-style: none;
 }
-.singlerooms-container .button-single .price-alltax .savings{
+.singlerooms-container .mainsingle-container .description .desc3-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.singlerooms-container
+  .mainsingle-container
+  .description
+  .desc3-container
+  .part1 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.singlerooms-container .button-single .price-alltax .savings .des1{
-    font-weight: bold;
-    font-size: 20px;
+
+.singlerooms-container
+  .mainsingle-container
+  .description
+  .desc3-container
+  .part1
+  .first {
+  display: flex;
+  align-items: center;
+  margin: 10px 30px;
 }
-.singlerooms-container .button-single .price-alltax .savings .amo1{
-    font-weight: bold;
-    font-size: 20px;
+.singlerooms-container
+  .mainsingle-container
+  .description
+  .desc3-container
+  .part2
+  .first {
+  display: flex;
+  align-items: center;
+  margin: 10px 40px;
 }
-.singlerooms-container .button-single .price-alltax .price .des2{
-    font-weight: bold;
-    font-size: 20px;
-}
-.singlerooms-container .button-single .price-alltax .price .amo2{
-    font-weight: bold;
-    font-size: 20px;
-}
-.singlerooms-container .button-single .price-alltax .price{
+.singlerooms-container .mainsingle-container .description .desc5-container {
+  width: 70%;
+
+  & .apply {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-.singlerooms-container .button-single .capacity{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin: 40px 0;
+    /* flex-wrap: wrap; */
+    & .avatar {
+      margin-right: 30px;
+    }
+
+    & .think {
+      width: 60%;
+      border-left: 1px solid black;
+      padding-left: 30px;
+    }
   }
-  .singlerooms-container .button-single .capacity .cap1{
-    font-weight: bold;
-    font-size: 20px;
 }
-.singlerooms-container .button-single .capacity .val1{
-    font-weight: bold;
-    font-size: 20px;
+
+.desc4-container {
+  width: 70%;
+  margin-top: 20px;
+
+  & .desc4-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 20px;
+
+    & .item1 {
+      margin-right: 10rem;
+    }
+
+    & p {
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+      color: #636a76;
+    }
+
+    & span {
+      font-size: 1rem;
+    }
+  }
+}
+.singlerooms-container .button-single {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  right: 5%;
+  top: 140px;
+  min-width: 380px;
+  max-width: 450px;
+  height: 100%;
+  background: #fff;
+  margin-top: 24px;
+  padding: 16px 24px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px 0 rgba(125, 125, 125, 0.53);
+  box-sizing: border-box;
+
+  & .listing-price {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+    padding-bottom: 15px;
+
+    & .price {
+      font-size: 2rem;
+    }
+
+    & .price-description {
+      color: #636a76;
+    }
+  }
+
+  & .date {
+    display: flex;
+    justify-content: center;
+    padding: 15px 10px;
+    margin: 30px 0;
+    box-shadow: 0 2px 6px 0 rgba(21, 20, 20, 0.352);
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    & .hiphen {
+      padding: 0 20px;
+    }
+  }
+
+  & .price-alltax {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 20px 10px;
+
+    & .des2 {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+
+      & span:last-child {
+        color: #636a76;
+      }
+    }
+
+    & .amo2 {
+      font-size: 1.4rem;
+    }
+  }
+
+  & button {
+    background-color: #e70b53;
+    width: 100%;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 15px 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .singlerooms-container .mainsingle-container {
+    flex-direction: column;
+    align-items: center;
+
+    & .description {
+      width: 100%;
+
+      & .desc1-container,
+      .desc2-container,
+      .desc3-container,
+      .desc4-container,
+      .desc5-container {
+        width: 100%;
+      }
+    }
+
+    & .button-single {
+      width: 90%;
+    }
+  }
 }

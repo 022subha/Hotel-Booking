@@ -18,9 +18,7 @@ export default function Dashboard({ children }) {
   const closeSidebar = () => {
     setSideBarActive(false);
   };
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+
   return (
     <div className="dashboardlayout-container">
       {sideBarActive && <div className="overlay" onClick={closeSidebar} />}
