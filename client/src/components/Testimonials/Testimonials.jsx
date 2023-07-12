@@ -14,21 +14,21 @@ export default function Testimonials() {
 
     {
       avatar:
-        "https://res.cloudinary.com/dysicl49j/image/upload/v1689154587/vijay_gvtcd5.jpg",
+        "https://res.cloudinary.com/dysicl49j/image/upload/userAvatars/v1689154587/vijay_gvtcd5.jpg",
       title: "Excellent Service",
       review:
         "I cannot speak highly enough about the excellent service I received during my stay at this hotel.  The staff was attentive, accommodating, and always ready to assist with any requests. The room was impeccable, and the amenities provided were outstanding. ",
     },
     {
       avatar:
-        "https://res.cloudinary.com/dysicl49j/image/upload/v1689154385/vicky_ltt3pp.jpg",
+        "https://res.cloudinary.com/dysicl49j/image/upload/userAvatars/v1689154385/vicky_ltt3pp.jpg",
       title: "Amazing Experience",
       review:
         "I had an amazing experience staying at this hotel. The staff was incredibly friendly and attentive. The room was clean, comfortable, and beautifully decorated. I would highly recommend this hotel to anyone looking for a memorable stay.",
     },
     {
       avatar:
-        "https://res.cloudinary.com/dysicl49j/image/upload/v1689153801/anubhav_fk2bkn.jpg",
+        "https://res.cloudinary.com/dysicl49j/image/upload/userAvatars/v1689153801/anubhav_fk2bkn.jpg",
       title: "Wonderful Stay",
       review:
         "I had a wonderful stay at this hotel. The ambiance was delightful, and the service exceeded my expectations. The room was spacious, well-maintained, and had a stunning view. I thoroughly enjoyed my time here and would definitely choose this hotel again for future visits.",
