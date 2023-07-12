@@ -3,14 +3,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { hideLoading, showLoading } from "../../redux/features/spinnerSlice";
+import makePayment from "../../utils/paymentUtil";
 import "./SingleRooms.css";
 
 export default function SingleRooms() {
   const location = useLocation();
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const searchParams = new URLSearchParams(location.search);
   const { id } = params;
@@ -43,61 +45,13 @@ export default function SingleRooms() {
   };
 
   //for making payment
-  const checkoutHandler = async (e, amount) => {
+  const handlePayment = async (e, amount) => {
     e.preventDefault();
-    try {
-      const response1 = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/payment/get-key`
-      );
-      const response2 = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/payment/checkout`,
-        {
-          amount,
-        }
-      );
-
-      const { key } = response1.data;
-      const { order } = response2.data;
-
-      const option = {
-        key,
-        amount: order.amount,
-        currency: "INR",
-        name: "StayEasy",
-        description: "Payment for Room Booking",
-        image: "/images/favicon.svg",
-        order_id: order.id,
-        prefill: {
-          name: "StayEasy",
-          email: "stayeasy@gmail.com",
-          contact: "9865541789",
-        },
-        notes: { address: "Botanical Garden Area, Howrah, West Bengal 711103" },
-        theme: { color: "#e70b53" },
-        handler: async (response) => {
-          try {
-            const res = await axios.post(
-              `${process.env.REACT_APP_API_URL}/api/payment/payment-verification`,
-              {
-                ...response,
-                amount,
-                ...user,
-                checkIn: date1,
-                checkOut: date2,
-                ...singleRoom,
-              }
-            );
-
-            console.log(res);
-          } catch (error) {
-            console.log(error);
-          }
-        },
-      };
-      const razor = window.Razorpay(option);
-      razor.open();
-    } catch (error) {
-      console.log(error);
+    if (user) {
+      makePayment(amount, user, date1, date2, singleRoom);
+    } else {
+      message.error("Login First !!");
+      navigate("/login");
     }
   };
 
@@ -265,7 +219,7 @@ export default function SingleRooms() {
             <button
               type="submit"
               onClick={(e) => {
-                checkoutHandler(
+                handlePayment(
                   e,
                   singleRoom.price *
                     Math.ceil(

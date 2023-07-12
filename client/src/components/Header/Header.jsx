@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { setUser } from "../../redux/features/userSlice";
 import "./Header.css";
-const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
+const ProfilePicdtl = ({ user, handleLogout, setChecked }) => {
   const [dropDown, setDropDown] = useState(false);
   const handleProfileClick = () => {
     setDropDown(!dropDown);
@@ -69,7 +69,7 @@ const ProfilePicdtl = ({ user, handleLogout, checked, setChecked }) => {
     </>
   );
 };
-const ProfilePicdtl2 = ({ user, handleLogout, checked, setChecked }) => {
+const ProfilePicdtl2 = ({ user, handleLogout }) => {
   const [dropDown, setDropDown] = useState(false);
   const handleProfileClick = () => {
     setDropDown(!dropDown);

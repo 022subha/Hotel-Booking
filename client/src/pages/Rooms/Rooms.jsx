@@ -8,11 +8,14 @@ import "./Rooms.css";
 export default function Rooms() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const checkIn = searchParams.get("checkIn");
-  const checkOut = searchParams.get("checkOut");
-  const room = searchParams.get("room");
-  const adult = searchParams.get("adult");
-  const children = searchParams.get("childrean");
+  const checkIn = searchParams.get("checkIn")
+    ? searchParams.get("checkIn")
+    : new Date().toISOString().slice(0, 10);
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const checkOut = searchParams.get("checkOut")
+    ? searchParams.get("checkOut")
+    : tomorrow.toISOString().slice(0, 10);
 
   const [toggleBed, setToggleBed] = useState(false);
   const [toggleServices, setToggleServices] = useState(false);
@@ -24,22 +27,45 @@ export default function Rooms() {
   const [selectedBedSize, setSelectedBedSize] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
   const [roomData, setRoomData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = window.innerWidth < 1060 ? 1 : 5;
 
-  const getAllRooms = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/room/getAllRooms`)
-      .then((result) => {
-        if (result.data.status) {
-          setRoomData(result.data.rooms);
-        } else {
-          message.error(result.message);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const getAllRooms = async () => {
+    try {
+      const result = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/room/getAllRooms`
+      );
+      if (result.data.status) {
+        setRoomData(result.data.rooms);
+        setFilteredData(
+          result.data.rooms.filter((data) =>
+            checkAvailibility(data.unavailableDates, checkInDate, checkOutDate)
+          )
+        );
+      } else {
+        message.error(result.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const checkAvailibility = (unavailableDates, checkIn, checkOut) => {
+    const start = new Date(checkIn);
+    const end = new Date(checkOut);
+
+    const date = new Date(start.getTime());
+
+    while (date <= end) {
+      console.log(unavailableDates);
+      console.log(date.toISOString().slice(0, 10));
+      if (unavailableDates.includes(new Date(date).toISOString().slice(0, 10)))
+        return false;
+      date.setDate(date.getDate() + 1);
+    }
+
+    return true;
   };
 
   const handleBedSizeOptions = (event) => {
@@ -48,12 +74,50 @@ export default function Rooms() {
 
     setSelectedBedSize((prevselectedBedSize) => {
       if (isChecked) {
-        if (prevselectedBedSize.length === 5) {
-          return [checkboxValue];
-        } else {
-          return [...prevselectedBedSize, checkboxValue];
-        }
+        setFilteredData(
+          roomData.filter((data) => {
+            return (
+              data.price >= parseInt(minPrice) &&
+              data.price <= parseInt(maxPrice) &&
+              checkAvailibility(
+                data.unavailableDates,
+                checkInDate,
+                checkOutDate
+              ) &&
+              [...prevselectedBedSize, checkboxValue].includes(data.bedsize) &&
+              selectedServices.every((service) =>
+                data.services.includes(service)
+              )
+            );
+          })
+        );
+
+        return [...prevselectedBedSize, checkboxValue];
       } else {
+        setFilteredData(
+          roomData.filter((data) => {
+            return (
+              (data.price >= parseInt(minPrice) &&
+                data.price <= parseInt(maxPrice) &&
+                checkAvailibility(
+                  data.unavailableDates,
+                  checkInDate,
+                  checkOutDate
+                ) &&
+                (!prevselectedBedSize.filter(
+                  (option) => option !== checkboxValue
+                ).length ||
+                  prevselectedBedSize
+                    .filter((option) => option !== checkboxValue)
+                    .includes(data.bedsize)) &&
+                !selectedServices.length) ||
+              selectedServices.every((service) =>
+                data.services.includes(service)
+              )
+            );
+          })
+        );
+
         return prevselectedBedSize.filter((option) => option !== checkboxValue);
       }
     });
@@ -65,15 +129,69 @@ export default function Rooms() {
 
     setSelectedServices((prevselectedBedSize) => {
       if (isChecked) {
-        if (prevselectedBedSize.length === 5) {
-          return [checkboxValue];
-        } else {
-          return [...prevselectedBedSize, checkboxValue];
-        }
+        setFilteredData(
+          roomData.filter((data) => {
+            return (
+              data.price >= parseInt(minPrice) &&
+              data.price <= parseInt(maxPrice) &&
+              checkAvailibility(
+                data.unavailableDates,
+                checkInDate,
+                checkOutDate
+              ) &&
+              (!selectedBedSize.length ||
+                selectedBedSize.includes(data.bedsize)) &&
+              (![...prevselectedBedSize, checkboxValue].length ||
+                [...prevselectedBedSize, checkboxValue].every((service) =>
+                  data.services.includes(service)
+                ))
+            );
+          })
+        );
+        return [...prevselectedBedSize, checkboxValue];
       } else {
+        setFilteredData(
+          roomData.filter((data) => {
+            return (
+              data.price >= parseInt(minPrice) &&
+              data.price <= parseInt(maxPrice) &&
+              checkAvailibility(
+                data.unavailableDates,
+                checkInDate,
+                checkOutDate
+              ) &&
+              (!selectedBedSize.length ||
+                selectedBedSize.includes(data.bedsize)) &&
+              (!prevselectedBedSize.filter((option) => option !== checkboxValue)
+                .length ||
+                prevselectedBedSize
+                  .filter((option) => option !== checkboxValue)
+                  .every((service) => data.services.includes(service)))
+            );
+          })
+        );
         return prevselectedBedSize.filter((option) => option !== checkboxValue);
       }
     });
+  };
+
+  const handleSliderChange = (value) => {
+    const [newMinPrice, newmaxPrice] = value;
+    setMinPrice(newMinPrice);
+    setMaxPrice(newmaxPrice);
+    setFilteredData(
+      roomData.filter(
+        (data) =>
+          data.price >= parseInt(newMinPrice) &&
+          data.price <= parseInt(newmaxPrice) &&
+          checkAvailibility(data.unavailableDates, checkInDate, checkOutDate) &&
+          (!selectedBedSize.length || selectedBedSize.includes(data.bedsize)) &&
+          (!selectedServices.length ||
+            selectedServices.every((service) =>
+              data.services.includes(service)
+            ))
+      )
+    );
   };
 
   const handleToggleBed = () => {
@@ -88,34 +206,15 @@ export default function Rooms() {
     setTogglePrice(!togglePrice);
   };
 
-  const checkAvailibility = (unavailableDates, checkIn, checkOut) => {
-    const start = new Date(checkIn);
-    const end = new Date(checkOut);
-
-    const date = new Date(start.getTime());
-
-    while (date <= end) {
-      if (unavailableDates.includes(date.toISOString().slice(0, 10)))
-        return false;
-      date.setDate(date.getDate() + 1);
-    }
-
-    return true;
-  };
-
-  const handleSliderChange = (value) => {
-    const [newMinPrice, newmaxPrice] = value;
-    setMinPrice(newMinPrice);
-    setMaxPrice(newmaxPrice);
-  };
-
   const handleChangePage = (page) => {
     setCurrentPage(page);
   };
 
   useEffect(() => {
-    if (!roomData || roomData.length === 0) getAllRooms();
-  }, [roomData]);
+    getAllRooms();
+  }, []);
+
+  // console.log(filteredData);
 
   return (
     <div className="room-container">
@@ -146,40 +245,7 @@ export default function Rooms() {
                   <input
                     type="checkbox"
                     id="option1"
-                    value="twin-xl"
-                    onChange={(e) => {
-                      handleBedSizeOptions(e);
-                    }}
-                  />
-                  Twin-xl
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    id="option1"
-                    value="full"
-                    onChange={(e) => {
-                      handleBedSizeOptions(e);
-                    }}
-                  />
-                  Full
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    id="option1"
-                    value="queen"
-                    onChange={(e) => {
-                      handleBedSizeOptions(e);
-                    }}
-                  />
-                  Queen
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    id="option1"
-                    value="king"
+                    value="King"
                     onChange={(e) => {
                       handleBedSizeOptions(e);
                     }}
@@ -189,13 +255,36 @@ export default function Rooms() {
                 <li>
                   <input
                     type="checkbox"
-                    id="option1"
-                    value="california-king"
+                    id="option2"
+                    value="Queen"
                     onChange={(e) => {
                       handleBedSizeOptions(e);
                     }}
                   />
-                  california-King
+                  Queen
+                </li>
+                <li>
+                  <input
+                    type="checkbox"
+                    id="option3"
+                    value="Double"
+                    onChange={(e) => {
+                      handleBedSizeOptions(e);
+                    }}
+                  />
+                  Double
+                </li>
+
+                <li>
+                  <input
+                    type="checkbox"
+                    id="option4"
+                    value="Single"
+                    onChange={(e) => {
+                      handleBedSizeOptions(e);
+                    }}
+                  />
+                  Single
                 </li>
               </ul>
             </div>
@@ -326,8 +415,37 @@ export default function Rooms() {
               <input
                 type="date"
                 value={checkInDate}
+                min={new Date().toISOString().slice(0, 10)}
                 onChange={(e) => {
                   setCheckInDate(e.target.value);
+                  const minimumCheckOutDate = new Date(e.target.value);
+                  minimumCheckOutDate.setDate(
+                    minimumCheckOutDate.getDate() + 1
+                  );
+
+                  if (new Date(checkOut) < minimumCheckOutDate) {
+                    setCheckOutDate(
+                      minimumCheckOutDate.toISOString().substring(0, 10)
+                    );
+                  }
+                  setFilteredData(
+                    roomData.filter(
+                      (data) =>
+                        data.price >= parseInt(minPrice) &&
+                        data.price <= parseInt(maxPrice) &&
+                        checkAvailibility(
+                          data.unavailableDates,
+                          e.target.value,
+                          checkOutDate
+                        ) &&
+                        (!selectedBedSize.length ||
+                          selectedBedSize.includes(data.bedsize)) &&
+                        (!selectedServices.length ||
+                          selectedServices.every((service) =>
+                            data.services.includes(service)
+                          ))
+                    )
+                  );
                 }}
               ></input>
             </div>
@@ -335,8 +453,27 @@ export default function Rooms() {
               <input
                 type="date"
                 value={checkOutDate}
+                min={tomorrow.toISOString().slice(0, 10)}
                 onChange={(e) => {
                   setCheckOutDate(e.target.value);
+                  setFilteredData(
+                    roomData.filter(
+                      (data) =>
+                        data.price >= parseInt(minPrice) &&
+                        data.price <= parseInt(maxPrice) &&
+                        checkAvailibility(
+                          data.unavailableDates,
+                          checkInDate,
+                          e.target.value
+                        ) &&
+                        (!selectedBedSize.length ||
+                          selectedBedSize.includes(data.bedsize)) &&
+                        (!selectedServices.length ||
+                          selectedServices.every((service) =>
+                            data.services.includes(service)
+                          ))
+                    )
+                  );
                 }}
               ></input>
             </div>
@@ -345,54 +482,32 @@ export default function Rooms() {
       </div>
 
       <div className="card-container">
-        {roomData
+        {filteredData
           .slice((currentPage - 1) * itemPerPage, currentPage * itemPerPage)
           ?.map((data, index) => {
-            const {
-              price,
-              capacity,
-              bedsize,
-              images,
-              services,
-              _id,
-              unavailableDates,
-            } = data;
+            const { price, capacity, bedsize, images, services, _id, name } =
+              data;
 
-            const isValid =
-              price >= parseInt(minPrice) &&
-              price <= parseInt(maxPrice) &&
-              checkAvailibility(unavailableDates, checkInDate, checkOutDate) &&
-              (!selectedBedSize.length || selectedBedSize.includes(bedsize)) &&
-              (!selectedServices.length ||
-                selectedServices.every((service) =>
-                  services.includes(service)
-                ));
-
-            if (isValid) {
-              return (
-                <Card
-                  price={price}
-                  capacity={capacity}
-                  size={bedsize}
-                  image={images}
-                  services={services}
-                  id={_id}
-                  checkInDate={checkInDate}
-                  checkOutDate={checkOutDate}
-                  room={room}
-                  adult={adult}
-                  children={children}
-                  key={index}
-                />
-              );
-            }
-
-            return null;
+            return (
+              <Card
+                name={name}
+                price={price}
+                capacity={capacity}
+                size={bedsize}
+                image={images}
+                services={services}
+                id={_id}
+                checkInDate={checkInDate}
+                checkOutDate={checkOutDate}
+                key={index}
+                singleRoom={data}
+              />
+            );
           })}
         <Pagination
           className="pagination-component"
           current={currentPage}
-          total={Rooms.length * 10}
+          total={filteredData.length * 10}
           pageSize={itemPerPage * 10}
           showSizeChanger={false}
           onChange={handleChangePage}

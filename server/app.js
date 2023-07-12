@@ -19,14 +19,13 @@ app.use(
   })
 );
 
-import paymentRoute from "./routes/paymnetRoute.js";
-import userRoute from "./routes/userRoute.js";
 import dashboardRoute from "./routes/dashboardRoute.js";
-app.use("/api/dashboard",dashboardRoute);
+import paymentRoute from "./routes/paymnetRoute.js";
+import roomRoute from "./routes/roomRoutes.js";
+import userRoute from "./routes/userRoute.js";
+app.use("/api/dashboard", dashboardRoute);
 app.use("/api/auth", userRoute);
 app.use("/api/payment", paymentRoute);
-
-import roomRoute from "./routes/roomRoutes.js";
 app.use("/api/room", roomRoute);
 
 export default app;
