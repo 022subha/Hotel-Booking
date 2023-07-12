@@ -19,6 +19,7 @@ import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
 
+import Aboutus from "./pages/Aboutus/Aboutus";
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -129,6 +130,16 @@ function App() {
               }
             />
 
+            <Route
+              path="/about"
+              element={
+                <>
+                  <Header />
+                  <Aboutus />
+                  <Footer />
+                </>
+              }
+            />
             <Route
               path="/*"
               element={
