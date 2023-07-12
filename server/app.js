@@ -22,7 +22,7 @@ app.use(
 import paymentRoute from "./routes/paymnetRoute.js";
 import userRoute from "./routes/userRoute.js";
 import dashboardRoute from "./routes/dashboardRoute.js";
-app.use("/api/dashboard",dashboardRoute);
+app.use("/api/dashboard", dashboardRoute);
 app.use("/api/auth", userRoute);
 app.use("/api/payment", paymentRoute);
 
