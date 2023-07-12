@@ -67,10 +67,14 @@
 .room-container .filter-container .third .range {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .room-container .filter-container .third .range input {
   padding: 10px;
-  width: 130px;
+  width: 110px;
+  height: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 ion-icon {
   cursor: pointer;
@@ -156,7 +160,7 @@ ion-icon {
   margin: 20px;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1000px) {
   .room-container {
     flex-direction: column;
   }

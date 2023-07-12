@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import ScrollToTop from "./components/ScrollToTop";
 import Spinner from "./components/Spinner";
 import AddRooms from "./pages/Admin/AddRooms/AddRooms";
 import AllRooms from "./pages/Admin/AllRooms/AllRooms";
@@ -51,6 +52,7 @@ function App() {
         <Spinner />
       ) : (
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route
               path="/"
@@ -82,7 +84,17 @@ function App() {
                 </>
               }
             />
-            <Route path="/my-bookings" element={<MyBookings />} />
+
+            <Route
+              path="/my-bookings"
+              element={
+                <>
+                  <Header />
+                  <MyBookings />
+                  <Footer />
+                </>
+              }
+            />
             <Route
               path="/rooms"
               element={
@@ -103,32 +115,36 @@ function App() {
                 </>
               }
             />
-            <Route
-              path="/admin/add-room"
-              element={
-                <>
-                  <AddRooms />
-                </>
-              }
-            />
-            <Route
-              path="/admin/added-rooms"
-              element={
-                <>
-                  <AllRooms />
-                </>
-              }
-            />
-            <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route
-              path="/admin/edit-room/:id"
-              element={
-                <>
-                  <EditRoom />
-                </>
-              }
-            />
 
+            {user && user.isAdmin && (
+              <>
+                <Route
+                  path="/admin/add-room"
+                  element={
+                    <>
+                      <AddRooms />
+                    </>
+                  }
+                />
+                <Route
+                  path="/admin/added-rooms"
+                  element={
+                    <>
+                      <AllRooms />
+                    </>
+                  }
+                />
+                <Route path="/admin/dashboard" element={<Dashboard />} />
+                <Route
+                  path="/admin/edit-room/:id"
+                  element={
+                    <>
+                      <EditRoom />
+                    </>
+                  }
+                />
+              </>
+            )}
             <Route
               path="/*"
               element={
