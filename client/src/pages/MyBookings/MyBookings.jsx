@@ -1,7 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './MyBookings.css';
+import { useSelector } from 'react-redux';
+import axios from "axios";
+
 
 const BookingStatus = () => {
+    const {user}=useSelector((state)=>state.user);
+    const getUserBooking=()=>{
+       axios.post(`${process.env.REACT_APP_API_URL}/api/auth/getBookingByUser`,{
+        userId:user?.id,
+       })
+       .then((result)=>{
+           if(result.data.status)
+           {
+            console.log(result.data);
+           }
+           else{
+            console.log(result.data.message);
+           }
+       }).catch((error)=>{
+        console.log(error);
+       })
+    }
+    useEffect(()=>{
+       if(user)
+       {
+        console.log(user?.id);
+         getUserBooking();
+       }
+    },[])
     return (
         <div className="status-and-card big-card">
             <div className="main-content-container">
@@ -34,6 +61,8 @@ const BookingStatus = () => {
         </div>
     )
 }
+
+
 const MyBookings = () => {
     return (
         <div className="room-container">

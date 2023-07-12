@@ -132,3 +132,20 @@ export const getAllBookings = async (req, res) => {
     });
   }
 };
+
+export const getBookDetailByUserId = async (req, res) => {
+  try {
+    let booking = await Booking.find({ userId: req.body.userId });
+    
+    return res.status(200).json({
+      status: true,
+      message: "Data found successfully",
+      booking,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: false,
+      message: "Internal server error!!",
+    });
+  }
+};

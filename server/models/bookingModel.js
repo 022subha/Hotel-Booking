@@ -1,4 +1,4 @@
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema({
   userId: {
@@ -33,6 +33,7 @@ const bookingSchema = new mongoose.Schema({
     default: "pending",
     required: true,
   },
+  timestamp: { type: Date, default: Date.now },
 });
 
 const Booking = mongoose.model("Booking", bookingSchema);

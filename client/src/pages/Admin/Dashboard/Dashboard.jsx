@@ -1,9 +1,9 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import DashboardLayout from "../../../components/Dashboard/DashboardLayout";
 import './Dashboard.css';
 import { PieChart, Pie, ResponsiveContainer, Tooltip, Legend, LineChart, Line } from 'recharts';
 import { BarChart, Bar, CartesianGrid, XAxis, YAxis } from 'recharts';
-
+import axios from "axios";
 // Sample data for available rooms
 const available_rooms_data = [
   { name: 'not-available', value: 215, fill: '#eeeeee' },
@@ -29,50 +29,50 @@ const check_out_data = [
 ];
 
 // Reservation statistics data
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+// const data = [
+//   {
+//     name: 'Page A',
+//     uv: 4000,
+//     pv: 2400,
+//     amt: 2400,
+//   },
+//   {
+//     name: 'Page B',
+//     uv: 3000,
+//     pv: 1398,
+//     amt: 2210,
+//   },
+//   {
+//     name: 'Page C',
+//     uv: 2000,
+//     pv: 9800,
+//     amt: 2290,
+//   },
+//   {
+//     name: 'Page D',
+//     uv: 2780,
+//     pv: 3908,
+//     amt: 2000,
+//   },
+//   {
+//     name: 'Page E',
+//     uv: 1890,
+//     pv: 4800,
+//     amt: 2181,
+//   },
+//   {
+//     name: 'Page F',
+//     uv: 2390,
+//     pv: 3800,
+//     amt: 2500,
+//   },
+//   {
+//     name: 'Page G',
+//     uv: 3490,
+//     pv: 4300,
+//     amt: 2100,
+//   },
+// ];
 
 
 const CustomerReview = () => {
@@ -99,34 +99,117 @@ const CustomerReview = () => {
 
 
 export default function Dashboard() {
+
+  const[totalBookings,setTotalBooking]=useState(0);
+  const[todaysBooking,setTodaysBooking]=useState(0);
+  const[checkOut,setCheckOut]=useState(0);
+  const[availableRoom,setAvailableRoom]=useState(0);
+  const [data,setData]=useState([]);
+  
+  const getRoomDetails=()=>{
+    axios.get(`${process.env.REACT_APP_API_URL}/api/dashboard/booking-details`)
+    .then((result)=>{
+      if(result.data.status)
+      {
+        setTotalBooking(result.data.booking.length);
+        // console.log(result.data.booking);
+
+        result.data.today_booking.map((data1)=>{
+           const timestamp=new Date(data1.timestamp).toLocaleDateString();
+           const date= new Date().toLocaleDateString();
+          //  console.log(date);
+          //  console.log(timestamp);
+           if(date===timestamp)
+           {
+             setTodaysBooking(todaysBooking+1);
+           }
+        })
+        
+        result.data.booking.map((data1)=>{
+          // console.log(data1);
+          const timestamp=new Date(data1.checkOut).toLocaleDateString();
+          const date=new Date().toLocaleDateString();
+          // console.log(timestamp);
+          // console.log(date);
+          if(timestamp <= date)
+          {
+             setCheckOut(checkOut+1);
+          }
+        })
+
+
+        setAvailableRoom(result.data.total_rooms.length-result.data.booking.length);
+
+        // console.log(result.data.booking);
+        let CountbyDate={};
+        result.data.booking.forEach((bookings) => {
+             let timestampDate=new Date(bookings.timestamp).toLocaleDateString();
+             if(!CountbyDate[timestampDate])
+             {
+              CountbyDate[timestampDate]={
+                  checkInDateCount:0,
+                  checkOutDateCount:0,
+              }
+             }
+
+             CountbyDate[timestampDate].checkInDateCount++;
+             CountbyDate[timestampDate].checkOutDateCount++;
+        });
+        console.log(CountbyDate);
+        
+        for (const [date, counts] of Object.entries(CountbyDate)){
+          console.log(date);
+          const dataObject={
+            name:date.toString(),
+            uv:counts.checkInDateCount,
+            pv:counts.checkOutDateCount,
+          }
+
+           setData((prevData)=>[...prevData,dataObject]);
+        }
+
+      }
+      else{
+        console.log(result.message);
+      }
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+  }
+
+  useEffect(()=>{
+    if(!totalBookings)
+       getRoomDetails();
+  },[])
   return (
     <DashboardLayout>
       <div className="admin-dashboard-container-fluid">
         <div className="admin-dashboard-row">
           <div className="admin-card new-bookings">
             <div className="title-content">
-              <div className="card-title">872</div>
-              <div className="card-content">New Bookings</div>
+              <div className="card-title">{totalBookings}</div>
+              <div className="card-content">Total Bookings</div>
             </div>
             <ion-icon name="bookmark-outline" style={{ fontSize: 48, color: 'white' }}></ion-icon>
           </div>
           <div className="admin-card schedule-rooms">
             <div className="title-content">
-              <div className="card-title">872</div>
-              <div className="card-content">Schedule Rooms</div>
+              <div className="card-title">{todaysBooking}</div>
+              <div className="card-content">Todays Rooms</div>
             </div>
             <ion-icon name="calendar-clear-outline" style={{ fontSize: 48, color: 'white' }}></ion-icon>
           </div>
           <div className="admin-card check-in">
             <div className="title-content">
-              <div className="card-title">872</div>
+              <div className="card-title">{totalBookings-todaysBooking}</div>
               <div className="card-content">Check in</div>
             </div>
             <ion-icon name="log-in-outline" style={{ fontSize: 56, color: 'white' }}></ion-icon>
           </div>
           <div className="admin-card check-out">
             <div className="title-content">
-              <div className="card-title">872</div>
+              <div className="card-title">{checkOut}</div>
               <div className="card-content">Check-out</div>
             </div>
             <ion-icon name="exit-outline" style={{ fontSize: 56, color: 'white', transform: 'rotate(180deg)' }}></ion-icon>
@@ -139,7 +222,7 @@ export default function Dashboard() {
                 innerRadius={35} startAngle={-270} />
             </PieChart>
             <div className="art-title">
-              785
+              {availableRoom}
             </div>
             <div className="art-content">Available Rooms Today</div>
           </div>
