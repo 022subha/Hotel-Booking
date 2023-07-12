@@ -19,7 +19,6 @@ import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
 
-import EditRoom from "./pages/Admin/EditRoom/EditRoom";
 import Aboutus from "./pages/Aboutus/Aboutus";
 function App() {
   const dispatch = useDispatch();
