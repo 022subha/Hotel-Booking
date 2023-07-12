@@ -1,6 +1,8 @@
+import { message } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
+
 export default function Footer() {
   return (
     <div className="main-footer-area">
@@ -18,27 +20,27 @@ export default function Footer() {
           <h3>Links</h3>
           <ul>
             <li>
-              <Link to="#">
+              <Link to="/about">
                 <ion-icon name="caret-forward"></ion-icon> About Us
               </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="/contact">
                 <ion-icon name="caret-forward"></ion-icon>Contact
               </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="/terms-of-service">
                 <ion-icon name="caret-forward"></ion-icon>Terms of Services
               </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="/cancellation-policy">
                 <ion-icon name="caret-forward"></ion-icon>Cancellation Policy
               </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="/refund-policy">
                 <ion-icon name="caret-forward"></ion-icon>Refund Policy
               </Link>
             </li>
@@ -50,8 +52,13 @@ export default function Footer() {
             Subscribe our newsletter to get notification about new updates.
           </span>
           <form>
-            <input type="email" placeholder="Enter your email...." />
-            <button>
+            <input type="email" placeholder="Enter your email...." required />
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                message.success("Successfully Subscribed to newsletter !!");
+              }}
+            >
               <ion-icon name="paper-plane-sharp"></ion-icon>
             </button>
           </form>

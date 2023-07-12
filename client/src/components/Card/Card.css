@@ -104,9 +104,9 @@
 
 .card-area .description .price-button .btn {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  width: 50%;
+  width: 300px;
   margin-right: 2rem;
 }
 

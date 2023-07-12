@@ -6,12 +6,12 @@ export default function About() {
       <div className="main-container">
         <div className="about">
           <div className="desc">
-            <h2>About Us</h2>
-            <h1>Welcome To Stay Ease</h1>
+            <h1>About Us</h1>
+            <h2>Welcome To Stay Ease</h2>
             <p>
-              With over 340 hotels worldwide, Stay Easy offers a wide variety of
-              hotels catering for a perfect stay no matter where your
-              destination.
+              Your premier destination for exceptional hotel stays. Experience
+              warm hospitality, comfort, and a memorable stay at our
+              well-appointed rooms.
             </p>
           </div>
 
@@ -31,7 +31,6 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="icon"></div>
       </div>
     </div>
   );

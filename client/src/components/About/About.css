@@ -10,6 +10,7 @@
 }
 .about-container .main-container .about {
   display: flex;
+  align-items: center;
 }
 .about-container .main-container .about .desc {
   width: 50%;
@@ -17,14 +18,14 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.about-container .main-container .about .desc h2 {
+.about-container .main-container .about .desc h1 {
   font-size: 2rem;
   color: #e70b53;
   font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-.about-container .main-container .about .desc h1 {
+.about-container .main-container .about .desc h2 {
   width: 90%;
   font-size: 45px;
   font-weight: 500;
