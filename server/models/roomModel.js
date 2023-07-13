@@ -27,8 +27,9 @@ const roomSchema = new mongoose.Schema({
     required: true,
   },
   images: [{ type: String }],
+  review: [{ type: mongoose.Types.ObjectId, ref: "Review", required: true }],
   unavailableDates: [{ type: String }],
 });
 
-const Room = mongoose.model("rooms", roomSchema);
+const Room = mongoose.model("Room", roomSchema);
 export default Room;

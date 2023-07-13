@@ -82,7 +82,15 @@ export const editRoomById = async (req, res) => {
 export const getRoomById = async (req, res) => {
   const roomId = req.body.roomId;
   try {
-    let roomDetails = await Room.findOne({ _id: roomId });
+    let roomDetails = await Room.findOne({ _id: roomId })
+      .populate("review")
+      .populate({
+        path: "review",
+        populate: {
+          path: "userId",
+          model: "User",
+        },
+      });
     return res.status(200).json({
       status: true,
       message: "Details get successfully!!",

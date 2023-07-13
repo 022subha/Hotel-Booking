@@ -1,17 +1,19 @@
 import { Avatar, message } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { hideLoading, showLoading } from "../../redux/features/spinnerSlice";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import makePayment from "../../utils/paymentUtil";
 import "./SingleRooms.css";
 
 export default function SingleRooms() {
   const location = useLocation();
   const params = useParams();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const searchParams = new URLSearchParams(location.search);
@@ -25,21 +27,19 @@ export default function SingleRooms() {
   const [singleRoom, setSingleRoom] = useState("");
 
   const findRoomById = () => {
-    // dispatch(showLoading());
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/room/getRoomById`, {
         roomId: id,
       })
       .then((result) => {
-        // dispatch(hideLoading());
         if (result.data.status) {
+          console.log(result.data.roomDetails);
           setSingleRoom(result.data.roomDetails);
         } else {
           message.error(result.data.message);
         }
       })
       .catch((error) => {
-        // dispatch(hideLoading());
         console.log(error);
       });
   };
@@ -118,65 +118,6 @@ export default function SingleRooms() {
                 </div>
               </div>
             </div>
-            <div className="desc5-container">
-              <h2>Room Review</h2>
-              <div className="apply">
-                <div className="avatar">
-                  <Avatar
-                    src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg"
-                    size={80}
-                  />
-                </div>
-
-                <div className="think">
-                  <h4>27 Aug 2023</h4>
-                  <h3>Brandon Kelley</h3>
-                  <p>
-                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                    amet, consectetur, adipisci velit, sed quia non numquam eius
-                    modi tempora.
-                  </p>
-                </div>
-              </div>
-
-              <div className="apply">
-                <div className="avatar">
-                  <Avatar
-                    src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg"
-                    size={80}
-                  />
-                </div>
-
-                <div className="think">
-                  <h4>27 Aug 2023</h4>
-                  <h3>Brandon Kelley</h3>
-                  <p>
-                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                    amet, consectetur, adipisci velit, sed quia non numquam eius
-                    modi tempora.
-                  </p>
-                </div>
-              </div>
-
-              <div className="apply">
-                <div className="avatar">
-                  <Avatar
-                    src="	https://preview.colorlib.com/theme/roberto/img/bg-img/53.jpg"
-                    size={80}
-                  />
-                </div>
-
-                <div className="think">
-                  <h4>27 Aug 2023</h4>
-                  <h3>Brandon Kelley</h3>
-                  <p>
-                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                    amet, consectetur, adipisci velit, sed quia non numquam eius
-                    modi tempora.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
           <div className="button-single">
             <div className="listing-price">
@@ -232,6 +173,49 @@ export default function SingleRooms() {
               Continue to Book
             </button>
           </div>
+        </div>
+        <div className="review-container">
+          <Swiper
+            modules={[Autoplay]}
+            slidesPerView={window.innerWidth < 1060 ? 1 : 3}
+            spaceBetween={20}
+            centeredSlides={true}
+            loop={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            className="mySwiper"
+          >
+            {singleRoom.review.length ? (
+              singleRoom.review.map((item, index) => (
+                <SwiperSlide>
+                  <div className="review-card" key={index}>
+                    <p>{item.review}</p>
+                    <div className="user-info">
+                      <Avatar src={item.userId.avatar} size={80} />
+                      <div className="info">
+                        <span>{item.userId.name}</span>
+                        <span>
+                          {" "}
+                          {new Date(item.timestamp).toLocaleDateString(
+                            "en-US",
+                            {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            }
+                          )}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))
+            ) : (
+              <></>
+            )}
+          </Swiper>
         </div>
       </div>
     );

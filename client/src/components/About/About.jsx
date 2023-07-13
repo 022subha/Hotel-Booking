@@ -7,7 +7,7 @@ export default function About() {
         <div className="about">
           <div className="desc">
             <h1>About Us</h1>
-            <h2>Welcome To Stay Ease</h2>
+            <h2>Welcome To Stay Easy</h2>
             <p>
               Your premier destination for exceptional hotel stays. Experience
               warm hospitality, comfort, and a memorable stay at our

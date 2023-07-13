@@ -116,12 +116,10 @@ export default function AddRooms() {
               }}
             >
               <option value="">Select Bed Size</option>
-              <option value="twin">Twin</option>
-              <option value="twin-xl">Twin XL</option>
-              <option value="full">Full/Double</option>
-              <option value="queen">Queen</option>
-              <option value="king">King</option>
-              <option value="cal-king">California King</option>
+              <option value="King">King</option>
+              <option value="Queen">Queen</option>
+              <option value="Double">Double</option>
+              <option value="Single">Single</option>
             </select>
           </div>
           <div className="capacity">
@@ -154,10 +152,10 @@ export default function AddRooms() {
                   <input
                     type="checkbox"
                     onChange={(e) =>
-                      handleServiceChange("Swimming Pool", e.target.checked)
+                      handleServiceChange("TV", e.target.checked)
                     }
                   />
-                  <span>Swimming Pool</span>
+                  <span>TV</span>
                 </label>
               </li>
               <li>
@@ -176,10 +174,10 @@ export default function AddRooms() {
                   <input
                     type="checkbox"
                     onChange={(e) =>
-                      handleServiceChange("Canteen", e.target.checked)
+                      handleServiceChange("Food Service", e.target.checked)
                     }
                   />
-                  <span>Canteen</span>
+                  <span>Food Service</span>
                 </label>
               </li>
             </ul>
