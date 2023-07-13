@@ -2,6 +2,7 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 100px;
 }
 .singlerooms-container .mainsingle-container {
@@ -99,6 +100,14 @@
   display: flex;
   align-items: center;
   margin: 10px 30px;
+
+  & img {
+    margin-left: 10px;
+  }
+
+  & span {
+    margin-left: 10px;
+  }
 }
 .singlerooms-container
   .mainsingle-container
@@ -109,25 +118,6 @@
   display: flex;
   align-items: center;
   margin: 10px 40px;
-}
-.singlerooms-container .mainsingle-container .description .desc5-container {
-  width: 70%;
-
-  & .apply {
-    display: flex;
-    align-items: center;
-    margin: 40px 0;
-    /* flex-wrap: wrap; */
-    & .avatar {
-      margin-right: 30px;
-    }
-
-    & .think {
-      width: 60%;
-      border-left: 1px solid black;
-      padding-left: 30px;
-    }
-  }
 }
 
 .desc4-container {
@@ -246,14 +236,53 @@
       & .desc1-container,
       .desc2-container,
       .desc3-container,
-      .desc4-container,
-      .desc5-container {
+      .desc4-container {
         width: 100%;
       }
     }
 
     & .button-single {
       width: 90%;
+    }
+  }
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+.review-container {
+  width: 100%;
+  /* min-height: 300px; */
+  margin-top: 100px;
+  padding: 20px;
+
+  & .mySwiper {
+    & .review-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      border: 1px solid #636a76;
+      border-radius: 20px;
+      min-height: 300px;
+      width: 500px;
+      padding: 20px;
+
+      & p {
+        color: #636a76;
+        font-size: 1.1rem;
+      }
+    }
+
+    & .user-info {
+      display: flex;
+      align-items: center;
+
+      & .info {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 10px;
+      }
     }
   }
 }
