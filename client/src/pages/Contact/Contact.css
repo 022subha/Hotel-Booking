@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  .final-main-container .background-image-container h1{
+    padding: 130px;
+    color: white;
+    font-size: 60px;
+    z-index: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .final-main-container .background-image-container .touch{
+    height: 100%;
+  }
+  .background-image-container {
+    width: 100vw;
+    height: 50vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://th.bing.com/th/id/R.70a5c7304baea9bd1df9d09057a1680e?rik=8WDX0EqtaYWTTg&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fwp1846099.jpg&ehk=wXFQG5E3WeaXdukoNIl3K418SBLymeWST9f4vJ%2fkWfk%3d&risl=&pid=ImgRaw&r=0");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 110px;
+    margin-bottom: 0px;
+  }
+  
+  .main-contact-container {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 0px;
+    position: relative;
+    z-index: 1;
+    transform: translateY(-20%);
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  
+  /* Rest of your existing CSS code */
+  
+.main-contact-container .message-container{
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    4px 0 6px -1px rgba(0, 0, 0, 0.2),
+    -4px 0 6px -1px rgba(0, 0, 0, 0.2);
+}
+.main-contact-container .message-container .inputs{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 30px;
+}
+.main-contact-container .message-container .head1{
+   margin-left: 20px;
+   margin-top: 30px;
+}
+.main-contact-container .message-container .inputs .button button{
+    color: white;
+    background-color: #6868ea;
+    border: none;
+    width: 150px;
+    height: 60px;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-size: 30px;
+    cursor: pointer;
+
+}
+.main-contact-container .message-container input{
+   border-style: none;
+   font-size: 20px;
+    color: rgb(181, 174, 174);
+    border-bottom: 1px solid rgb(32, 5, 5);
+    font-weight: bolder;
+}
+.main-contact-container .contactInfo-container{
+    width: 40%;
+    height: 80vh;
+    color: white;
+    background-color: #6868ea;
+    box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    4px 0 6px -1px rgba(0, 0, 0, 0.2),
+    -4px 0 6px -1px rgba(0, 0, 0, 0.2);
+}
+.main-contact-container .contactInfo-container .head2{
+    height: 20%;
+}
+.main-contact-container .contactInfo-container .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+}
+.main-contact-container .contactInfo-container .content ion-icon{
+    font-size: 35px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    color: black;
+}
+.main-contact-container .contactInfo-container .content .email{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+.main-contact-container .contactInfo-container .content .phone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+.main-contact-container .contactInfo-container .content .location{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+.main-contact-container .contactInfo-container .content p{
+    font-size: 20px;
+   color: whitesmoke;
+}
+.main-contact-container .contactInfo-container .head2{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+}
