@@ -19,8 +19,9 @@ import Rooms from "./pages/Rooms/Rooms";
 import SingleRooms from "./pages/SingleRooms/SingleRooms";
 import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
-
+import Contact from "./pages/Contact/Contact";
 import Aboutus from "./pages/Aboutus/Aboutus";
+
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -153,6 +154,16 @@ function App() {
                   <Header />
                   <Aboutus />
                   <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/contacts"
+              element={
+                <>
+                <Header />
+                 <Contact/>
+                 <Footer />
                 </>
               }
             />
