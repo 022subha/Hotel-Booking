@@ -483,3 +483,11 @@
   flex-basis: 0;
   flex-grow: 0.4;
 }
+
+.notify ion-icon{
+ width: 130px;
+ margin: auto;
+ margin-top: 24px;
+ font-size: larger;
+ font-weight: bolder;
+}

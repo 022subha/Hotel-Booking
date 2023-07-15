@@ -3,8 +3,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./DashboardNavbar.css";
-
+import { useNavigate } from "react-router-dom";
 export default function DashboardNavbar({ openSidebar }) {
+  const navigate=useNavigate();
   const { user } = useSelector((state) => state.user);
   return (
     <div className="dashboard-navbar-area">
@@ -26,7 +27,9 @@ export default function DashboardNavbar({ openSidebar }) {
               <div className="nav-profile">
                 <div className="nav-profile-items">
                   <div className="menu-profile">
-                    <ion-icon name="notifications"></ion-icon>
+                    <ion-icon name="notifications"
+                     onClick={()=>navigate(`/notification/${user?.id}`)}
+                    ></ion-icon>
                     <Avatar size={50} src={user && user.avatar} />
                     <span>{user && user.name.split(" ")[0]}</span>
                   </div>

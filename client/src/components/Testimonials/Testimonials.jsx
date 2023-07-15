@@ -14,7 +14,7 @@ export default function Testimonials() {
 
     {
       avatar:
-        "https://res.cloudinary.com/dysicl49j/image/upload/userAvatars/v1689154587/vijay_gvtcd5.jpg",
+        "https://res.cloudinary.com/dysicl49j/image/upload/v1689154587/userAvatars/vijay_gvtcd5.jpg",
       title: "Excellent Service",
       review:
         "I cannot speak highly enough about the excellent service I received during my stay at this hotel.  The staff was attentive, accommodating, and always ready to assist with any requests. The room was impeccable, and the amenities provided were outstanding. ",
