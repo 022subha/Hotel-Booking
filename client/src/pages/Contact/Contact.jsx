@@ -1,6 +1,42 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Contact.css';
+import axios from "axios";
+import {message as msg} from 'antd';
+import { useDispatch, useSelector } from "react-redux";
+
 export default function Contact() {
+
+  const {user}=useSelector((state)=>state.user);
+  const[name,setName]=useState("");
+  const[email,setEmail]=useState("");
+  const[phone,setPhone]=useState("");
+  const[subject,setSubject]=useState("");
+  const[message,setMessage]=useState("");
+  
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    axios.post(`${process.env.REACT_APP_API_URL}/api/contact/contact-admin`,{
+      userId:user.id,
+      name,
+      email,
+      phone,
+      subject,
+      message,
+    }).then((result)=>{
+         if(result.data.status)
+         {
+          msg.success(result.data.message);
+          console.log(result.data.AdminUser);
+         }
+         else{
+          msg.error(result.data.message);
+         }
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
+
   return (
     <div className="final-main-container">
         <div className='background-image-container'>
@@ -11,22 +47,50 @@ export default function Contact() {
         <h1 className='head1'>Send us a Message</h1>
         <div className="inputs">
           <div className="name">
-            <input type='text' placeholder='Name'></input>
+            <input 
+            type='text' 
+            placeholder='Name'
+            value={name}
+            onChange={(e)=>{setName(e.target.value)}}
+            ></input>
           </div>
           <div className="email">
-            <input type='text' placeholder='Email Address'></input>
+            <input 
+            type='text' 
+            placeholder='Email Address'
+            value={email}
+            onChange={(e)=>{setEmail(e.target.value)}}
+            ></input>
           </div>
           <div className="phone">
-            <input type='text' placeholder='Phone Number'></input>
+            <input 
+            type='text' 
+            placeholder='Phone Number'
+            value={phone}
+            onChange={(e)=>{setPhone(e.target.value)}}
+            ></input>
           </div>
           <div className="subject">
-            <input type='text' placeholder='Subject'></input>
+            <input 
+            type='text' 
+            placeholder='Subject'
+            value={subject}
+            onChange={(e)=>{setSubject(e.target.value)}}
+            ></input>
           </div>
-          <div className="address">
-            <input type='text' placeholder='Address'></input>
+          <div className="message">
+            <input 
+            type='text' 
+            placeholder='Message'
+            value={message}
+            onChange={(e)=>{setMessage(e.target.value)}}
+            ></input>
           </div>
           <div className="button">
-          <button type='submit'>Submit</button>
+          <button 
+          type='submit'
+          onClick={(e)=>{handleSubmit(e)}}
+          >Submit</button>
           </div>
        
           </div>

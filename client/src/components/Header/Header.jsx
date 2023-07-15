@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { setUser } from "../../redux/features/userSlice";
 import "./Header.css";
+
 const ProfilePicdtl = ({ user, handleLogout, setChecked }) => {
   const [dropDown, setDropDown] = useState(false);
   const handleProfileClick = () => {

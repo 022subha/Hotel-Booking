@@ -11,6 +11,12 @@ const userSchema = new mongoose.Schema({
   ],
   review: [{ type: mongoose.Types.ObjectId, ref: "Review", required: true }],
   isAdmin: { type: Boolean, required: true, default: false },
+  notification: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Contact",
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);

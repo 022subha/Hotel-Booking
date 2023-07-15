@@ -12,10 +12,10 @@ body {
   .final-main-container .background-image-container .touch{
     height: 100%;
   }
-  .background-image-container {
+  .final-main-container .background-image-container {
     width: 100vw;
     height: 50vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://th.bing.com/th/id/R.70a5c7304baea9bd1df9d09057a1680e?rik=8WDX0EqtaYWTTg&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fwp1846099.jpg&ehk=wXFQG5E3WeaXdukoNIl3K418SBLymeWST9f4vJ%2fkWfk%3d&risl=&pid=ImgRaw&r=0");
+    background-image: linear-gradient(rgba(66, 65, 65, 0.6), rgba(70, 69, 69, 0.6)), url("https://th.bing.com/th/id/R.70a5c7304baea9bd1df9d09057a1680e?rik=8WDX0EqtaYWTTg&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fwp1846099.jpg&ehk=wXFQG5E3WeaXdukoNIl3K418SBLymeWST9f4vJ%2fkWfk%3d&risl=&pid=ImgRaw&r=0");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -23,7 +23,7 @@ body {
     margin-bottom: 0px;
   }
   
-  .main-contact-container {
+  .final-main-container .main-contact-container {
     width: 80%;
     height: 80vh;
     display: flex;
@@ -53,6 +53,7 @@ body {
     4px 0 6px -1px rgba(0, 0, 0, 0.2),
     -4px 0 6px -1px rgba(0, 0, 0, 0.2);
 }
+
 .main-contact-container .message-container .inputs{
     width: 90%;
     height: 80%;
@@ -63,13 +64,15 @@ body {
     margin: auto;
     margin-top: 30px;
 }
+
 .main-contact-container .message-container .head1{
    margin-left: 20px;
    margin-top: 30px;
 }
 .main-contact-container .message-container .inputs .button button{
     color: white;
-    background-color: #6868ea;
+    --tw-bg-opacity: 1;
+    background-color: rgb(78 93 192/var(--tw-bg-opacity));
     border: none;
     width: 150px;
     height: 60px;
@@ -80,7 +83,8 @@ body {
 
 }
 .main-contact-container .message-container input{
-   border-style: none;
+   border: none;
+   outline: none;
    font-size: 20px;
     color: rgb(181, 174, 174);
     border-bottom: 1px solid rgb(32, 5, 5);
@@ -90,7 +94,8 @@ body {
     width: 40%;
     height: 80vh;
     color: white;
-    background-color: #6868ea;
+    --tw-bg-opacity: 1;
+    background-color: rgb(78 93 192/var(--tw-bg-opacity));
     box-shadow: 
     0 4px 6px -1px rgba(0, 0, 0, 0.2),
     0 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -109,7 +114,8 @@ body {
 }
 .main-contact-container .contactInfo-container .content ion-icon{
     font-size: 35px;
-    background-color: #f1f1f1;
+    --tw-bg-opacity: 1;
+    background-color: rgb(101 114 200/var(--tw-bg-opacity));
     border-radius: 4px;
     color: black;
 }
@@ -143,3 +149,34 @@ body {
     font-size: 30px;
     font-weight: bolder;
 }
+@media (max-width: 600px) {
+    .final-main-container .main-contact-container {
+      flex-direction: column;
+      height: auto;
+      padding: 20px;
+      margin-top: 150px;
+    }
+    .final-main-container .background-image-container{
+        height: 450px;
+    }
+    .final-main-container .background-image-container h1 {
+      padding: 20px;
+      font-size: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .final-main-container .main-contact-container .contactInfo-container{
+        height: 90vh;
+    }
+    .final-main-container .main-contact-container .message-container{
+        height: 90vh;
+    }
+    .final-main-container .main-contact-container .message-container,
+    .final-main-container .main-contact-container .contactInfo-container {
+      width: 100%;
+      margin: 20px 0;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }

@@ -21,6 +21,7 @@ import { hideLoading, showLoading } from "./redux/features/spinnerSlice";
 import { setUser } from "./redux/features/userSlice";
 import Contact from "./pages/Contact/Contact";
 import Aboutus from "./pages/Aboutus/Aboutus";
+import Notification from "./pages/Notification/Notification";
 
 function App() {
   const dispatch = useDispatch();
@@ -167,6 +168,16 @@ function App() {
                 </>
               }
             />
+             <Route
+              path="/notification/:id"
+              element={
+                <>
+                  <Header />
+                  <Notification/>
+                  <Footer />
+                </>
+              }
+            />
             <Route
               path="/*"
               element={
@@ -177,6 +188,7 @@ function App() {
                 </>
               }
             />
+            
           </Routes>
         </BrowserRouter>
       )}
