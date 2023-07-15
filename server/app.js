@@ -21,6 +21,7 @@ app.use(
 
 import dashboardRoute from "./routes/dashboardRoute.js";
 import paymentRoute from "./routes/paymnetRoute.js";
+import reviewRoute from "./routes/reviewRoute.js";
 import roomRoute from "./routes/roomRoutes.js";
 import userRoute from "./routes/userRoute.js";
 import contactRoute from "./routes/contactRoute.js";
@@ -29,5 +30,6 @@ app.use("/api/auth", userRoute);
 app.use("/api/payment", paymentRoute);
 app.use("/api/room", roomRoute);
 app.use("/api/contact",contactRoute);
+app.use("/api/review", reviewRoute);
 
 export default app;

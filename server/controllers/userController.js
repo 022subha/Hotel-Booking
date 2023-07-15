@@ -1,8 +1,8 @@
 import bcrypt from "bcryptjs";
 import cloudinary from "cloudinary";
 import jwt from "jsonwebtoken";
-import User from "../models/userModel.js";
 import Booking from "../models/bookingModel.js";
+import User from "../models/userModel.js";
 
 export const getUser = async (req, res) => {
   const { token } = req.body;
@@ -135,14 +135,18 @@ export const getAllBookings = async (req, res) => {
 
 export const getBookDetailByUserId = async (req, res) => {
   try {
-    let booking = await Booking.find({ userId: req.body.userId });
-    
+    const { userId } = req.body;
+    let booking = await Booking.find({ userId })
+      .populate("roomId")
+      .populate("userId");
+
     return res.status(200).json({
       status: true,
       message: "Data found successfully",
       booking,
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       status: false,
       message: "Internal server error!!",

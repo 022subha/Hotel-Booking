@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   transactions: [
     { type: mongoose.Types.ObjectId, ref: "Transaction", required: true },
   ],
+  review: [{ type: mongoose.Types.ObjectId, ref: "Review", required: true }],
   isAdmin: { type: Boolean, required: true, default: false },
   notification: [
     {

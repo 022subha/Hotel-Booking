@@ -1,47 +1,143 @@
-.about-us-1{
+.about-us-1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  gap: 30px;
+
+  & .developers {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding-top: 100px;
-    padding-bottom: 50px;
-    gap:30px;
+    margin-top: 70px;
+
+    & h1 {
+      font-size: 50px;
+      font-family: "Times New Roman", Times, serif;
+      color: #e70b53;
+    }
+
+    & .developer-card {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px 0;
+
+      & img {
+        width: 400px;
+        border-radius: 20px;
+        margin: 0 20px;
+      }
+
+      & .developer-details {
+        width: 40%;
+        margin: 0 20px;
+
+        & h3 {
+          font-family: cursive;
+          font-size: 35px;
+          margin-top: 0;
+        }
+
+        & p {
+          font-family: cursive;
+          font-size: 20px;
+        }
+      }
+    }
+  }
 }
-.about-us-1 .header-1{
-    font-size: 3rem;
-    font-weight: 700;
-    margin: 30px;
+.about-us-1 .header-1 {
+  width: 100vw;
+  height: 50vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://th.bing.com/th/id/R.70a5c7304baea9bd1df9d09057a1680e?rik=8WDX0EqtaYWTTg&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fwp1846099.jpg&ehk=wXFQG5E3WeaXdukoNIl3K418SBLymeWST9f4vJ%2fkWfk%3d&risl=&pid=ImgRaw&r=0");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-size: 3.5rem;
+  font-family: "Times New Roman", Times, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-weight: 700;
 }
-.about-us-1 .dev{
-    padding:10px;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    /* align-items: center; */
-    gap: 2rem;
-    flex-wrap: wrap;
+.about-us-1 .dev {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 30px;
+  box-sizing: border-box;
 }
-.about-us-1 .dev img{
-    flex-grow: 1;
-    flex-basis: 0;
-    min-width: 200px;
-    max-height: 300px;
+.about-us-1 .dev img {
+  width: 600px;
+  border-radius: 20px;
+  margin: 0 20px;
 }
-.about-us-1 .dev .dev-dtls{
-    flex-grow: 1;
-    flex-basis:0;
-    padding: 10px;
-    line-height: 1.8rem;
-    word-spacing: 4px;
-    letter-spacing: 2px;
-}
-.about-us-1 .dev .dev-dtls .sub-head{
-    font-size: 1.5rem;
+.about-us-1 .dev .dev-dtls {
+  margin: 0 20px;
+  height: 100%;
+  width: 30%;
+
+  & h2 {
+    font-size: 50px;
+    font-family: "Times New Roman", Times, serif;
+    color: #e70b53;
+    margin-top: 0;
     font-weight: 600;
-    margin-bottom: 20px;
+  }
+
+  & p {
+    color: rgb(122, 123, 124);
+    font-size: 30px;
+  }
+
+  & span {
+    font-size: 20px;
+  }
 }
-.about-us-1 .dev2{
-    flex-direction: row-reverse;
+
+@media (max-width: 1050px) {
+  .dev {
+    flex-direction: column;
+
+    & img {
+      width: 70% !important;
+    }
+
+    & .dev-dtls {
+      width: 80% !important;
+      text-align: center;
+    }
+  }
+
+  .developer-card {
+    display: flex;
+
+    & img {
+      width: 70% !important;
+    }
+
+    & .developer-details {
+      width: 80% !important;
+      text-align: center;
+    }
+  }
+
+  .developer-card:nth-child(odd) {
+    flex-direction: column-reverse;
+  }
+
+  .developer-card:nth-child(even) {
+    flex-direction: column;
+  }
 }
