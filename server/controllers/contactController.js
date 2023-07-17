@@ -41,8 +41,11 @@ export const contactInfomessageController = async (req, res) => {
 
 export const getNotification = async (req, res) => {
   try {
-    const id = req.params.id;
-    const user_detail = await User.findById(id).populate("notification");
+    // const id = req.params.id;
+    const user_detail = await User.findOne({ isAdmin: true }).populate(
+      "notification"
+    );
+
     return res.status(200).json({
       status: true,
       message: "Data Get Successfully!!",
