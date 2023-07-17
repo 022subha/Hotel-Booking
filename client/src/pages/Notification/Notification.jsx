@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./Notification.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function Notification() {
-  const params = useParams();
-  const id = params.id;
+  const {user}=useSelector((state)=>(state.user));
   const [notifications, setNotifications] = useState([]);
   const [initialLoad, setInitialLoad] = useState(true);
   const getNotification = () => {
     // console.log("hello");
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/contact/getNotification/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/contact/getNotification`)
       .then((result) => {
         if (result.data.status) {
           // console.log(result.data.user_detail);
@@ -30,6 +29,8 @@ export default function Notification() {
       getNotification();
       setInitialLoad(false);
     }
+    if(user)
+     console.log(user)
   }, [notifications, initialLoad]);
 
   return (

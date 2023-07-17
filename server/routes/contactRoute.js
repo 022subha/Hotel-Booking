@@ -7,5 +7,5 @@ import {
 const router = express.Router();
 
 router.post("/contact-admin", contactInfomessageController);
-router.get("/getNotification/:id", getNotification);
+router.get("/getNotification", getNotification);
 export default router;
