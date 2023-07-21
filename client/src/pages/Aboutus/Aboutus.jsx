@@ -42,7 +42,7 @@ export default function Aboutus() {
               & Technology, Shibpur.
             </p>
           </div>
-          <img src="/images/Subhajit.jpg" alt="" />
+          <img src="/images/Anubhav.jpg" alt="" />
         </div>
         <div className="developer-card">
           <img src="/images/Subhajit.jpg" alt="" />
