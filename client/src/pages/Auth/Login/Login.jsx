@@ -17,7 +17,7 @@ export default function Login() {
   const getUser = async (token) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/get-user",
+        `${process.env.REACT_APP_API_URL}/api/auth/get-user`,
         { token }
       );
       dispatch(setUser(response.data.user));
